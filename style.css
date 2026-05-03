@@ -8,6 +8,11 @@
     --border-color: #334155;
 }
 
+/* Mengatur scroll halus saat menu diklik */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +26,6 @@ body {
     display: flex;
     min-height: 100vh;
     overflow-x: hidden;
-    /* Ubah ukuran dasar teks jadi lebih besar */
     font-size: 18px; 
 }
 
@@ -38,7 +42,7 @@ body {
 
 /* --- SIDEBAR KIRI --- */
 .sidebar {
-    width: 380px; /* Sidebar diperlebar sedikit */
+    width: 380px; 
     background-color: var(--bg-card);
     padding: 50px 30px;
     display: flex;
@@ -49,10 +53,20 @@ body {
     border-right: 1px solid var(--border-color);
     z-index: 10;
     box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+    overflow-y: auto; 
+}
+
+/* Scrollbar Sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
 }
 
 .profile-img {
-    width: 180px; /* Foto profil diperbesar */
+    width: 180px; 
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
@@ -67,7 +81,7 @@ body {
 }
 
 .sidebar h1 {
-    font-size: 30px; /* Nama diperbesar */
+    font-size: 30px; 
     text-align: center;
     margin-bottom: 8px;
     background: linear-gradient(to right, #60a5fa, #a78bfa);
@@ -76,7 +90,7 @@ body {
 }
 
 .sidebar h3 {
-    font-size: 16px; /* Title diperbesar */
+    font-size: 16px; 
     color: var(--primary);
     font-weight: 400;
     margin-bottom: 30px;
@@ -93,10 +107,10 @@ body {
 
 .social-links a {
     color: var(--text-light);
-    font-size: 22px; /* Ikon sosmed diperbesar */
+    font-size: 20px; 
     background: var(--border-color);
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,34 +127,72 @@ body {
 
 .contact-info {
     width: 100%;
-    font-size: 15px; /* Teks info diperbesar */
+    font-size: 17px; 
     color: var(--text-muted);
     background: #151e2e;
-    padding: 20px;
+    padding: 22px; 
     border-radius: 10px;
+    font-weight: 600; 
 }
 
 .contact-info p {
-    margin-bottom: 15px;
+    margin-bottom: 18px; 
     display: flex;
     align-items: center;
     gap: 15px;
 }
 .contact-info p i {
     color: var(--primary);
+    font-size: 22px; 
+}
+
+/* --- MENU NAVIGASI --- */
+.nav-menu {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 20px;
+    background: var(--bg-dark);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-menu a:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateX(8px); 
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.nav-menu a i {
+    width: 20px;
+    text-align: center;
     font-size: 18px;
 }
 
 /* --- KONTEN UTAMA --- */
 .main-content {
-    margin-left: 380px; /* Menyesuaikan lebar sidebar baru */
-    padding: 60px 100px; /* Ruang bernapas diperbesar */
+    margin-left: 380px; 
+    padding: 60px 100px; 
     flex: 1;
     max-width: 1200px;
 }
 
 .section-title {
-    font-size: 34px; /* Judul section diperbesar */
+    font-size: 34px; 
     font-weight: 700;
     margin-bottom: 30px;
     padding-bottom: 10px;
@@ -160,12 +212,15 @@ body {
     background-color: var(--primary);
 }
 
-section { margin-bottom: 70px; }
+section { 
+    margin-bottom: 70px; 
+    padding-top: 20px; /* Jarak agar tidak tertutup saat diklik dari menu */
+}
 
 .bio-text {
     color: var(--text-muted);
     line-height: 1.9;
-    font-size: 18px; /* Teks paragraf diperbesar */
+    font-size: 18px; 
     text-align: justify;
 }
 
@@ -198,13 +253,13 @@ section { margin-bottom: 70px; }
     height: 18px;
     background: var(--primary);
     border-radius: 50%;
-    left: -46px; /* Posisi bulatan disesuaikan */
+    left: -46px; 
     top: 30px;
     box-shadow: 0 0 12px var(--primary);
 }
 
 .timeline-date {
-    font-size: 15px; /* Tahun diperbesar */
+    font-size: 15px; 
     color: var(--primary);
     font-weight: 600;
     text-transform: uppercase;
@@ -213,14 +268,14 @@ section { margin-bottom: 70px; }
 }
 
 .timeline-title {
-    font-size: 22px; /* Nama instansi/prestasi diperbesar */
+    font-size: 22px; 
     font-weight: 600;
     margin: 8px 0;
     color: var(--text-light);
 }
 
 .timeline-desc {
-    font-size: 16px; /* Deskripsi diperbesar */
+    font-size: 16px; 
     color: var(--text-muted);
     line-height: 1.6;
 }
@@ -256,10 +311,7 @@ iframe {
 .yt-shorts { height: 480px; }
 .yt-playlist { height: 450px; width: 100%; }
 
-/* =========================================
-   MODE MOBILE (Responsif Layar HP/Tablet)
-   Bagian ini otomatis aktif kalau dibuka di HP
-========================================= */
+/* --- MODE MOBILE --- */
 @media (max-width: 1000px) {
     body { flex-direction: column; }
     .sidebar {
@@ -271,8 +323,8 @@ iframe {
         padding: 40px 20px;
     }
     .main-content {
-        margin-left: 0; /* Sidebar tidak lagi di kiri, jadi margin hilang */
-        padding: 40px 25px; /* Teks agak merapat ke pinggir di HP */
+        margin-left: 0; 
+        padding: 40px 25px; 
     }
     .timeline-item:hover { transform: translateX(5px); }
     .section-title { font-size: 28px; }
