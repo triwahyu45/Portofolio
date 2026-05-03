@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Tri Wahyu</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --dark-bg: #0f172a;
+            --text-light: #f8fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .profile-section h1 { margin-bottom: 10px; }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 15px;
+            border: 1px solid #334155;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .social-links a:hover { background-color: var(--primary-color); }
+        
+        .section-title {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+        footer { text-align: center; padding: 40px; color: #64748b; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="profile-section">
+        <h1>Tri Wahyu</h1>
+        <p>Mechatronics Engineering Student | Robotics & Electronics Enthusiast</p>
+        <div class="social-links">
+            <!-- Ganti URL di bawah dengan link asli kamu -->
+            <a href="https://github.com/username-kamu" target="_blank">GitHub</a>
+            <a href="https://instagram.com/username-kamu" target="_blank">Instagram</a>
+            <a href="https://youtube.com/@username-kamu" target="_blank">YouTube</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <h2 class="section-title">Featured Video / Playlist</h2>
+    <div class="video-container">
+        <!-- Ganti ID setelah 'embed/' dengan ID video atau playlist YouTube kamu -->
+        <iframe src="https://www.youtube.com/embed/videoseries?list=ID_PLAYLIST_KAMU" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+
+    <h2 class="section-title">Projects</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <h3>Line Follower 14 Channel</h3>
+            <p>Robot line follower kompetisi menggunakan sistem pembacaan sensor presisi tinggi.</p>
+        </div>
+        <div class="project-card">
+            <h3>Detrofobe System</h3>
+            <p>Sistem integrasi pemesanan makanan dan minuman berbasis mikrokontroler.</p>
+        </div>
+        <div class="project-card">
+            <h3>Virtual Robot Simulation</h3>
+            <p>Modul simulasi 3D untuk pembelajaran dasar-dasar robotika.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Tri Wahyu. Built with HTML/CSS.</p>
+</footer>
+
+</body>
+</html>
