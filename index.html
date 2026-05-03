@@ -3,120 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Tri Wahyu</title>
+    <title>CV & Portofolio | Tri Wahyu</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-color: #2563eb;
-            --dark-bg: #0f172a;
+            --primary: #3b82f6; /* Warna biru khas tech */
+            --primary-hover: #2563eb;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
             --text-light: #f8fafc;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-        .profile-section h1 { margin-bottom: 10px; }
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            padding: 8px 15px;
-            border: 1px solid #334155;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .social-links a:hover { background-color: var(--primary-color); }
-        
-        .section-title {
-            border-left: 4px solid var(--primary-color);
-            padding-left: 15px;
-            margin-top: 40px;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #000;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            --text-muted: #94a3b8;
         }
 
-        .project-grid {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animasi Fade In */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* --- SIDEBAR KIRI --- */
+        .sidebar {
+            width: 320px;
+            background-color: var(--bg-card);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            height: 100vh;
+            border-right: 1px solid #334155;
+            z-index: 10;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        .sidebar h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .sidebar h3 {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 20px;
+            transition: 0.3s;
+            background: #334155;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .contact-info {
+            width: 100%;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- KONTEN UTAMA KANAN --- */
+        .main-content {
+            margin-left: 320px;
+            padding: 50px;
+            flex: 1;
+            max-width: 1000px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .bio-text {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Timeline Pendidikan & Prestasi */
+        .timeline {
+            border-left: 2px solid var(--primary);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            left: -27px;
+            top: 5px;
+        }
+
+        .timeline-date {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Grid Video YouTube */
+        .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
-        .project-card {
-            background: #1e293b;
-            padding: 20px;
+
+        .video-card {
+            background: var(--bg-card);
             border-radius: 10px;
+            overflow: hidden;
             border: 1px solid #334155;
+            transition: transform 0.3s;
         }
-        footer { text-align: center; padding: 40px; color: #64748b; }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+        }
+
+        .yt-shorts { height: 400px; }
+        .yt-playlist { height: 350px; width: 100%; }
+
+        /* Responsif untuk layar kecil (HP) */
+        @media (max-width: 850px) {
+            body { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #334155;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="profile-section">
-        <h1>Tri Wahyu</h1>
-        <p>Mechatronics Engineering Student | Robotics & Electronics Enthusiast</p>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <!-- Ganti src foto di bawah ini dengan link foto profil Instagram kamu atau upload manual ke GitHub -->
+        <img src="https://ui-avatars.com/api/?name=Tri+Wahyu&background=3b82f6&color=fff&size=200" alt="Tri Wahyu" class="profile-img">
+        
+        <h1>Tri Wahyu Handoyo</h1>
+        <h3>Mechatronics Engineering | Robotics Enthusiast</h3>
+
         <div class="social-links">
-            <!-- Ganti URL di bawah dengan link asli kamu -->
-            <a href="https://github.com/username-kamu" target="_blank">GitHub</a>
-            <a href="https://instagram.com/username-kamu" target="_blank">Instagram</a>
-            <a href="https://youtube.com/@username-kamu" target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/triwahyu45/" target="_blank" title="Instagram Pribadi"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/detronics.id/" target="_blank" title="Detronics ID"><i class="fas fa-store"></i></a>
+            <a href="https://www.youtube.com/@TriWahyu45" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://linktr.ee/triwahyu45" target="_blank" title="Linktree"><i class="fas fa-link"></i></a>
+        </div>
+
+        <div class="contact-info">
+            <p><i class="fas fa-id-card"></i> NIM: 22518241023</p>
+            <p><i class="fas fa-university"></i> Universitas Negeri Yogyakarta</p>
+            <p><i class="fas fa-robot"></i> Abhinaya UNY Robotics Team</p>
         </div>
     </div>
-</header>
 
-<div class="container">
-    <h2 class="section-title">Featured Video / Playlist</h2>
-    <div class="video-container">
-        <!-- Ganti ID setelah 'embed/' dengan ID video atau playlist YouTube kamu -->
-        <iframe src="https://www.youtube.com/embed/videoseries?list=ID_PLAYLIST_KAMU" 
-                title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen></iframe>
+    <!-- KONTEN UTAMA -->
+    <div class="main-content">
+        
+        <!-- Section: Tentang Saya -->
+        <section class="animate-fade" style="animation-delay: 0.1s;">
+            <h2 class="section-title">Tentang Saya</h2>
+            <p class="bio-text">
+                Halo! Saya Tri Wahyu Handoyo, mahasiswa Sarjana (S1) Pendidikan Teknik Mekatronika di Universitas Negeri Yogyakarta angkatan 2022. Saya memiliki minat besar di bidang robotika, sistem tertanam (*embedded systems*), mikrokontroler, dan desain 3D. 
+                Selain dunia teknikal, saya juga aktif berkarya di bidang multimedia sebagai *video editor* dan kreator konten. Saat ini saya merupakan bagian dari **Abhinaya UNY Robotics Team**, mengembangkan robotika untuk kompetisi nasional.
+            </p>
+        </section>
+
+        <!-- Section: Pendidikan -->
+        <section class="animate-fade" style="animation-delay: 0.2s;">
+            <h2 class="section-title">Riwayat Pendidikan</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Sept 2022 - Sekarang</div>
+                    <div class="timeline-title">Universitas Negeri Yogyakarta (UNY)</div>
+                    <div class="timeline-desc">S1 Pendidikan Teknik Mekatronika. Status: Mahasiswa Aktif.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 - 2022</div>
+                    <div class="timeline-title">SMK (Isi Nama SMK Kamu di sini)</div>
+                    <div class="timeline-desc">Jurusan / Keahlian.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2016 - 2019</div>
+                    <div class="timeline-title">SMP (Isi Nama SMP Kamu di sini)</div>
+                    <div class="timeline-desc">Lulusan tahun 2019.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2010 - 2016</div>
+                    <div class="timeline-title">SD (Isi Nama SD Kamu di sini)</div>
+                    <div class="timeline-desc">Lulusan tahun 2016.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Prestasi -->
+        <section class="animate-fade" style="animation-delay: 0.3s;">
+            <h2 class="section-title">Penghargaan & Prestasi</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-title">Juara 2 Nasional KRI Divisi KRTMI</div>
+                    <div class="timeline-desc">Kontes Robot Tematik Indonesia (KRTMI) bersama tim Abhinaya UNY.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-title">Juara 1 Wilayah I KRI Divisi KRTMI</div>
+                    <div class="timeline-desc">Berhasil meraih peringkat pertama di tingkat regional wilayah I.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 / 2025</div>
+                    <div class="timeline-title">Mahasiswa Berprestasi (Mapres)</div>
+                    <div class="timeline-desc">Apresiasi atas prestasi di bidang akademik dan kompetisi robotika.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Video Editing Portofolio -->
+        <section class="animate-fade" style="animation-delay: 0.4s;">
+            <h2 class="section-title">Video Editing Portfolio</h2>
+            <div class="video-card">
+                <iframe class="yt-playlist" src="https://www.youtube.com/embed/videoseries?list=PLfq3Yk1cHMfNOxGyXgtbkPNMdpsq6-sL_" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Section: Projects & Shorts -->
+        <section class="animate-fade" style="animation-delay: 0.5s;">
+            <h2 class="section-title">Project Dokumentasi (Shorts)</h2>
+            <div class="video-grid">
+                <!-- Short 1 -->
+                <div class="video-card">
+                    <iframe class="yt-shorts" src="https://www.youtube.com/embed/d4p1lfv7woc" allowfullscreen></iframe>
+                </div>
+                <!-- Short 2 -->
+                <div class="video-card">
+                    <iframe class="yt-shorts" src="https://www.youtube.com/embed/f2xoxwCq8yw" allowfullscreen></iframe>
+                </div>
+                <!-- Short 3 -->
+                <div class="video-card">
+                    <iframe class="yt-shorts" src="https://www.youtube.com/embed/zemW3utiQew" allowfullscreen></iframe>
+                </div>
+                <!-- Short 4 -->
+                <div class="video-card">
+                    <iframe class="yt-shorts" src="https://www.youtube.com/embed/FOHWa2_xoJI" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
     </div>
-
-    <h2 class="section-title">Projects</h2>
-    <div class="project-grid">
-        <div class="project-card">
-            <h3>Line Follower 14 Channel</h3>
-            <p>Robot line follower kompetisi menggunakan sistem pembacaan sensor presisi tinggi.</p>
-        </div>
-        <div class="project-card">
-            <h3>Detrofobe System</h3>
-            <p>Sistem integrasi pemesanan makanan dan minuman berbasis mikrokontroler.</p>
-        </div>
-        <div class="project-card">
-            <h3>Virtual Robot Simulation</h3>
-            <p>Modul simulasi 3D untuk pembelajaran dasar-dasar robotika.</p>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2026 Tri Wahyu. Built with HTML/CSS.</p>
-</footer>
 
 </body>
 </html>
