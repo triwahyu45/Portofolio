@@ -39,34 +39,22 @@ body {
     animation: fadeIn 0.8s ease-out forwards;
 }
 
-/* ========== FUTURISTIC MINIMALIST NAME (FIXED) ========== */
-.sidebar h1 {
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 6px;
-    
-    background: linear-gradient(90deg, #00f0ff, #7c3aed);
-    
-    /* Standard + Webkit untuk kompatibilitas */
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    
-    letter-spacing: 1px;
+/* ========== SIDEBAR ========== */
+.sidebar {
+    width: 380px; 
+    background-color: var(--bg-card);
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    border-right: 1px solid var(--border-color);
+    z-index: 10;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+    overflow-y: auto; 
 }
 
-.sidebar h3 {
-    font-size: 15px;
-    color: #94a3b8;
-    font-weight: 400;
-    margin-bottom: 28px;
-    text-align: center;
-    letter-spacing: 0.5px;
-}
-
-/* Scrollbar Sidebar */
 .sidebar::-webkit-scrollbar {
     width: 5px;
 }
@@ -90,6 +78,30 @@ body {
     transform: scale(1.05) rotate(3deg);
 }
 
+/* ========== FUTURISTIC NAME ========== */
+.sidebar h1 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 6px;
+    background: linear-gradient(90deg, #00f0ff, #7c3aed);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: 1px;
+}
+
+.sidebar h3 {
+    font-size: 15px;
+    color: #94a3b8;
+    font-weight: 400;
+    margin-bottom: 28px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* ========== SOCIAL & CONTACT ========== */
 .social-links {
     display: flex;
     gap: 15px;
@@ -358,7 +370,7 @@ iframe {
     }
 }
 
-/* Tambahan: Lebih nyaman di HP */
+/* ==================== EXTRA MOBILE ==================== */
 @media (max-width: 768px) {
     .video-grid {
         grid-template-columns: 1fr;
