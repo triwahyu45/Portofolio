@@ -85,8 +85,12 @@ body {
     text-align: center;
     margin-bottom: 8px;
     background: linear-gradient(to right, #60a5fa, #a78bfa);
+    
+    /* === PERBAIKAN KOMPATIBILITAS === */
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .sidebar h3 {
@@ -214,7 +218,7 @@ body {
 
 section { 
     margin-bottom: 70px; 
-    padding-top: 20px; /* Jarak agar tidak tertutup saat diklik dari menu */
+    padding-top: 20px;
 }
 
 .bio-text {
@@ -315,7 +319,7 @@ iframe {
 @media (max-width: 1000px) {
     body {
         flex-direction: column;
-        font-size: 16px;           /* Turunkan dari 18px */
+        font-size: 16px;
     }
     
     .sidebar {
@@ -368,10 +372,10 @@ iframe {
 /* Tambahan: Lebih nyaman di HP */
 @media (max-width: 768px) {
     .video-grid {
-        grid-template-columns: 1fr;   /* Shorts jadi 1 kolom */
+        grid-template-columns: 1fr;
     }
     
     .yt-shorts {
-        height: 380px;   /* Lebih pendek di HP */
+        height: 380px;
     }
 }
