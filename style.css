@@ -486,3 +486,78 @@ iframe {
     color: var(--text-muted);
     font-weight: 500;
 }
+
+/* ========== WOKWI SIMULATIONS ========== */
+.wokwi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.wokwi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.wokwi-card:hover {
+    border-color: #10b981;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(16, 185, 129, 0.15);
+}
+
+.wokwi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.wokwi-header i {
+    font-size: 22px;
+    color: #10b981;
+}
+
+.wokwi-badge {
+    background: #10b981;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+}
+
+.wokwi-card h4 {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.wokwi-card p {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.wokwi-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    background: #10b981;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.wokwi-btn:hover {
+    background: #059669;
+    transform: scale(1.03);
+}
