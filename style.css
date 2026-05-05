@@ -562,3 +562,16 @@ iframe {
     background: #059669;
     transform: scale(1.03);
 }
+
+.award-photo {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    border: 1px solid var(--border-color);
+    object-fit: cover;
+    height: 160px;
+}
+
+.clickable {
+    cursor: pointer;
+}
