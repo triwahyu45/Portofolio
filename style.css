@@ -1,5 +1,5 @@
 :root {
-    --primary: #3b82f6; 
+    --primary: #3b82f6;
     --primary-hover: #2563eb;
     --bg-dark: #0f172a;
     --bg-card: #1e293b;
@@ -25,13 +25,20 @@ body {
     display: flex;
     min-height: 100vh;
     overflow-x: hidden;
-    font-size: 18px; 
+    font-size: 18px;
 }
 
 /* --- ANIMASI --- */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .animate-fade {
@@ -41,7 +48,7 @@ body {
 
 /* ========== SIDEBAR ========== */
 .sidebar {
-    width: 380px; 
+    width: 380px;
     background-color: var(--bg-card);
     padding: 50px 30px;
     display: flex;
@@ -51,20 +58,21 @@ body {
     height: 100vh;
     border-right: 1px solid var(--border-color);
     z-index: 10;
-    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
-    overflow-y: auto; 
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
 }
 
 .sidebar::-webkit-scrollbar {
     width: 5px;
 }
+
 .sidebar::-webkit-scrollbar-thumb {
     background: var(--border-color);
     border-radius: 10px;
 }
 
 .profile-img {
-    width: 180px; 
+    width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
@@ -112,7 +120,7 @@ body {
 
 .social-links a {
     color: var(--text-light);
-    font-size: 20px; 
+    font-size: 20px;
     background: var(--border-color);
     width: 45px;
     height: 45px;
@@ -132,23 +140,24 @@ body {
 
 .contact-info {
     width: 100%;
-    font-size: 17px; 
+    font-size: 17px;
     color: var(--text-muted);
     background: #151e2e;
-    padding: 22px; 
+    padding: 22px;
     border-radius: 10px;
-    font-weight: 600; 
+    font-weight: 600;
 }
 
 .contact-info p {
-    margin-bottom: 18px; 
+    margin-bottom: 18px;
     display: flex;
     align-items: center;
     gap: 15px;
 }
+
 .contact-info p i {
     color: var(--primary);
-    font-size: 22px; 
+    font-size: 22px;
 }
 
 /* --- MENU NAVIGASI --- */
@@ -178,7 +187,7 @@ body {
 .nav-menu a:hover {
     background: var(--primary);
     border-color: var(--primary);
-    transform: translateX(8px); 
+    transform: translateX(8px);
     box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
 }
 
@@ -190,14 +199,14 @@ body {
 
 /* --- KONTEN UTAMA --- */
 .main-content {
-    margin-left: 380px; 
-    padding: 60px 100px; 
+    margin-left: 380px;
+    padding: 60px 100px;
     flex: 1;
     max-width: 1200px;
 }
 
 .section-title {
-    font-size: 34px; 
+    font-size: 34px;
     font-weight: 700;
     margin-bottom: 30px;
     padding-bottom: 10px;
@@ -217,15 +226,15 @@ body {
     background-color: var(--primary);
 }
 
-section { 
-    margin-bottom: 70px; 
+section {
+    margin-bottom: 70px;
     padding-top: 20px;
 }
 
 .bio-text {
     color: var(--text-muted);
     line-height: 1.9;
-    font-size: 18px; 
+    font-size: 18px;
     text-align: justify;
 }
 
@@ -258,13 +267,13 @@ section {
     height: 18px;
     background: var(--primary);
     border-radius: 50%;
-    left: -46px; 
+    left: -46px;
     top: 30px;
     box-shadow: 0 0 12px var(--primary);
 }
 
 .timeline-date {
-    font-size: 15px; 
+    font-size: 15px;
     color: var(--primary);
     font-weight: 600;
     text-transform: uppercase;
@@ -273,14 +282,14 @@ section {
 }
 
 .timeline-title {
-    font-size: 22px; 
+    font-size: 22px;
     font-weight: 600;
     margin: 8px 0;
     color: var(--text-light);
 }
 
 .timeline-desc {
-    font-size: 16px; 
+    font-size: 16px;
     color: var(--text-muted);
     line-height: 1.6;
 }
@@ -298,13 +307,13 @@ section {
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .video-card:hover {
     transform: translateY(-10px);
     border-color: var(--primary);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 iframe {
@@ -313,8 +322,14 @@ iframe {
     display: block;
 }
 
-.yt-shorts { height: 480px; }
-.yt-playlist { height: 450px; width: 100%; }
+.yt-shorts {
+    height: 480px;
+}
+
+.yt-playlist {
+    height: 450px;
+    width: 100%;
+}
 
 /* ==================== MOBILE RESPONSIVE ==================== */
 @media (max-width: 1000px) {
@@ -322,7 +337,7 @@ iframe {
         flex-direction: column;
         font-size: 16px;
     }
-    
+
     .sidebar {
         width: 100%;
         position: relative;
@@ -331,20 +346,20 @@ iframe {
         border-bottom: 1px solid var(--border-color);
         padding: 40px 20px;
     }
-    
+
     .main-content {
         margin-left: 0;
         padding: 40px 20px;
     }
-    
+
     .section-title {
         font-size: 26px;
     }
-    
+
     .bio-text {
         font-size: 15.5px;
     }
-    
+
     .timeline-item:hover {
         transform: translateX(5px);
     }
@@ -355,15 +370,15 @@ iframe {
     body {
         font-size: 15px;
     }
-    
+
     .section-title {
         font-size: 23px;
     }
-    
+
     .sidebar h1 {
         font-size: 26px;
     }
-    
+
     .profile-img {
         width: 140px;
         height: 140px;
@@ -375,7 +390,7 @@ iframe {
     .video-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .yt-shorts {
         height: 380px;
     }
@@ -399,7 +414,7 @@ iframe {
 .recognition-card:hover {
     border-color: var(--primary);
     transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
 .recognition-header {
@@ -574,4 +589,24 @@ iframe {
 
 .clickable {
     cursor: pointer;
+}
+
+.recognition-embed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.embed-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.embed-card blockquote {
+    margin: 0;
+    max-width: 100%;
 }
