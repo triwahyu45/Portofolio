@@ -4,7 +4,7 @@
     --bg-dark: #0f172a;
     --bg-card: #1e293b;
     --text-light: #f8fafc;
-    --text-muted: #94a3b8;
+    --text-muted: #cbd5e1;   /* Lebih terang & mudah dibaca */
     --border-color: #334155;
 }
 
@@ -311,9 +311,13 @@ iframe {
 .yt-shorts { height: 480px; }
 .yt-playlist { height: 450px; width: 100%; }
 
-/* --- MODE MOBILE --- */
+/* ==================== MOBILE RESPONSIVE ==================== */
 @media (max-width: 1000px) {
-    body { flex-direction: column; }
+    body {
+        flex-direction: column;
+        font-size: 16px;           /* Turunkan dari 18px */
+    }
+    
     .sidebar {
         width: 100%;
         position: relative;
@@ -322,11 +326,52 @@ iframe {
         border-bottom: 1px solid var(--border-color);
         padding: 40px 20px;
     }
+    
     .main-content {
-        margin-left: 0; 
-        padding: 40px 25px; 
+        margin-left: 0;
+        padding: 40px 20px;
     }
-    .timeline-item:hover { transform: translateX(5px); }
-    .section-title { font-size: 28px; }
-    .bio-text { font-size: 16px; }
+    
+    .section-title {
+        font-size: 26px;
+    }
+    
+    .bio-text {
+        font-size: 15.5px;
+    }
+    
+    .timeline-item:hover {
+        transform: translateX(5px);
+    }
+}
+
+/* ==================== HP KECIL (di bawah 480px) ==================== */
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .section-title {
+        font-size: 23px;
+    }
+    
+    .sidebar h1 {
+        font-size: 26px;
+    }
+    
+    .profile-img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* Tambahan: Lebih nyaman di HP */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;   /* Shorts jadi 1 kolom */
+    }
+    
+    .yt-shorts {
+        height: 380px;   /* Lebih pendek di HP */
+    }
 }
