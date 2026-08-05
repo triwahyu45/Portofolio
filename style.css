@@ -1429,3 +1429,116 @@ body {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
+
+
+/* ==========================================================================
+   HIGH-END CYBERPUNK ANIMATIONS & 3D SPOTLIGHT EFFECTS
+   ========================================================================== */
+
+/* CANVAS PARTICLE BACKGROUND */
+#particleCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* ANIMATED GLOWING CONIC BORDER FOR FEATURED CARDS */
+.project-glass-card.featured, .cert-card-box:hover {
+    position: relative;
+}
+
+.project-glass-card.featured::before, .cert-card-box::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius-xl) + 2px);
+    background: conic-gradient(from var(--angle, 0deg), var(--cyan-glow), var(--blue-electric), var(--emerald-neon), var(--cyan-glow));
+    z-index: -1;
+    opacity: 0.5;
+    animation: rotateConic 6s linear infinite;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotateConic {
+    to { --angle: 360deg; }
+}
+
+/* MOUSE SPOTLIGHT EFFECT ON CARDS */
+.comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box, .wokwi-glass-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 242, 254, 0.18), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.comp-card:hover .card-spotlight,
+.stat-glass-card:hover .card-spotlight,
+.article-glass-card:hover .card-spotlight,
+.project-glass-card:hover .card-spotlight,
+.cert-card-box:hover .card-spotlight,
+.wokwi-glass-card:hover .card-spotlight {
+    opacity: 1;
+}
+
+/* 3D FLOATING ANIMATION FOR HERO ICONS */
+.comp-icon i, .proj-icon-box i, .stat-icon-wrapper i {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateZ(25px);
+}
+
+.comp-card:hover .comp-icon i,
+.project-glass-card:hover .proj-icon-box i,
+.stat-glass-card:hover .stat-icon-wrapper i {
+    transform: translateZ(40px) scale(1.25) rotate(-5deg);
+    color: var(--cyan-glow);
+}
+
+/* SHIMMERING TEXT ANIMATION */
+.gradient-text {
+    background: linear-gradient(90deg, #00f2fe 0%, #3b82f6 25%, #10b981 50%, #00f2fe 75%, #3b82f6 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineText 4s linear infinite;
+}
+
+@keyframes shineText {
+    to { background-position: 200% center; }
+}
+
+/* BUTTON RIPPLE EFFECT */
+.btn, .btn-sm {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn .ripple, .btn-sm .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleAnim 0.6s linear;
+    background-color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+@keyframes rippleAnim {
+    to { transform: scale(4); opacity: 0; }
+}
