@@ -630,10 +630,10 @@
                         <!-- Overlay Controls -->
                         <div class="threeD-overlay-controls">
                             <div class="threeD-model-btn-group" id="threeDModelSelector">
-                                <button class="threeD-btn active" data-model="krtmi"><i class="fas fa-robot"></i> KRTMI 2024 Robot</button>
-                                <button class="threeD-btn" data-model="seaware"><i class="fas fa-ship"></i> SEAWARE LKTI Robot</button>
-                                <button class="threeD-btn" data-model="transporter"><i class="fas fa-truck-loading"></i> Transporter Mecanum</button>
-                                <button class="threeD-btn" data-model="pcb"><i class="fas fa-microchip"></i> Detronics PCB Enclosure</button>
+                                <button class="threeD-btn active" data-model="wahyu_base_grip"><i class="fas fa-hand-holding"></i> Wahyu Base Gripper (.iam/.stl)</button>
+                                <button class="threeD-btn" data-model="transporter_base"><i class="fas fa-truck-loading"></i> Mecanum Transporter Chassis (.iam/.stl)</button>
+                                <button class="threeD-btn" data-model="strong_grip"><i class="fas fa-robot"></i> Strong Arm Gripper (.iam/.stl)</button>
+                                <button class="threeD-btn" data-model="tb6612_driver"><i class="fas fa-microchip"></i> Motor Driver TB6612FNG (.iam/.stl)</button>
                             </div>
                             <div class="threeD-info-pill">
                                 <i class="fas fa-mouse"></i> Klik & Geser Mouse untuk Rotasi 3D | Scroll untuk Zoom
@@ -952,6 +952,7 @@
     <!-- THREE.JS & ORBIT CONTROLS CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
 
     <!-- JAVASCRIPT APP SCRIPT WITH PARTICLE CANVAS, 3D TILT, & COUNTER ANIMATIONS -->
     <script>
@@ -1463,97 +1464,27 @@
                 }
 
                 const cyanMat = new THREE.MeshStandardMaterial({ color: 0x00f2fe, metalness: 0.8, roughness: 0.2, wireframe: isWireframe });
-                const darkMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.9, roughness: 0.3, wireframe: isWireframe });
-                const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1, wireframe: isWireframe });
-                const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4, wireframe: isWireframe });
+                const stlLoader = new THREE.STLLoader();
 
-                if (modelKey === 'krtmi') {
-                    const baseMesh = new THREE.Mesh(new THREE.CylinderGeometry(3.5, 3.8, 0.8, 8), darkMat);
-                    currentMeshGroup.add(baseMesh);
+                const stlPathMap = {
+                    'wahyu_base_grip': 'assets/cad/wahyu_base_grip.stl',
+                    'transporter_base': 'assets/cad/transporter_base.stl',
+                    'strong_grip': 'assets/cad/strong_grip.stl',
+                    'tb6612_driver': 'assets/cad/tb6612_driver.stl'
+                };
 
-                    for (let i = 0; i < 4; i++) {
-                        const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.9, 0.4, 16), cyanMat);
-                        const angle = (i * Math.PI) / 2;
-                        wheel.position.set(Math.cos(angle) * 3.4, -0.2, Math.sin(angle) * 3.4);
-                        wheel.rotation.z = Math.PI / 2;
-                        wheel.rotation.y = angle;
-                        currentMeshGroup.add(wheel);
-                    }
+                const cadPath = stlPathMap[modelKey] || 'assets/cad/wahyu_base_grip.stl';
 
-                    const pillar = new THREE.Mesh(new THREE.BoxGeometry(0.8, 3.5, 0.8), goldMat);
-                    pillar.position.set(0, 1.8, 0);
-                    currentMeshGroup.add(pillar);
-
-                    const arm = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.5, 0.5), cyanMat);
-                    arm.position.set(1.0, 3.4, 0);
-                    currentMeshGroup.add(arm);
-
-                    const suction = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 0.2, 0.6, 16), emeraldMat);
-                    suction.position.set(2.2, 3.0, 0);
-                    currentMeshGroup.add(suction);
-
-                } else if (modelKey === 'seaware') {
-                    const hull1 = new THREE.Mesh(new THREE.BoxGeometry(6, 0.8, 1.2), cyanMat);
-                    hull1.position.set(-1.8, 0, 0);
-                    currentMeshGroup.add(hull1);
-
-                    const hull2 = new THREE.Mesh(new THREE.BoxGeometry(6, 0.8, 1.2), cyanMat);
-                    hull2.position.set(1.8, 0, 0);
-                    currentMeshGroup.add(hull2);
-
-                    const deck = new THREE.Mesh(new THREE.BoxGeometry(4, 0.3, 3.8), darkMat);
-                    deck.position.set(0, 0.5, 0);
-                    currentMeshGroup.add(deck);
-
-                    const tower = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 2.5, 12), goldMat);
-                    tower.position.set(0, 1.8, 0);
-                    currentMeshGroup.add(tower);
-
-                    const solar = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.1, 2), emeraldMat);
-                    solar.position.set(0, 3.0, 0);
-                    solar.rotation.x = 0.2;
-                    currentMeshGroup.add(solar);
-
-                } else if (modelKey === 'transporter') {
-                    const body = new THREE.Mesh(new THREE.BoxGeometry(4.5, 1.4, 3.5), darkMat);
-                    body.position.set(0, 0.5, 0);
-                    currentMeshGroup.add(body);
-
-                    const pos = [[-2.2, -1.8], [2.2, -1.8], [-2.2, 1.8], [2.2, 1.8]];
-                    pos.forEach(p => {
-                        const mWheel = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 0.5, 16), cyanMat);
-                        mWheel.position.set(p[0], 0.2, p[1]);
-                        mWheel.rotation.z = Math.PI / 2;
-                        currentMeshGroup.add(mWheel);
-                    });
-
-                    const fork1 = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.4, 2.2), goldMat);
-                    fork1.position.set(2.6, 0.1, -0.8);
-                    currentMeshGroup.add(fork1);
-
-                    const fork2 = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.4, 2.2), goldMat);
-                    fork2.position.set(2.6, 0.1, 0.8);
-                    currentMeshGroup.add(fork2);
-
-                } else if (modelKey === 'pcb') {
-                    const pcbBoard = new THREE.Mesh(new THREE.BoxGeometry(5, 0.2, 4), emeraldMat);
-                    pcbBoard.position.set(0, 0, 0);
-                    currentMeshGroup.add(pcbBoard);
-
-                    const chip = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.3, 1.6), darkMat);
-                    chip.position.set(0, 0.25, 0);
-                    currentMeshGroup.add(chip);
-
-                    for (let i = -1.8; i <= 1.8; i += 1.2) {
-                        const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.8, 12), cyanMat);
-                        cap.position.set(i, 0.5, -1.4);
-                        currentMeshGroup.add(cap);
-                    }
-
-                    const conn = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.6, 0.6), goldMat);
-                    conn.position.set(0, 0.4, 1.5);
-                    currentMeshGroup.add(conn);
-                }
+                stlLoader.load(cadPath, function (geometry) {
+                    geometry.center();
+                    geometry.computeVertexNormals();
+                    const mesh = new THREE.Mesh(geometry, cyanMat);
+                    mesh.scale.set(0.08, 0.08, 0.08);
+                    mesh.rotation.x = -Math.PI / 2;
+                    currentMeshGroup.add(mesh);
+                }, undefined, function (error) {
+                    console.error('Error loading STL CAD file:', error);
+                });
             }
 
             const btns = document.querySelectorAll('#threeDModelSelector .threeD-btn');
@@ -1561,21 +1492,21 @@
             const descEl = document.getElementById('threeDDesc');
 
             const modelData = {
-                'krtmi': {
-                    title: 'Robot Pemilah Sampah KRTMI 2024 (Chassis 3D)',
-                    desc: 'Desain CAD 3D robot pemilah sampah otomatis dengan 4 roda omni-directional, mekrab pneumatik, & lengan suction cup.'
+                'wahyu_base_grip': {
+                    title: 'Wahyu Base Gripper (.iam / .stl CAD Assembly)',
+                    desc: 'Desain 3D CAD presisi komponen Base Gripper hasil export Autodesk Inventor (.iam / .stl) karya Tri Wahyu Handoyo untuk robot Technocorner UGM.'
                 },
-                'seaware': {
-                    title: 'SEAWARE LKTI Marine Autonomous Robot (3D Model)',
-                    desc: 'Model 3D kapal pemantau & pembersih limbah perairan berbasis twin catamaran hull, sensor multiparameter & solar panel (Juara 1 INESCO 2025).'
+                'transporter_base': {
+                    title: 'Mecanum Transporter Chassis (.iam / .stl CAD Assembly)',
+                    desc: 'Desain 3D CAD chassis dasar robot pengangkut barang mecanum wheel dari ruang kerja Autodesk Inventor UGM Transporter.'
                 },
-                'transporter': {
-                    title: 'Technocorner UGM Transporter Robot (Mecanum Chassis)',
-                    desc: 'Model 3D robot transporter dengan sistem 4-wheel mecanum wheel omni-drive & forklift gripper clamp pneumatik.'
+                'strong_grip': {
+                    title: 'Strong Arm Gripper Mechanical Clamp (.iam / .stl CAD)',
+                    desc: 'Desain CAD 3D mekanisme pencengkeram lengan robotik (Mechanical Gripper Arm) hasil perancangan Autodesk Inventor.'
                 },
-                'pcb': {
-                    title: 'Detronics.id Embedded STM32/ESP32 PCB Enclosure',
-                    desc: 'Desain 3D papan sirkuit cetak (PCB) & modul pengontrol mikrokontroler terapan karya Detronics.id.'
+                'tb6612_driver': {
+                    title: 'TB6612FNG Dual DC Motor Driver Module (.iam / .stl CAD)',
+                    desc: 'Model 3D CAD komponen modul driver motor TB6612FNG terapan karya Tri Wahyu Handoyo.'
                 }
             };
 
