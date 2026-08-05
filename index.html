@@ -852,7 +852,7 @@
                                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="KRTMI 2024 Robot Pemilah Sampah UNY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                             </div>
                             <div class="video-details">
-                                <h4>Demonstrasi Robot Pemilah Sampah KRTMI 2024</h4>
+                                <h4 style="cursor:pointer;" onclick="openCinemaModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', 'Demonstrasi Robot Pemilah Sampah KRTMI 2024', 'Pengujian mekanisme arm gripper suction cup & sistem komputer visi pemilah material sampah otomatis Tim Abhinaya UNY.', 'YouTube HD Widescreen')">Demonstrasi Robot Pemilah Sampah KRTMI 2024 <i class="fas fa-play-circle text-cyan"></i></h4>
                                 <p>Pengujian mekanisme arm gripper suction cup & sistem komputer visi pemilah material sampah otomatis.</p>
                                 <a href="https://www.youtube.com/@TriWahyu45" target="_blank" class="video-link">Buka Channel YouTube <i class="fas fa-arrow-right"></i></a>
                             </div>
@@ -865,7 +865,7 @@
                                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="SEAWARE Smart Environmental Robot" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                             </div>
                             <div class="video-details">
-                                <h4>SEAWARE: Smart Environmental Autonomous Water Robot</h4>
+                                <h4 style="cursor:pointer;" onclick="openCinemaModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', 'SEAWARE: Smart Environmental Autonomous Water Robot', 'Presentasi & simulasi sistem pemantauan limbah perairan otomatis berbasis IoT & sensor multiparameter (Juara 1 INESCO 2025).', 'YouTube HD Widescreen')">SEAWARE: Smart Environmental Autonomous Water Robot <i class="fas fa-play-circle text-cyan"></i></h4>
                                 <p>Presentasi & simulasi sistem pemantauan limbah perairan otomatis berbasis IoT & sensor multiparameter.</p>
                                 <a href="https://www.youtube.com/@TriWahyu45" target="_blank" class="video-link">Buka Channel YouTube <i class="fas fa-arrow-right"></i></a>
                             </div>
@@ -1331,6 +1331,32 @@
             document.body.style.overflow = 'auto';
         }
 
+        
+        // CINEMA HD VIDEO PLAYBACK MODAL ENGINE
+        function openCinemaModal(embedUrl, title, desc, badgeText) {
+            const modal = document.getElementById('cinemaModal');
+            const iframe = document.getElementById('cinemaIframe');
+            const titleEl = document.getElementById('cinemaTitle');
+            const descEl = document.getElementById('cinemaDesc');
+            const badgeEl = document.getElementById('cinemaBadge');
+
+            iframe.src = embedUrl;
+            titleEl.textContent = title;
+            descEl.textContent = desc;
+            if (badgeEl) badgeEl.innerHTML = `<i class="fab fa-youtube text-red"></i> ${badgeText || 'Cinema Widescreen HD'}`;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCinemaModal() {
+            const modal = document.getElementById('cinemaModal');
+            const iframe = document.getElementById('cinemaIframe');
+            iframe.src = '';
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         // LIGHTBOX MODAL
         function openLightbox(src, captionText) {
             const modal = document.getElementById('lightboxModal');
@@ -1605,6 +1631,20 @@
             <button class="project-modal-close" onclick="closeProjectModal()">&times;</button>
             <div id="projectModalContent">
                 <!-- Dynamic Content Injected via JS -->
+            </div>
+        </div>
+    </div>
+<!-- CINEMA HD VIDEO PLAYBACK MODAL -->
+    <div class="cinema-modal-backdrop" id="cinemaModal" onclick="closeCinemaModal()">
+        <div class="cinema-modal-dialog" onclick="event.stopPropagation()">
+            <button class="cinema-modal-close" onclick="closeCinemaModal()">&times;</button>
+            <div class="cinema-frame-wrapper">
+                <iframe id="cinemaIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="cinema-details-box">
+                <span class="badge-tag gold-badge" id="cinemaBadge"><i class="fab fa-youtube text-red"></i> Cinema Widescreen HD</span>
+                <h3 id="cinemaTitle" style="font-size: 20px; font-weight: 800; color: var(--text-main); margin-top: 8px; margin-bottom: 6px;">Title</h3>
+                <p id="cinemaDesc" style="font-size: 13px; color: var(--text-sub); line-height: 1.6;">Description</p>
             </div>
         </div>
     </div>
