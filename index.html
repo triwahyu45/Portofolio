@@ -118,7 +118,7 @@
         <main class="main-body">
 
             <!-- HERO / ABOUT SECTION -->
-            <section id="about" class="content-section">
+            <section id="about" class="content-section reveal-on-scroll">
                 <div class="hero-header">
                     <div class="glow-pill"><i class="fas fa-sparkles"></i> Welcome to My Official Portfolio</div>
                     <h1 class="hero-heading">Crafting Intelligent <span class="gradient-text">Robots & Embedded Systems</span></h1>
@@ -164,7 +164,7 @@
             </section>
 
             <!-- STATS SECTION -->
-            <section id="stats" class="content-section">
+            <section id="stats" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
                     <h2 class="section-main-title">Stats & Key Achievements</h2>
                     <p class="section-subtext">Pencapaian kuantitatif dalam kompetisi nasional, riset karya tulis, dan edukasi publik</p>
@@ -202,7 +202,7 @@
             </section>
 
             <!-- ACADEMIC LAB & PRACTICAL EXPERIENCE SECTION -->
-            <section id="labs" class="content-section">
+            <section id="labs" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
                     <h2 class="section-main-title">Riset Laboratorium & Praktikum Akademik</h2>
                     <p class="section-subtext">Pengalaman praktikal dan penguasaan laboratorium mekatronika dari Semester 1 hingga 8 di UNY</p>
@@ -282,7 +282,7 @@
             </section>
 
             <!-- ACHIEVEMENTS & CERTIFICATES SECTION -->
-            <section id="achievements" class="content-section">
+            <section id="achievements" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
                     <h2 class="section-main-title">Prestasi & Sertifikat Resmi</h2>
                     <p class="section-subtext">Dokumen sertifikasi resmi dari Puspresnas, Kementerian, PTN, dan Lembaga Kompetisi (Gambar Tampil Utuh / Klik Zoom HD & PDF)</p>
@@ -486,7 +486,7 @@
             </section>
 
             <!-- ARTICLES & KTI SECTION -->
-            <section id="articles" class="content-section">
+            <section id="articles" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
                     <h2 class="section-main-title">Artikel & Karya Tulis Ilmiah (KTI)</h2>
                     <p class="section-subtext">Publikasi esai ilmiah, naskah riset, dan inovasi mekatronika resmi buatan Tri Wahyu & Tim yang dilombakan secara nasional</p>
@@ -572,7 +572,7 @@
             </section>
 
             <!-- FEATURED PROJECTS SECTION -->
-            <section id="projects" class="content-section">
+            <section id="projects" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
                     <h2 class="section-main-title">Featured Projects & Systems</h2>
                     <p class="section-subtext">Pengembangan robotika kompetisi, embedded hardware, software visualizer, dan aplikasi web</p>
@@ -714,7 +714,7 @@
             </section>
 
             <!-- WOKWI ONLINE SIMULATIONS SECTION -->
-            <section id="wokwi" class="content-section">
+            <section id="wokwi" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
                     <h2 class="section-main-title">Wokwi Online Simulations</h2>
                     <p class="section-subtext">Uji dan jalankan simulasi sirkuit mikrokontroler interaktif secara langsung dari browser kamu</p>
@@ -766,7 +766,7 @@
             </section>
 
             <!-- INSTAGRAM & CONTENT SHOWCASE SECTION -->
-            <section id="social-media" class="content-section">
+            <section id="social-media" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
                     <h2 class="section-main-title">Instagram & Tech Content Creator</h2>
                     <p class="section-subtext">Sorotan konten edukasi mekatronika, tutorial hardware, dan video riset di <strong>@detronics.id</strong> & <strong>@triwahyu45</strong></p>
@@ -840,7 +840,7 @@
             </section>
 
             <!-- TEAM DOCUMENTATION & PHOTO GALLERY -->
-            <section id="documentation" class="content-section">
+            <section id="documentation" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
                     <h2 class="section-main-title">Dokumentasi Tim Abhinaya UNY</h2>
                     <p class="section-subtext">Momen perjuangan riset laboratorium, persiapan arena, dan kemenangan Kontes Robot Indonesia</p>
@@ -892,7 +892,7 @@
             </section>
 
             <!-- CONTACT SECTION -->
-            <section id="contact" class="content-section">
+            <section id="contact" class="content-section reveal-on-scroll">
                 <div class="contact-box-wrapper">
                     <div class="contact-glow-circle"></div>
                     <h2 class="contact-title">Mari Berkolaborasi!</h2>
@@ -919,8 +919,43 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT APP SCRIPT -->
+    
+    <!-- JAVASCRIPT APP SCRIPT WITH 3D TILT & ENTRANCE ANIMATIONS -->
     <script>
+        // Scroll Entrance Observer
+        const observerOptions = { threshold: 0.12 };
+        const scrollObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // 3D Card Parallax Tilt Effect
+        const tiltCards = document.querySelectorAll('.comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box, .wokwi-glass-card');
+        
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                const rotateX = (-y / rect.height) * 14;
+                const rotateY = (x / rect.width) * 14;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+
         // Certificate Search Filter Functionality
         const certSearchInput = document.getElementById('certSearchInput');
         const certCards = document.querySelectorAll('.cert-card-box');
@@ -960,7 +995,6 @@
             });
         });
 
-        // Initialize Filter On Load to Ensure All Cards Show Cleanly
         window.addEventListener('DOMContentLoaded', filterCertificates);
 
         // Lightbox Modal Handler
@@ -1007,23 +1041,7 @@
                 sidebar.classList.toggle('mobile-open');
             });
         }
-
-        // Active Section Link Highlight on Scroll
-        const navItems = document.querySelectorAll('.nav-item');
-        window.addEventListener('scroll', () => {
-            let fromTop = window.scrollY + 150;
-            navItems.forEach(item => {
-                let section = document.querySelector(item.hash);
-                if (section) {
-                    if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-                        navItems.forEach(i => i.classList.remove('active'));
-                        item.classList.add('active');
-                    }
-                }
-            });
-        });
     </script>
-
 </body>
 
 </html>
