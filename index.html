@@ -487,7 +487,7 @@
                             <span class="badge-tag gold-badge"><i class="fas fa-award"></i> Juara 1 Esai HIMEPA 2025</span>
                             <span class="article-year">2025</span>
                         </div>
-                        <h3 class="article-heading">TRASHURE-SPHERE: Mesin Sampah Penukar Poin Berbasis IoT dengan Insentif Digital</h3>
+                        <h3 class="article-heading" style="cursor:pointer;" onclick="openProjectModal('trashure')">TRASHURE-SPHERE: Mesin Sampah Penukar Poin Berbasis IoT <i class="fas fa-circle-info text-cyan"></i></h3>
                         <p class="article-text">
                             Inovasi mesin pemilah sampah pintar otomatis berbasis IoT yang mengintegrasikan reward poin digital langsung ke e-wallet pengguna untuk mendukung ekonomi sirkular.
                         </p>
@@ -521,7 +521,7 @@
                             <span class="badge-tag gold-badge"><i class="fas fa-award"></i> Juara 2 PANCO 2025</span>
                             <span class="article-year">2025</span>
                         </div>
-                        <h3 class="article-heading">Sistem Pemantauan & Pengelolaan Limbah Maritim Berbasis Pelayanan Publik Digital</h3>
+                        <h3 class="article-heading" style="cursor:pointer;" onclick="openProjectModal('panco')">Sistem Pemantauan & Pengelolaan Limbah Maritim <i class="fas fa-circle-info text-cyan"></i></h3>
                         <p class="article-text">
                             Gagasan terpadu integrasi teknologi mekatronika vokasi dengan sistem manajemen pelayanan publik berbasis IoT untuk proteksi ekosistem pesisir maritim.
                         </p>
@@ -661,7 +661,7 @@
                             <div class="proj-icon-box"><i class="fas fa-recycle"></i></div>
                             <span class="proj-badge">Kontes Robot Indonesia</span>
                         </div>
-                        <h3 class="proj-title">Abhinaya KRTMI 2024 - Robot Pemilah Sampah Otomatis</h3>
+                        <h3 class="proj-title" style="cursor:pointer;" onclick="openProjectModal('krtmi')">Abhinaya KRTMI 2024 - Robot Pemilah Sampah Otomatis <i class="fas fa-circle-info text-cyan"></i></h3>
                         <p class="proj-desc">
                             Sistem robotik pemilah sampah otomatis menggunakan 4-wheel omni-directional drive, Mini PC image processing webcam, pneumatik suction cup, & mikrokontroler STM32/ESP32.
                         </p>
@@ -682,7 +682,7 @@
                             <div class="proj-icon-box"><i class="fas fa-water"></i></div>
                             <span class="proj-badge">Juara 1 INESCO 2025</span>
                         </div>
-                        <h3 class="proj-title">SEAWARE - Smart Environmental Water Robot</h3>
+                        <h3 class="proj-title" style="cursor:pointer;" onclick="openProjectModal('seaware')">SEAWARE - Smart Environmental Water Robot <i class="fas fa-circle-info text-cyan"></i></h3>
                         <p class="proj-desc">
                             Robot pemantau & pembersih limbah perairan otomatis berbasis twin catamaran hull, sensor turbidity/pH/suhu, modul telemetry wireless, & panel surya.
                         </p>
@@ -702,7 +702,7 @@
                             <div class="proj-icon-box"><i class="fas fa-truck-loading"></i></div>
                             <span class="proj-badge">Technocorner UGM</span>
                         </div>
-                        <h3 class="proj-title">Transporter Robot Omni-Directional UGM 2026</h3>
+                        <h3 class="proj-title" style="cursor:pointer;" onclick="openProjectModal('transporter')">Transporter Robot Omni-Directional UGM 2026 <i class="fas fa-circle-info text-cyan"></i></h3>
                         <p class="proj-desc">
                             Robot pengangkut barang otomatis dengan chassis 4 roda mecanum wheel, sensor navigasi linier encoder, dan forklift clamp mekanik.
                         </p>
@@ -1213,6 +1213,124 @@
 
         window.addEventListener('DOMContentLoaded', filterCertificates);
 
+        
+        // PROJECT & KTI DETAIL MODAL ENGINE
+        const projectData = {
+            'krtmi': {
+                badge: 'Kontes Robot Indonesia Puspresnas',
+                title: 'Abhinaya KRTMI 2024 - Robot Pemilah Sampah Otomatis',
+                desc: 'Sistem robotik pemilah sampah otomatis yang dirancang khusus untuk Kontes Robot Tematik Indonesia (KRTMI) Puspresnas 2024 oleh Tim Robotika UNY Abhinaya.',
+                specs: [
+                    ['Pengontrol Utama', 'STM32 Nucleo (Low Level Kinematics) & Mini PC (High Level Image Processing)'],
+                    ['Aktuator Mekanik', '4x Motor DC PG45 (Omni Drive Base), Motor PG28 (Arm Actuator), Mini Compressor Suction Cup Vacuum'],
+                    ['Penginderaan Sensor', 'Webcam Logitech High-FPS (Object Detection OpenCV), Incremental Rotary Encoder, Sensor Proximity'],
+                    ['Catu Daya & Battery', 'LiPo Battery 6S (Power Motor) & LiPo Battery 3S (Electronics & Mini PC)'],
+                    ['Bahasa / Framework', 'C/C++ (STM32 HAL), Python OpenCV (Color & Shape Thresholding), ROS Bridge']
+                ],
+                actions: [
+                    { label: 'Lihat Foto Riset HD', icon: 'fas fa-images', href: '#documentation', isAnchor: true },
+                    { label: 'Demo Video Youtube', icon: 'fab fa-youtube', href: 'https://www.youtube.com/@TriWahyu45', isAnchor: false }
+                ]
+            },
+            'seaware': {
+                badge: 'Juara 1 INESCO UMP 2025',
+                title: 'SEAWARE: Smart Environmental Autonomous Water Robot',
+                desc: 'Robot pemantau & pembersih limbah perairan otomatis berbasis twin catamaran hull, sensor multiparameter kualitas air, & transmisi telemetry wireless real-time.',
+                specs: [
+                    ['Desain Lambung', 'Twin Catamaran Hull Hydrodynamic (Autodesk Inventor 3D CAD)'],
+                    ['Sistem Telemetry', 'ESP32 Wi-Fi & NRF24L01 Long Range Telemetry Transceiver (1km Range)'],
+                    ['Sensor Kualitas Air', 'Turbidity Sensor (Kekeruhan), pH Sensor, DS18B20 Water Temp, Ultrasonic Surface Sensor'],
+                    ['Sumber Energi', 'Solar Panel Array + LiFePO4 Battery Pack dengan BMS Converter'],
+                    ['Penghargaan', 'Juara 1 Lomba Essay Ilmiah INESCO VOL 2.0 (UMP 2025)']
+                ],
+                actions: [
+                    { label: 'Lihat Sertifikat Juara 1', icon: 'fas fa-award', href: '#achievements', isAnchor: true },
+                    { label: 'Detail Artikel KTI', icon: 'fas fa-file-alt', href: '#articles', isAnchor: true }
+                ]
+            },
+            'transporter': {
+                badge: 'Technocorner UGM 2026',
+                title: 'Transporter Robot Omni-Directional Mecanum Wheel',
+                desc: 'Robot pengangkut barang otomatis dengan chassis 4-wheel mecanum omni-directional drive, sensor navigasi linier encoder, dan forklift clamp mekanik pneumatik.',
+                specs: [
+                    ['Sistem Drive', '4-Wheel Mecanum Wheel Omni-Directional Kinematics'],
+                    ['Driver Motor', 'Dual High Power H-Bridge BTS7960 Motor Drivers'],
+                    ['Navigasi Presisi', 'Incremental Optical Rotary Encoders & PID Position Control'],
+                    ['Aktuator Gripper', 'Pneumatic Forklift Clamp Mechanism dengan Solenoid Valve'],
+                    ['Event Kompetisi', 'Cabang Lomba Transporter Robot Technocorner KMTETI FT UGM 2026']
+                ],
+                actions: [
+                    { label: 'Tonton Instagram Reels', icon: 'fab fa-instagram', href: 'https://www.instagram.com/triwahyu45/reels/', isAnchor: false },
+                    { label: 'Lihat Sertifikat Peserta', icon: 'fas fa-file-pdf', href: '#achievements', isAnchor: true }
+                ]
+            },
+            'trashure': {
+                badge: 'Juara 1 Gebyar HIMEPA 2025',
+                title: 'TRASHURE-SPHERE: Mesin Sampah Penukar Poin IoT',
+                desc: 'Inovasi mesin pemilah sampah pintar otomatis berbasis IoT yang mengintegrasikan reward poin digital langsung ke e-wallet pengguna untuk mendukung ekonomi sirkular.',
+                specs: [
+                    ['Integrasi System', 'ESP32 IoT Controller + Cloud Firebase Realtime Database'],
+                    ['Sistem Reward', 'Scan QR Code E-Wallet + Poin Insentif Digital Otomatis'],
+                    ['Sensor Pemilah', 'Inductive Metal Sensor, Capacitive Moisture Sensor, Infrared Counter'],
+                    ['Penghargaan', 'Juara 1 Lomba Esai Nasional Gebyar HIMEPA XXXI 2025 (UNTAN)']
+                ],
+                actions: [
+                    { label: 'Lihat Sertifikat Juara 1', icon: 'fas fa-award', href: '#achievements', isAnchor: true }
+                ]
+            },
+            'panco': {
+                badge: 'Juara 2 PANCO FISIP UNY 2025',
+                title: 'Sistem Pemantauan & Pengelolaan Limbah Maritim',
+                desc: 'Gagasan terpadu integrasi teknologi mekatronika vokasi dengan sistem manajemen pelayanan publik berbasis IoT untuk proteksi ekosistem pesisir maritim.',
+                specs: [
+                    ['Fokus Gagasan', 'Proteksi Ekosistem Pesisir & Digitalisasi Pelayanan Publik Maritim'],
+                    ['Arsitektur Hardware', 'IoT Sensor Mesh Network + Web Dashboard Pemantauan Limbah'],
+                    ['Penghargaan', 'Juara 2 Lomba PANCO FISIP Universitas Negeri Yogyakarta 2025']
+                ],
+                actions: [
+                    { label: 'Lihat Sertifikat Juara 2', icon: 'fas fa-award', href: '#achievements', isAnchor: true }
+                ]
+            }
+        };
+
+        function openProjectModal(key) {
+            const data = projectData[key];
+            if (!data) return;
+
+            const modal = document.getElementById('projectModal');
+            const content = document.getElementById('projectModalContent');
+
+            let specsRows = data.specs.map(s => `<tr><th>${s[0]}</th><td>${s[1]}</td></tr>`).join('');
+            let actionBtns = data.actions.map(a => `<a href="${a.href}" ${a.isAnchor ? '' : 'target="_blank"'} onclick="closeProjectModal()" class="btn btn-glow"><i class="${a.icon}"></i> ${a.label}</a>`).join('');
+
+            content.innerHTML = `
+                <span class="modal-header-badge gold-badge"><i class="fas fa-microchip"></i> ${data.badge}</span>
+                <h2 class="modal-proj-title">${data.title}</h2>
+                <p style="font-size: 14px; color: var(--text-sub); line-height: 1.6;">${data.desc}</p>
+                
+                <h4 style="font-size: 16px; font-weight: 800; color: var(--cyan-glow); margin-top: 22px; margin-bottom: 10px;"><i class="fas fa-list-check"></i> Spesifikasi Hardware & Software Teknis:</h4>
+                <table class="modal-spec-table">
+                    <tbody>
+                        ${specsRows}
+                    </tbody>
+                </table>
+
+                <div class="modal-action-row">
+                    ${actionBtns}
+                    <button class="btn btn-glass" onclick="closeProjectModal()"><i class="fas fa-times"></i> Tutup Modal</button>
+                </div>
+            `;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         // LIGHTBOX MODAL
         function openLightbox(src, captionText) {
             const modal = document.getElementById('lightboxModal');
@@ -1481,5 +1599,14 @@
             window.addEventListener('DOMContentLoaded', initThree);
         })();
     </script>
+<!-- PROJECT & KTI DETAIL MODAL POPUP -->
+    <div class="project-modal-backdrop" id="projectModal" onclick="closeProjectModal()">
+        <div class="project-modal-box" onclick="event.stopPropagation()">
+            <button class="project-modal-close" onclick="closeProjectModal()">&times;</button>
+            <div id="projectModalContent">
+                <!-- Dynamic Content Injected via JS -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
