@@ -1837,3 +1837,68 @@ body {
     padding: 24px;
     background: var(--bg-card);
 }
+
+
+/* ==========================================================================
+   HERO SECTION INTERACTIVE 3D WEBGL CANVAS STYLES
+   ========================================================================== */
+
+.hero-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .hero-layout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hero-3d-wrapper {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    background: radial-gradient(circle at center, rgba(0, 242, 254, 0.12) 0%, rgba(15, 23, 42, 0.6) 70%);
+    border: 1px solid var(--cyan-glow);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 0 35px rgba(0, 242, 254, 0.25);
+}
+
+#hero3DCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.hero-3d-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid var(--cyan-glow);
+    color: var(--cyan-glow);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* 3D Card Depth Hover Effect */
+.comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box {
+    transform-style: preserve-3d;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.comp-card:hover .comp-icon,
+.stat-glass-card:hover .stat-icon-wrapper,
+.project-glass-card:hover .proj-icon-box,
+.cert-card-box:hover .cert-thumb {
+    transform: translateZ(25px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
