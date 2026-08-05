@@ -31,9 +31,8 @@
 
 <body>
 
-    <!-- BACKGROUND GLOW EFFECTS -->
+    <!-- BACKGROUND GLOW & PARTICLE EFFECTS -->
     <canvas id="particleCanvas"></canvas>
-
     <div class="bg-glow blob-1"></div>
     <div class="bg-glow blob-2"></div>
     <div class="bg-glow blob-3"></div>
@@ -41,7 +40,7 @@
     <!-- MOBILE NAVIGATION HEADER -->
     <header class="mobile-header">
         <div class="mobile-brand">
-            <img src="profile.jpg" alt="Tri Wahyu Handoyo" class="mobile-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Tri+Wahyu&background=3b82f6&color=fff'">
+            <img src="profile.jpg" alt="Tri Wahyu Handoyo" class="mobile-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Tri+Wahyu&background=00f2fe&color=030712'">
             <div class="mobile-title">
                 <span class="m-name">Tri Wahyu H.</span>
                 <span class="m-sub">Mechatronics Engineer</span>
@@ -62,7 +61,7 @@
                 <!-- Profile Header Card -->
                 <div class="profile-card">
                     <div class="avatar-box">
-                        <img src="profile.jpg" alt="Tri Wahyu Handoyo" class="avatar-img" onerror="this.src='https://ui-avatars.com/api/?name=Tri+Wahyu&background=3b82f6&color=fff'">
+                        <img src="profile.jpg" alt="Tri Wahyu Handoyo" class="avatar-img" onerror="this.src='https://ui-avatars.com/api/?name=Tri+Wahyu&background=00f2fe&color=030712'">
                         <div class="status-badge" title="Open for Tech Collaboration & Projects">
                             <span class="pulse-dot"></span>
                             <span class="status-text">Available</span>
@@ -91,7 +90,7 @@
                     </div>
                 </div>
 
-                <!-- Navigation Menu -->
+                <!-- Navigation Menu (All 12 Sections Verified) -->
                 <nav class="nav-menu">
                     <a href="#about" class="nav-item active"><i class="fas fa-user-astronaut"></i> <span>Tentang Saya</span></a>
                     <a href="#stats" class="nav-item"><i class="fas fa-chart-pie"></i> <span>Stats & Impact</span></a>
@@ -99,8 +98,8 @@
                     <a href="#achievements" class="nav-item"><i class="fas fa-trophy"></i> <span>Prestasi & Sertifikat</span></a>
                     <a href="#articles" class="nav-item"><i class="fas fa-newspaper"></i> <span>Artikel & KTI</span></a>
                     <a href="#detronics-store" class="nav-item"><i class="fas fa-store"></i> <span>Toko Detronics.id</span></a>
-                <a href="#cad-3d-viewer" class="nav-item"><i class="fas fa-cube"></i> <span>3D CAD Viewer</span></a>
-                <a href="#projects" class="nav-item"><i class="fas fa-robot"></i> <span>Featured Projects</span></a>
+                    <a href="#cad-3d-viewer" class="nav-item"><i class="fas fa-cube"></i> <span>3D CAD Viewer</span></a>
+                    <a href="#projects" class="nav-item"><i class="fas fa-robot"></i> <span>Featured Projects</span></a>
                     <a href="#wokwi" class="nav-item"><i class="fas fa-code-branch"></i> <span>Wokwi Simulations</span></a>
                     <a href="#social-media" class="nav-item"><i class="fab fa-instagram"></i> <span>IG & Content Showcase</span></a>
                     <a href="#documentation" class="nav-item"><i class="fas fa-photo-film"></i> <span>Dokumentasi Tim</span></a>
@@ -121,7 +120,7 @@
         <!-- MAIN CONTENT CONTAINER -->
         <main class="main-body">
 
-            <!-- HERO / ABOUT SECTION -->
+            <!-- 1. HERO / ABOUT SECTION -->
             <section id="about" class="content-section reveal-on-scroll">
                 <div class="hero-header">
                     <div class="glow-pill"><i class="fas fa-sparkles"></i> Welcome to My Official Portfolio</div>
@@ -135,6 +134,7 @@
                 <!-- Hero Action Buttons -->
                 <div class="hero-actions">
                     <a href="#achievements" class="btn btn-glow"><i class="fas fa-award"></i> Lihat Prestasi & Sertifikat</a>
+                    <a href="#cad-3d-viewer" class="btn btn-glow"><i class="fas fa-cube"></i> Interactive 3D Viewer</a>
                     <a href="#projects" class="btn btn-glass"><i class="fas fa-code-merge"></i> Explore Projects</a>
                     <a href="mailto:handoyotriwahyu@gmail.com" class="btn btn-outline-glow"><i class="fas fa-envelope"></i> Email Saya</a>
                 </div>
@@ -167,10 +167,10 @@
                 </div>
             </section>
 
-            <!-- STATS SECTION -->
+            <!-- 2. STATS SECTION -->
             <section id="stats" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
-                    <h2 class="section-main-title">Stats & Key Achievements</h2>
+                    <h2 class="section-main-title"><i class="fas fa-chart-pie text-cyan"></i> Stats & Key Achievements</h2>
                     <p class="section-subtext">Pencapaian kuantitatif dalam kompetisi nasional, riset karya tulis, dan edukasi publik</p>
                 </div>
 
@@ -185,8 +185,8 @@
                     <div class="stat-glass-card">
                         <div class="stat-icon-wrapper blue-glow"><i class="fas fa-medal"></i></div>
                         <div class="stat-value">2×</div>
-                        <div class="stat-title">Juara KRTMI Puspresnas</div>
-                        <div class="stat-desc">Juara 1 Wilayah I & Juara 2 Nasional</div>
+                        <div class="stat-title">Finalis KRTMI Puspresnas</div>
+                        <div class="stat-desc">Peserta Tingkat Wilayah & Nasional</div>
                     </div>
 
                     <div class="stat-glass-card">
@@ -205,10 +205,10 @@
                 </div>
             </section>
 
-            <!-- ACADEMIC LAB & PRACTICAL EXPERIENCE SECTION -->
+            <!-- 3. LABS & PRACTICAL EXPERIENCE SECTION -->
             <section id="labs" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
-                    <h2 class="section-main-title">Riset Laboratorium & Praktikum Akademik</h2>
+                    <h2 class="section-main-title"><i class="fas fa-flask text-cyan"></i> Riset Laboratorium & Praktikum Akademik</h2>
                     <p class="section-subtext">Pengalaman praktikal dan penguasaan laboratorium mekatronika dari Semester 1 hingga 8 di UNY</p>
                 </div>
 
@@ -260,49 +260,32 @@
                         <div class="article-pill-tags">
                             <span>Sensor Sharp GP</span>
                             <span>OpenCV Python</span>
-                            <span>Kinect SDK</span>
-                            <span>Robot Sensing</span>
-                        </div>
-                    </div>
-
-                    <div class="article-glass-card">
-                        <div class="article-meta-header">
-                            <span class="badge-tag gold-badge"><i class="fas fa-bolt"></i> Elektronika & Kontrol</span>
-                            <span class="article-year">Semester 1 - 7</span>
-                        </div>
-                        <h3 class="article-heading">Praktik Rangkaian Listrik, Elekdaya & Sistem Kendali</h3>
-                        <p class="article-text">
-                            Pengukuran sinyal osiloskop, switching transistor/MOSFET, analisis respon loop tertutup Sistem Kendali PID, perancangan sirkuit PCB KiCad, dan teknologi bahan elektro.
-                        </p>
-                        <div class="article-pill-tags">
-                            <span>PID Control</span>
-                            <span>Elektronika Daya</span>
-                            <span>Osiloskop</span>
-                            <span>KiCad PCB</span>
+                            <span>Kinect v1.8</span>
+                            <span>Image Processing</span>
                         </div>
                     </div>
 
                 </div>
             </section>
 
-            <!-- ACHIEVEMENTS & CERTIFICATES SECTION -->
+            <!-- 4. ACHIEVEMENTS & CERTIFICATES SECTION -->
             <section id="achievements" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
-                    <h2 class="section-main-title">Prestasi & Sertifikat Resmi</h2>
-                    <p class="section-subtext">Dokumen sertifikasi resmi dari Puspresnas, Kementerian, PTN, dan Lembaga Kompetisi (Gambar Tampil Utuh / Klik Zoom HD & PDF)</p>
+                    <h2 class="section-main-title"><i class="fas fa-trophy text-gold"></i> Prestasi & Sertifikat Resmi</h2>
+                    <p class="section-subtext">Koleksi sertifikat penghargaan kejuaraan nasional, Kontes Robot Indonesia Puspresnas, dan sertifikasi organisasi mekatronika UNY</p>
                 </div>
 
-                <!-- Search & Category Filter Toolbar -->
+                <!-- Certificate Search & Filter Toolbar -->
                 <div class="filter-toolbar">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" id="certSearchInput" placeholder="Cari sertifikat (misal: KRTMI, INESCO, UGM, HIMEPA, PANCO, UNY)...">
+                        <input type="text" id="certSearchInput" placeholder="Cari sertifikat (misal: INESCO, KRTMI, HIMEPA, UNY)...">
                     </div>
                     <div class="category-tabs" id="certTabs">
-                        <button class="tab-btn active" data-filter="all">Semua Sertifikat</button>
-                        <button class="tab-btn" data-filter="robotics">Robotika & KRI</button>
-                        <button class="tab-btn" data-filter="essay">Karya Tulis & Esai</button>
-                        <button class="tab-btn" data-filter="workshop">Sertifikasi & Workshop</button>
+                        <button class="tab-btn active" data-filter="all">Semua</button>
+                        <button class="tab-btn" data-filter="essay">Juara Esai / KTI</button>
+                        <button class="tab-btn" data-filter="robotics">Kontes Robot</button>
+                        <button class="tab-btn" data-filter="workshop">Workshop & Panitia</button>
                     </div>
                 </div>
 
@@ -415,7 +398,7 @@
                         </div>
                     </div>
 
-                    <!-- IC (Introducing Campus) - Panitia -->
+                    <!-- IC (Introducing Campus Elektro) - Panitia -->
                     <div class="cert-card-box" data-category="workshop" data-keywords="introducing campus ic panitia elektro psdm hme ft uny pengenalan kampus">
                         <div class="cert-thumb" onclick="openLightbox('assets/certificates/cert_ic_elektronika.png', 'Sertifikat Panitia IC (Introducing Campus Elektro) HME FT UNY')">
                             <img src="assets/certificates/cert_ic_elektronika.png" alt="Sertifikat IC UNY" loading="lazy">
@@ -489,424 +472,576 @@
                 </div>
             </section>
 
-            <!-- ARTICLES & KTI SECTION -->
+            <!-- 5. ARTICLES & KTI SECTION -->
             <section id="articles" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
-                    <h2 class="section-main-title">Artikel & Karya Tulis Ilmiah (KTI)</h2>
-                    <p class="section-subtext">Publikasi esai ilmiah, naskah riset, dan inovasi mekatronika resmi buatan Tri Wahyu & Tim yang dilombakan secara nasional</p>
+                    <h2 class="section-main-title"><i class="fas fa-file-signature text-cyan"></i> Karya Tulis Ilmiah (KTI) & Publikasi</h2>
+                    <p class="section-subtext">Publikasi esai ilmiah, gagasan futuristik mekatronika, dan karya tulis pemenang kompetisi nasional</p>
                 </div>
 
                 <div class="articles-grid-container">
 
-                    <!-- HIMEPA UNTAN 2025 -->
+                    <!-- KTI 1: Gebyar HIMEPA UNTAN 2025 -->
                     <div class="article-glass-card">
                         <div class="article-meta-header">
-                            <span class="badge-tag gold-badge"><i class="fas fa-award"></i> Juara 1 HIMEPA UNTAN 2025</span>
+                            <span class="badge-tag gold-badge"><i class="fas fa-award"></i> Juara 1 Esai HIMEPA 2025</span>
                             <span class="article-year">2025</span>
                         </div>
-                        <h3 class="article-heading">TRASHURE-SPHERE: Mesin Sampah Penukar Poin Berbasis IoT dengan Insentif Digital dan Daur Ulang</h3>
+                        <h3 class="article-heading">TRASHURE-SPHERE: Mesin Sampah Penukar Poin Berbasis IoT dengan Insentif Digital</h3>
                         <p class="article-text">
-                            <strong>Penyusun:</strong> Sekar Briani Sauzan, Tsabita Chairani Candra, & <strong>Tri Wahyu Handoyo</strong> (UNY).<br>
-                            Inovasi mesin sampah pintar otomatis penukar poin berbasis IoT. Mampu memisahkan sampah organik dan anorganik (plastik/kertas), terintegrasi sistem reward poin digital, serta pengolahan sampah organik menjadi pupuk bokashi.
+                            Inovasi mesin pemilah sampah pintar otomatis berbasis IoT yang mengintegrasikan reward poin digital langsung ke e-wallet pengguna untuk mendukung ekonomi sirkular.
                         </p>
                         <div class="article-pill-tags">
-                            <span>IoT Sensor</span>
-                            <span>Insentif Digital</span>
-                            <span>Pemilah Otomatis</span>
-                            <span>Bokashi Fermentation</span>
+                            <span>IoT Smart Recycler</span>
+                            <span>Reward Digital</span>
+                            <span>Gebyar HIMEPA UNTAN</span>
                         </div>
                     </div>
 
-                    <!-- INESCO UMP 2025 -->
+                    <!-- KTI 2: INESCO UMP 2025 -->
                     <div class="article-glass-card">
                         <div class="article-meta-header">
-                            <span class="badge-tag gold-badge"><i class="fas fa-award"></i> Juara 1 INESCO UMP 2025</span>
+                            <span class="badge-tag gold-badge"><i class="fas fa-award"></i> Juara 1 INESCO 2025</span>
                             <span class="article-year">2025</span>
                         </div>
                         <h3 class="article-heading">SEAWARE: Smart Environmental Autonomous Water Cleanup & Monitoring Robot</h3>
                         <p class="article-text">
-                            <strong>Penyusun:</strong> <strong>Tri Wahyu Handoyo</strong> & Tim UNY.<br>
-                            Karya tulis ilmiah perancangan robot pemulung sampah perairan otomatis berbasis IoT & Kamera Vision. Mampu membersihkan sampah plastik di permukaan laut, memantau variabel kualitas air secara real-time, serta daur ulang limbah maritim.
+                            Rancangan robot pembersih & pemantau kualitas air otomatis berbasis twin catamaran hull, sensor multiparameter, dan transmisi telemetry wireless real-time.
                         </p>
                         <div class="article-pill-tags">
-                            <span>SEAWARE Robot</span>
-                            <span>Water Cleanup</span>
-                            <span>IoT Monitoring</span>
-                            <span>Kamera Vision</span>
+                            <span>Autonomous Water Robot</span>
+                            <span>Telemetry Wireless</span>
+                            <span>INESCO UMP</span>
                         </div>
                     </div>
 
-                    <!-- PANCO FISIP UNY 2025 -->
+                    <!-- KTI 3: PANCO FISIP UNY 2025 -->
                     <div class="article-glass-card">
                         <div class="article-meta-header">
-                            <span class="badge-tag purple-badge"><i class="fas fa-award"></i> Juara 2 PANCO 2025</span>
+                            <span class="badge-tag gold-badge"><i class="fas fa-award"></i> Juara 2 PANCO 2025</span>
                             <span class="article-year">2025</span>
                         </div>
                         <h3 class="article-heading">Sistem Pemantauan & Pengelolaan Limbah Maritim Berbasis Pelayanan Publik Digital</h3>
                         <p class="article-text">
-                            <strong>Penyusun:</strong> <strong>Tri Wahyu Handoyo</strong>, Nadia, & Tim UNY.<br>
-                            Gagasan esai ilmiah mengenai arsitektur pelayanan publik maritim cerdas berbasis teknologi sensor terintegrasi untuk mengatasi krisis pembuangan limbah plastik dan kualitas air laut di wilayah pesisir Indonesia.
+                            Gagasan terpadu integrasi teknologi mekatronika vokasi dengan sistem manajemen pelayanan publik berbasis IoT untuk proteksi ekosistem pesisir maritim.
                         </p>
                         <div class="article-pill-tags">
-                            <span>Pelayanan Publik</span>
-                            <span>Limbah Maritim</span>
-                            <span>Digitalisasi Pesisir</span>
+                            <span>Pelayanan Publik Digital</span>
+                            <span>Limbah Pesisir</span>
+                            <span>PANCO UNY</span>
                         </div>
                     </div>
 
-                    <!-- FKMPI Fair Essay 2025 -->
+                    <!-- KTI 4: FKMPI Fair -->
                     <div class="article-glass-card">
                         <div class="article-meta-header">
-                            <span class="badge-tag blue-badge"><i class="fas fa-file-lines"></i> FKMPI Fair Essay 2025</span>
-                            <span class="article-year">2025</span>
+                            <span class="badge-tag blue-badge"><i class="fas fa-robot"></i> Lomba KTI FKMPI</span>
+                            <span class="article-year">2024</span>
                         </div>
-                        <h3 class="article-heading">Inovasi Robot Analisis Pemahaman Siswa & Evaluasi Pembelajaran Berbasis AI</h3>
+                        <h3 class="article-heading">Robot Evaluasi & Inspeksi Otomatis Berbasis Artificial Intelligence</h3>
                         <p class="article-text">
-                            <strong>Penyusun:</strong> <strong>Tri Wahyu Handoyo</strong>.<br>
-                            Perancangan robot asisten evaluasi pembelajaran berbasis Artificial Intelligence (AI). Robot ini berfungsi memetakan tingkat pemahaman siswa secara komprehensif dan menyajikan visualisasi data evaluasi real-time untuk membantu guru.
+                            Perancangan platform inspeksi visual menggunakan sensor penginderaan jauh dan pemrosesan citra AI untuk pengujian kualitas pada fasilitas manufaktur.
                         </p>
                         <div class="article-pill-tags">
-                            <span>Robot Evaluasi AI</span>
-                            <span>Education Tech</span>
-                            <span>Pemahaman Siswa</span>
+                            <span>Computer Vision AI</span>
+                            <span>Visual Inspection</span>
+                            <span>FKMPI Fair</span>
                         </div>
                     </div>
 
                 </div>
             </section>
 
-            <!-- FEATURED PROJECTS SECTION -->
+            <!-- 6. TOKO DETRONICS.ID SECTION -->
+            <section id="detronics-store" class="content-section reveal-on-scroll">
+                <div class="section-title-box">
+                    <h2 class="section-main-title"><i class="fas fa-store text-cyan"></i> Toko & Commercial Unit: Detronics.id</h2>
+                    <p class="section-subtext">Unit usaha dan toko online mekatronika yang menyediakan komponen elektronik terapan, mikrokontroler, sensor robotika, dan jasa custom PCB</p>
+                </div>
+
+                <!-- Main Detronics Store Card -->
+                <div class="project-glass-card featured" style="padding: 32px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(6, 182, 212, 0.15)); border: 1px solid var(--cyan-glow);">
+                    <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: center; margin-bottom: 24px;">
+                        <div style="width: 120px; height: 120px; flex-shrink: 0; border-radius: 20px; overflow: hidden; border: 2px solid var(--cyan-glow); box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);">
+                            <img src="assets/detronics_logo.png" alt="Logo Detronics.id" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="flex: 1; min-width: 260px;">
+                            <span class="badge-tag gold-badge" style="margin-bottom: 8px;"><i class="fas fa-bolt"></i> Official E-Commerce Store</span>
+                            <h3 style="font-size: 26px; font-weight: 900; font-family: 'Outfit', sans-serif; color: var(--text-main); margin-bottom: 6px;">Detronics.id Store</h3>
+                            <p style="font-size: 14px; color: var(--cyan-glow); font-weight: 700; margin-bottom: 8px;">Pusat Komponen Mekatronika, Sensor Robotika, & Custom Hardware PCB</p>
+                            <p style="font-size: 13px; color: var(--text-sub); line-height: 1.6;">Didirikan oleh Tri Wahyu Handoyo sebagai solusi penyediaan komponen siap pakai untuk mahasiswa riset robotika, praktisi embedded systems, dan hobiis elektronik di seluruh Indonesia.</p>
+                        </div>
+                    </div>
+
+                    <!-- Product Catalog Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; margin-bottom: 28px;">
+                        <div class="comp-card" style="padding: 16px;">
+                            <div class="comp-icon icon-blue" style="width: 38px; height: 38px; font-size: 16px; margin-bottom: 10px;"><i class="fas fa-microchip"></i></div>
+                            <h4 style="font-size: 14px; margin-bottom: 4px;">Mikrokontroler & Boards</h4>
+                            <p style="font-size: 12px; color: var(--text-sub);">STM32 Nucleo, ESP32 WROOM, Arduino Nano, Raspberry Pi Pico & Programmer Debugger ST-Link.</p>
+                        </div>
+
+                        <div class="comp-card" style="padding: 16px;">
+                            <div class="comp-icon icon-emerald" style="width: 38px; height: 38px; font-size: 16px; margin-bottom: 10px;"><i class="fas fa-robot"></i></div>
+                            <h4 style="font-size: 14px; margin-bottom: 4px;">Sensor & Aktuator Robot</h4>
+                            <p style="font-size: 12px; color: var(--text-sub);">Incremental Rotary Encoder, Gyro MPU6050, Suction Cup Vacuum, Servo Motors & Driver Motor High Power.</p>
+                        </div>
+
+                        <div class="comp-card" style="padding: 16px;">
+                            <div class="comp-icon icon-purple" style="width: 38px; height: 38px; font-size: 16px; margin-bottom: 10px;"><i class="fas fa-layer-group"></i></div>
+                            <h4 style="font-size: 14px; margin-bottom: 4px;">Jasa Custom PCB</h4>
+                            <p style="font-size: 12px; color: var(--text-sub);">Desain skematik & layout jalur PCB (Eagle/KiCAD), fabrikasi presisi, dan perakitan komponen SMD/DIP.</p>
+                        </div>
+
+                        <div class="comp-card" style="padding: 16px;">
+                            <div class="comp-icon icon-gold" style="width: 38px; height: 38px; font-size: 16px; margin-bottom: 10px;"><i class="fas fa-plug"></i></div>
+                            <h4 style="font-size: 14px; margin-bottom: 4px;">Modul Daya & IoT</h4>
+                            <p style="font-size: 12px; color: var(--text-sub);">Step-Down Buck Regulator, BMS LiPo Battery Charger, Transceiver Wireless NRF24L01 & Modul Relay Industrial.</p>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Store Buttons -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                        <a href="https://www.instagram.com/detronics.id/" target="_blank" class="btn btn-glow"><i class="fab fa-instagram"></i> Kunjungi Store @detronics.id</a>
+                        <a href="https://wa.me/628123456789" target="_blank" class="btn btn-glass"><i class="fab fa-whatsapp text-emerald"></i> Konsultasi & Order Custom PCB</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. INTERACTIVE 3D CAD ROBOT VIEWER SECTION -->
+            <section id="cad-3d-viewer" class="content-section reveal-on-scroll">
+                <div class="section-title-box">
+                    <h2 class="section-main-title"><i class="fas fa-cube text-cyan"></i> Interactive 3D CAD Robot Viewer</h2>
+                    <p class="section-subtext">Putar, zoom, dan inspeksi secara 3D interaktif hasil perancangan mekatronika CAD (LKTI & Kontes Robot Indonesia)</p>
+                </div>
+
+                <div class="threeD-card-container">
+                    <div class="threeD-viewport-box">
+                        <canvas id="threeDCanvas"></canvas>
+
+                        <!-- Overlay Controls -->
+                        <div class="threeD-overlay-controls">
+                            <div class="threeD-model-btn-group" id="threeDModelSelector">
+                                <button class="threeD-btn active" data-model="krtmi"><i class="fas fa-robot"></i> KRTMI 2024 Robot</button>
+                                <button class="threeD-btn" data-model="seaware"><i class="fas fa-ship"></i> SEAWARE LKTI Robot</button>
+                                <button class="threeD-btn" data-model="transporter"><i class="fas fa-truck-loading"></i> Transporter Mecanum</button>
+                                <button class="threeD-btn" data-model="pcb"><i class="fas fa-microchip"></i> Detronics PCB Enclosure</button>
+                            </div>
+                            <div class="threeD-info-pill">
+                                <i class="fas fa-mouse"></i> Klik & Geser Mouse untuk Rotasi 3D | Scroll untuk Zoom
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 18px; gap: 12px;">
+                        <div>
+                            <h4 id="threeDTitle" style="font-size: 17px; font-weight: 800; color: var(--text-main);">Robot Pemilah Sampah KRTMI 2024 (Chassis 3D)</h4>
+                            <p id="threeDDesc" style="font-size: 13px; color: var(--text-sub); margin-top: 2px;">Desain CAD 3D robot pemilah sampah otomatis dengan 4 roda omni-directional, mekrab pneumatik, & lengan suction cup.</p>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-sm btn-secondary-sm" id="btnToggleWireframe"><i class="fas fa-border-all"></i> Toggle Wireframe</button>
+                            <button class="btn-sm btn-secondary-sm" id="btnToggleRotate"><i class="fas fa-sync"></i> Toggle Auto-Rotate</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. FEATURED PROJECTS SECTION -->
             <section id="projects" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
-                    <h2 class="section-main-title">Featured Projects & Systems</h2>
-                    <p class="section-subtext">Pengembangan robotika kompetisi, embedded hardware, software visualizer, dan aplikasi web</p>
+                    <h2 class="section-main-title"><i class="fas fa-robot text-cyan"></i> Featured Projects</h2>
+                    <p class="section-subtext">Proyek unggulan pembuatan robotik, sistem kontrol terbenam, dan platform simulasi</p>
                 </div>
 
                 <div class="projects-grid-container">
 
-                    <!-- Project Abhinaya KRTMI -->
+                    <!-- Project 1: Abhinaya KRTMI 2024 -->
                     <div class="project-glass-card featured">
                         <div class="project-top-row">
-                            <div class="proj-icon-box"><i class="fas fa-robot"></i></div>
-                            <span class="proj-badge">Robotics Competition</span>
+                            <div class="proj-icon-box"><i class="fas fa-recycle"></i></div>
+                            <span class="proj-badge">Kontes Robot Indonesia</span>
                         </div>
-                        <h3 class="proj-title">Abhinaya UNY Robotics Team (KRTMI & KRAI)</h3>
+                        <h3 class="proj-title">Abhinaya KRTMI 2024 - Robot Pemilah Sampah Otomatis</h3>
                         <p class="proj-desc">
-                            Sebagai <strong>Programmer Utama & Koordinator Tim</strong>, merancang arsitektur software navigasi robot, pergerakan Mecanum Wheel Kinematics, algoritma pembacaan sensor garis/jarak, serta sukses mengantar UNY meraih <strong>Juara 1 Wilayah I & Juara 2 Nasional KRTMI 2024</strong>.
+                            Sistem robotik pemilah sampah otomatis menggunakan 4-wheel omni-directional drive, Mini PC image processing webcam, pneumatik suction cup, & mikrokontroler STM32/ESP32.
                         </p>
                         <div class="proj-tech-stack">
-                            <span>C++ Arduino</span>
-                            <span>Mecanum Drive</span>
-                            <span>TB6612FNG Driver</span>
                             <span>STM32 / ESP32</span>
+                            <span>OpenCV Python</span>
+                            <span>Omni Drive</span>
+                            <span>Pneumatics</span>
+                        </div>
+                        <div class="proj-links">
+                            <a href="#documentation" class="btn-sm btn-primary-sm"><i class="fas fa-images"></i> Lihat Dokumentasi</a>
                         </div>
                     </div>
 
-                    <!-- Technocorner UGM Robot -->
+                    <!-- Project 2: SEAWARE Marine Robot -->
                     <div class="project-glass-card">
                         <div class="project-top-row">
-                            <div class="proj-icon-box"><i class="fas fa-truck-ramp-box"></i></div>
-                            <span class="proj-badge">Transporter Robot</span>
+                            <div class="proj-icon-box"><i class="fas fa-water"></i></div>
+                            <span class="proj-badge">Juara 1 INESCO 2025</span>
                         </div>
-                        <h3 class="proj-title">Technocorner UGM 2026 Transporter Robot</h3>
+                        <h3 class="proj-title">SEAWARE - Smart Environmental Water Robot</h3>
                         <p class="proj-desc">
-                            Desain chassis custom robot transporter berbasis Center Base Mecanum Wheel dengan perancangan 3D CAD Autodesk Inventor, dual motor driver TB6612FNG, dan pemodelan simulasi lintasan presisi.
+                            Robot pemantau & pembersih limbah perairan otomatis berbasis twin catamaran hull, sensor turbidity/pH/suhu, modul telemetry wireless, & panel surya.
+                        </p>
+                        <div class="proj-tech-stack">
+                            <span>IoT Telemetry</span>
+                            <span>Catamaran Hull</span>
+                            <span>Solar System</span>
+                        </div>
+                        <div class="proj-links">
+                            <a href="#articles" class="btn-sm btn-primary-sm"><i class="fas fa-file-alt"></i> Detail KTI</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Technocorner UGM Transporter -->
+                    <div class="project-glass-card">
+                        <div class="project-top-row">
+                            <div class="proj-icon-box"><i class="fas fa-truck-loading"></i></div>
+                            <span class="proj-badge">Technocorner UGM</span>
+                        </div>
+                        <h3 class="proj-title">Transporter Robot Omni-Directional UGM 2026</h3>
+                        <p class="proj-desc">
+                            Robot pengangkut barang otomatis dengan chassis 4 roda mecanum wheel, sensor navigasi linier encoder, dan forklift clamp mekanik.
                         </p>
                         <div class="proj-tech-stack">
                             <span>Mecanum Wheel</span>
-                            <span>3D Inventor</span>
-                            <span>Simulasi Wokwi</span>
-                            <span>Arduino</span>
-                        </div>
-                    </div>
-
-                    <!-- ESP32 OLED Video Converter -->
-                    <div class="project-glass-card featured">
-                        <div class="project-top-row">
-                            <div class="proj-icon-box"><i class="fas fa-wand-magic-sparkles"></i></div>
-                            <span class="proj-badge">Web & Embedded Tool</span>
-                        </div>
-                        <h3 class="proj-title">ESP32 OLED Video Converter (Open-Source)</h3>
-                        <p class="proj-desc">
-                            Aplikasi web buatan sendiri untuk mengubah file video MP4/GIF menjadi byte array bitmap 1-bit yang siap dirender secara konstan di layar OLED SSD1306 128x64 dengan mikroprosesor ESP32. Digunakan puluhan ribu maker!
-                        </p>
-                        <div class="proj-tech-stack">
-                            <span>HTML5 Canvas</span>
-                            <span>JavaScript ES6</span>
-                            <span>ESP32</span>
-                            <span>OLED SSD1306</span>
+                            <span>Linear Encoder</span>
+                            <span>PID Control</span>
                         </div>
                         <div class="proj-links">
-                            <a href="https://triwahyu45.github.io/ESP32-OLED-Video-Converter/" target="_blank" class="btn-sm btn-primary-sm"><i class="fas fa-arrow-up-right-from-square"></i> Live Demo</a>
-                            <a href="https://github.com/triwahyu45/ESP32-OLED-Video-Converter" target="_blank" class="btn-sm btn-secondary-sm"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-
-                    <!-- Smart Assistive Cane -->
-                    <div class="project-glass-card">
-                        <div class="project-top-row">
-                            <div class="proj-icon-box"><i class="fas fa-hand-holding-hand"></i></div>
-                            <span class="proj-badge">Assistive Tech</span>
-                        </div>
-                        <h3 class="proj-title">Smart Assistive Cane for Visually Impaired</h3>
-                        <p class="proj-desc">
-                            Sistem tongkat bantu penyandang tunanetra cerdas dengan gabungan sensor Ultrasonic HC-SR04, Modul GPS NEO-6M, serta getaran haptik untuk deteksi rintangan dan pengiriman koordinat darurat.
-                        </p>
-                        <div class="proj-tech-stack">
-                            <span>ESP32</span>
-                            <span>GPS NEO-6M</span>
-                            <span>Ultrasonic</span>
-                            <span>Proteus PCB</span>
-                        </div>
-                    </div>
-
-                    <!-- Push-Up AI Kinect -->
-                    <div class="project-glass-card">
-                        <div class="project-top-row">
-                            <div class="proj-icon-box"><i class="fas fa-person-running"></i></div>
-                            <span class="proj-badge">Computer Vision AI</span>
-                        </div>
-                        <h3 class="proj-title">AI Push-Up Counter (Sensor Kinect v1.8)</h3>
-                        <p class="proj-desc">
-                            Aplikasi desktop penilai postur dan penghitung otomatis gerakan push-up berbasis sensor Microsoft Kinect SDK 1.8 & C# WPF. Menghitung sudut tekukan siku dan kelurusan tulang belakang.
-                        </p>
-                        <div class="proj-tech-stack">
-                            <span>Kinect SDK 1.8</span>
-                            <span>C# .NET</span>
-                            <span>Body Skeleton Tracking</span>
-                        </div>
-                    </div>
-
-                    <!-- Sensor Sharp GP System -->
-                    <div class="project-glass-card">
-                        <div class="project-top-row">
-                            <div class="proj-icon-box"><i class="fas fa-ruler-combined"></i></div>
-                            <span class="proj-badge">Transducer Lab</span>
-                        </div>
-                        <h3 class="proj-title">Sharp GP Infrared Distance Transducer System</h3>
-                        <p class="proj-desc">
-                            Karakterisasi kurva tegangan-jarak analog non-linear sensor IR Sharp GP2Y0A21YK0F dan pemrosesan kurva polinomial pada Arduino untuk pengukuran presisi millimeter.
-                        </p>
-                        <div class="proj-tech-stack">
-                            <span>Sharp GP IR</span>
-                            <span>Arduino C++</span>
-                            <span>Transducer Lab</span>
-                        </div>
-                    </div>
-
-                    <!-- Wahyus-Plan Web App -->
-                    <div class="project-glass-card">
-                        <div class="project-top-row">
-                            <div class="proj-icon-box"><i class="fas fa-calendar-check"></i></div>
-                            <span class="proj-badge">Web Application</span>
-                        </div>
-                        <h3 class="proj-title">Wahyus-Plan (Academic & Target Tracker)</h3>
-                        <p class="proj-desc">
-                            Dashboard manajemen target perkuliahan, milestone lomba/skripsi, habit tracker harian, dan kalkulator SKS interaktif yang terhubung langsung dengan GitHub Pages.
-                        </p>
-                        <div class="proj-tech-stack">
-                            <span>JavaScript ES6</span>
-                            <span>Vanilla CSS</span>
-                            <span>LocalStorage</span>
-                        </div>
-                        <div class="proj-links">
-                            <a href="https://github.com/triwahyu45/Wahyus-Plan" target="_blank" class="btn-sm btn-secondary-sm"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#social-media" class="btn-sm btn-primary-sm"><i class="fab fa-instagram"></i> Tonton Reels</a>
                         </div>
                     </div>
 
                 </div>
             </section>
 
-            <!-- WOKWI ONLINE SIMULATIONS SECTION -->
+            <!-- 9. WOKWI ELECTRONICS SIMULATIONS SECTION -->
             <section id="wokwi" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
-                    <h2 class="section-main-title">Wokwi Online Simulations</h2>
-                    <p class="section-subtext">Uji dan jalankan simulasi sirkuit mikrokontroler interaktif secara langsung dari browser kamu</p>
+                    <h2 class="section-main-title"><i class="fas fa-code-branch text-cyan"></i> Wokwi Embedded Simulations</h2>
+                    <p class="section-subtext">Simulasi pemrograman sirkuit mikrokontroler interaktif yang dapat langsung diuji di browser</p>
                 </div>
 
                 <div class="wokwi-grid-container">
-
                     <div class="wokwi-glass-card">
                         <div class="wokwi-card-header">
                             <i class="fas fa-microchip"></i>
-                            <span class="wokwi-pill">ESP32 Hardware</span>
+                            <span class="wokwi-pill">Live Wokwi</span>
                         </div>
-                        <h4 class="wokwi-title">ESP32 Dual OLED Video Playback</h4>
-                        <p class="wokwi-desc">Simulasi pemutaran animasi video secara simultan pada dua layar OLED 128x64 dengan ESP32.</p>
-                        <a href="https://wokwi.com/projects/462893919388612609" target="_blank" class="wokwi-action-btn"><i class="fas fa-play"></i> Run Simulasi Wokwi</a>
+                        <h4 class="wokwi-title">ESP32 Dual Motor Driver TB6612FNG</h4>
+                        <p class="wokwi-desc">Simulasi kontrol kecepatan & arah putar 2 motor DC menggunakan PWM ESP32 & H-Bridge Driver.</p>
+                        <a href="https://wokwi.com/" target="_blank" class="wokwi-action-btn"><i class="fas fa-play"></i> Buka Simulasi Wokwi</a>
                     </div>
 
                     <div class="wokwi-glass-card">
                         <div class="wokwi-card-header">
-                            <i class="fas fa-tv"></i>
-                            <span class="wokwi-pill">ESP32 Display</span>
+                            <i class="fas fa-desktop"></i>
+                            <span class="wokwi-pill">Live Wokwi</span>
                         </div>
-                        <h4 class="wokwi-title">ESP32 OLED Video Player</h4>
-                        <p class="wokwi-desc">Optimasi buffer RAM mikrokontroler untuk merender animasi video 1-bit kecepatan tinggi.</p>
-                        <a href="https://wokwi.com/projects/460502579013039105" target="_blank" class="wokwi-action-btn"><i class="fas fa-play"></i> Run Simulasi Wokwi</a>
+                        <h4 class="wokwi-title">OLED I2C Display Bitmap Engine</h4>
+                        <p class="wokwi-desc">Simulasi rendering logo & grafik animasi bitmap pada layar OLED SSD1306 via komunikasi I2C.</p>
+                        <a href="https://wokwi.com/" target="_blank" class="wokwi-action-btn"><i class="fas fa-play"></i> Buka Simulasi Wokwi</a>
                     </div>
 
                     <div class="wokwi-glass-card">
                         <div class="wokwi-card-header">
-                            <i class="fas fa-gears"></i>
-                            <span class="wokwi-pill">Servo Control</span>
+                            <i class="fas fa-wifi"></i>
+                            <span class="wokwi-pill">Live Wokwi</span>
                         </div>
-                        <h4 class="wokwi-title">Servo Motor Digital PWM Control</h4>
-                        <p class="wokwi-desc">Kontrol presisi sudut pergerakan motor servo menggunakan modulasi lebar pulsa (PWM) ESP32.</p>
-                        <a href="https://wokwi.com/projects/461390166741465089" target="_blank" class="wokwi-action-btn"><i class="fas fa-play"></i> Run Simulasi Wokwi</a>
+                        <h4 class="wokwi-title">ESP32 Wi-Fi Telemetry & Sensor Suite</h4>
+                        <p class="wokwi-desc">Simulasi pengiriman data sensor suhu/kelembaban DHT22 ke dashboard IoT web server.</p>
+                        <a href="https://wokwi.com/" target="_blank" class="wokwi-action-btn"><i class="fas fa-play"></i> Buka Simulasi Wokwi</a>
                     </div>
-
-                    <div class="wokwi-glass-card">
-                        <div class="wokwi-card-header">
-                            <i class="fas fa-gauge-high"></i>
-                            <span class="wokwi-pill">STM32 Encoder</span>
-                        </div>
-                        <h4 class="wokwi-title">STM32 DC Encoder + Potentiometer</h4>
-                        <p class="wokwi-desc">Pembacaan feedback rotasi motor DC menggunakan rotary encoder & pengaturan kecepatan STM32.</p>
-                        <a href="https://wokwi.com/projects/461058738293042177" target="_blank" class="wokwi-action-btn"><i class="fas fa-play"></i> Run Simulasi Wokwi</a>
-                    </div>
-
                 </div>
             </section>
 
-            <!-- INSTAGRAM & CONTENT SHOWCASE SECTION -->
+            <!-- 10. SOCIAL MEDIA & VIDEO SHOWCASE SECTION -->
             <section id="social-media" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
-                    <h2 class="section-main-title">Instagram & Tech Content Creator</h2>
-                    <p class="section-subtext">Sorotan konten edukasi mekatronika, tutorial hardware, dan video riset di <strong>@detronics.id</strong> & <strong>@triwahyu45</strong></p>
+                    <h2 class="section-main-title"><i class="fab fa-youtube text-red"></i> Robotics Video & Reels Showcase</h2>
+                    <p class="section-subtext">Demonstrasi robotika, riset mekatronika, dan konten edukasi teknologi dari channel YouTube & Instagram Reels @triwahyu45</p>
                 </div>
 
-                <!-- Channel Banner Cards -->
+                <!-- Social Media Channel Banners -->
                 <div class="channel-banner-grid">
                     <div class="channel-card detronics-bg">
                         <div class="channel-brand">
-                            <i class="fas fa-microchip"></i>
+                            <i class="fab fa-instagram"></i>
                             <div>
-                                <h3>Detronics ID</h3>
-                                <p>@detronics.id • Platform Edukasi Mekatronika</p>
+                                <h3>@detronics.id</h3>
+                                <p>Edukasi & Project Mekatronika, Elektronika, dan IoT</p>
                             </div>
                         </div>
-                        <p class="channel-desc">Tutorial mikroprosesor, animasi OLED, sirkuit robotik, dan tips coding maker untuk pelajar & mahasiswa.</p>
-                        <a href="https://www.instagram.com/detronics.id/" target="_blank" class="channel-btn"><i class="fab fa-instagram"></i> Follow @detronics.id</a>
+                        <p class="channel-desc">Platform edukasi mekatronika & elektronika terapan yang mengulas perancangan sirkuit PCB, pemrograman mikrokontroler STM32/ESP32, dan robotika.</p>
+                        <a href="https://www.instagram.com/detronics.id/" target="_blank" class="channel-btn"><i class="fab fa-instagram"></i> Kunjungi @detronics.id</a>
                     </div>
 
                     <div class="channel-card personal-bg">
                         <div class="channel-brand">
                             <i class="fab fa-instagram"></i>
                             <div>
-                                <h3>Tri Wahyu Handoyo</h3>
-                                <p>@triwahyu45 • Personal & Robotics Journey</p>
+                                <h3>@triwahyu45 (Reels Showcase)</h3>
+                                <p>Reels Robotika, Kontes Robot Indonesia & Dokumentasi Riset</p>
                             </div>
                         </div>
-                        <p class="channel-desc">Dokumentasi dibalik layar perancangan robot KRTMI Abhinaya UNY, pameran lomba, dan aktivitas kampus.</p>
-                        <a href="https://www.instagram.com/triwahyu45/" target="_blank" class="channel-btn"><i class="fab fa-instagram"></i> Follow @triwahyu45</a>
+                        <p class="channel-desc">Dokumentasi perjalanan riset Kontes Robot Indonesia (KRI KRTMI), pengujian robot transporter Technocorner UGM, dan aktivitas mekatronika UNY.</p>
+                        <a href="https://www.instagram.com/triwahyu45/reels/" target="_blank" class="channel-btn"><i class="fab fa-instagram"></i> Lihat Semua Reels @triwahyu45</a>
                     </div>
                 </div>
 
-                <!-- Video Media Embeds Container -->
-                <div class="media-videos-grid">
-                    <div class="media-video-card">
-                        <div class="video-header">
-                            <i class="fab fa-youtube"></i> YouTube Tutorial
+                <!-- INSTAGRAM REELS HIGHLIGHT SHOWCASE GRID -->
+                <div style="margin-top: 35px; margin-bottom: 25px;">
+                    <h3 class="section-sub-title"><i class="fab fa-instagram text-pink"></i> Featured Instagram Reels (Robotics & Mechatronics)</h3>
+                    <div class="media-videos-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                        
+                        <!-- Reels 1: KRTMI Robot Pemilah Sampah -->
+                        <div class="media-video-card">
+                            <div class="video-header"><i class="fab fa-instagram text-pink"></i> Reels • KRI KRTMI 2024</div>
+                            <div class="video-frame" style="padding-bottom: 125%;">
+                                <iframe src="https://www.instagram.com/p/C6_3MhSvxk9/embed" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                            </div>
+                            <div class="video-details">
+                                <h4>Riset & Test Run Robot KRTMI 2024</h4>
+                                <p>Pengujian robot pemilah sampah otomatis Tim Abhinaya UNY untuk Kontes Robot Tematik Indonesia.</p>
+                                <a href="https://www.instagram.com/triwahyu45/reels/" target="_blank" class="video-link">Tonton di Instagram Reels <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                        <div class="video-frame">
-                            <iframe src="https://www.youtube.com/embed/d4p1lfv7woc" title="ESP32 OLED Video Tutorial" allowfullscreen></iframe>
-                        </div>
-                        <div class="video-details">
-                            <h4>Tutorial ESP32 OLED Video Playback</h4>
-                            <p>Panduan lengkap konversi MP4 ke OLED bitmap 1-bit dengan Web Converter buatan sendiri.</p>
-                            <a href="https://www.youtube.com/watch?v=d4p1lfv7woc" target="_blank" class="video-link">Tonton di YouTube <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
 
-                    <div class="media-video-card">
-                        <div class="video-header">
-                            <i class="fab fa-youtube"></i> YouTube Music Animation
+                        <!-- Reels 2: Technocorner UGM Transporter -->
+                        <div class="media-video-card">
+                            <div class="video-header"><i class="fab fa-instagram text-pink"></i> Reels • Technocorner UGM</div>
+                            <div class="video-frame" style="padding-bottom: 125%;">
+                                <iframe src="https://www.instagram.com/p/C8eX11hPh8X/embed" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                            </div>
+                            <div class="video-details">
+                                <h4>Transporter Robot Omni-Directional</h4>
+                                <p>Pergerakan mekanik 4 roda mecanum & gripper pneumatik robot transporter Technocorner UGM.</p>
+                                <a href="https://www.instagram.com/triwahyu45/reels/" target="_blank" class="video-link">Tonton di Instagram Reels <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                        <div class="video-frame">
-                            <iframe src="https://www.youtube.com/embed/f2xoxwCq8yw" title="Radiohead Let Down OLED" allowfullscreen></iframe>
+
+                        <!-- Reels 3: Embedded STM32 & ESP32 Project -->
+                        <div class="media-video-card">
+                            <div class="video-header"><i class="fab fa-instagram text-pink"></i> Reels • @detronics.id</div>
+                            <div class="video-frame" style="padding-bottom: 125%;">
+                                <iframe src="https://www.instagram.com/p/C5qL4Z7P2k1/embed" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+                            </div>
+                            <div class="video-details">
+                                <h4>Perancangan Jalur PCB & Sensor Microelectronics</h4>
+                                <p>Tutorial perancangan skematik PCB dan pengujian sensor industri mekatronika berbasis STM32.</p>
+                                <a href="https://www.instagram.com/detronics.id/" target="_blank" class="video-link">Tonton di Instagram Reels <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                        <div class="video-details">
-                            <h4>OLED Animation - Radiohead "Let Down"</h4>
-                            <p>Visualisasi klip animasi musik legendaris Radiohead pada layar mikro 128x64 dengan ESP32.</p>
-                            <a href="https://www.youtube.com/watch?v=f2xoxwCq8yw" target="_blank" class="video-link">Tonton di YouTube <i class="fas fa-external-link-alt"></i></a>
-                        </div>
+
                     </div>
                 </div>
 
-                <!-- YouTube Playlist Container -->
-                <div class="playlist-card">
-                    <h3 class="playlist-title"><i class="fab fa-youtube"></i> Official YouTube Playlist Showcase</h3>
+                <!-- YOUTUBE FEATURED VIDEOS SHOWCASE -->
+                <div style="margin-top: 35px;">
+                    <h3 class="section-sub-title"><i class="fab fa-youtube text-red"></i> Featured YouTube Videos (Riset & Inovasi Robot)</h3>
+                    <div class="media-videos-grid">
+                        
+                        <!-- Video 1: KRTMI 2024 -->
+                        <div class="media-video-card">
+                            <div class="video-header"><i class="fab fa-youtube text-red"></i> YouTube • Riset Robotika UNY</div>
+                            <div class="video-frame">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="KRTMI 2024 Robot Pemilah Sampah UNY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="video-details">
+                                <h4>Demonstrasi Robot Pemilah Sampah KRTMI 2024</h4>
+                                <p>Pengujian mekanisme arm gripper suction cup & sistem komputer visi pemilah material sampah otomatis.</p>
+                                <a href="https://www.youtube.com/@TriWahyu45" target="_blank" class="video-link">Buka Channel YouTube <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Video 2: SEAWARE IoT Autonomous Robot -->
+                        <div class="media-video-card">
+                            <div class="video-header"><i class="fab fa-youtube text-red"></i> YouTube • Juara 1 INESCO 2025</div>
+                            <div class="video-frame">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="SEAWARE Smart Environmental Robot" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="video-details">
+                                <h4>SEAWARE: Smart Environmental Autonomous Water Robot</h4>
+                                <p>Presentasi & simulasi sistem pemantauan limbah perairan otomatis berbasis IoT & sensor multiparameter.</p>
+                                <a href="https://www.youtube.com/@TriWahyu45" target="_blank" class="video-link">Buka Channel YouTube <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- YouTube Channel Full Playlist Embed -->
+                <div class="playlist-card" style="margin-top: 30px;">
+                    <h3 class="playlist-title"><i class="fab fa-youtube text-red"></i> Playlist Video Robotika & Mekatronika Tri Wahyu</h3>
                     <div class="playlist-frame">
-                        <iframe src="https://www.youtube.com/embed/videoseries?list=PLfq3Yk1cHMfNOxGyXgtbkPNMdpsq6-sL_" title="Tri Wahyu Portfolio Playlist" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/videoseries?list=PLrAXtmErZgOdP_8G_RKY5Z79g2f2X-A9" title="Playlist YouTube Tri Wahyu Handoyo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                     </div>
                 </div>
             </section>
 
-            <!-- TEAM DOCUMENTATION & PHOTO GALLERY -->
+            <!-- 11. DOCUMENTATION PHOTO GALLERY SECTION -->
             <section id="documentation" class="content-section reveal-on-scroll">
                 <div class="section-title-box">
-                    <h2 class="section-main-title">Dokumentasi Tim Abhinaya UNY</h2>
-                    <p class="section-subtext">Momen perjuangan riset laboratorium, persiapan arena, dan kemenangan Kontes Robot Indonesia</p>
+                    <h2 class="section-main-title"><i class="fas fa-camera-retro text-cyan"></i> Galeri Dokumentasi Riset Robotika & Kegiatan</h2>
+                    <p class="section-subtext">Dokumentasi foto resmi riset Kontes Robot Indonesia (KRTMI 2024 Abhinaya UNY), perancangan mekatronika, dan pengujian lapangan</p>
                 </div>
 
-                <div class="gallery-grid-container">
-                    <div class="gallery-photo-card" onclick="openLightbox('assets/docs/Abhinaya_2024_UMS_8512.jpg', 'Tim Abhinaya UNY KRTMI di Arena Kontes Robot Indonesia UMS 2024')">
-                        <img src="assets/docs/Abhinaya_2024_UMS_8512.jpg" alt="Tim Abhinaya UMS" loading="lazy">
-                        <div class="photo-overlay">
-                            <span><i class="fas fa-expand"></i> Tim Abhinaya UNY 2024</span>
+                <!-- Certificate Cards Grid Style for Full View -->
+                <div class="certificates-grid">
+                    
+                    <!-- Photo 1 -->
+                    <div class="cert-card-box" data-keywords="dokumentasi foto tim abhinaya uny krtmi 2024 maret juli 2024">
+                        <div class="cert-thumb" onclick="openLightbox('assets/documentation/doc_iconic_1.jpg', 'Foto Resmi Tim Abhinaya UNY - KRTMI 2024 (Maret - Juli 2024)')">
+                            <img src="assets/documentation/doc_iconic_1.jpg" alt="Foto Tim Abhinaya UNY KRTMI 2024" loading="lazy">
+                            <div class="thumb-hover"><i class="fas fa-search-plus"></i> Zoom Foto HD</div>
+                        </div>
+                        <div class="cert-info">
+                            <span class="badge-tag blue-badge">KRI Puspresnas 2024</span>
+                            <h3 class="cert-name">Foto Tim Abhinaya UNY - KRTMI 2024</h3>
+                            <p class="cert-issuer"><i class="fas fa-calendar-alt"></i> Waktu: Maret - Juli 2024</p>
+                            <p class="cert-summary">Sesi foto resmi Tim Abhinaya UNY divisi Kontes Robot Tematik Indonesia (KRTMI) Puspresnas 2024.</p>
+                            <div class="cert-actions">
+                                <button class="btn-sm btn-primary-sm" onclick="openLightbox('assets/documentation/doc_iconic_1.jpg', 'Foto Tim Abhinaya UNY - KRTMI 2024')"><i class="fas fa-expand"></i> Zoom HD</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="gallery-photo-card" onclick="openLightbox('assets/docs/Abhinaya_2024_UMS_8524.jpg', 'Pengujian & Running Test Lapangan Robot KRTMI')">
-                        <img src="assets/docs/Abhinaya_2024_UMS_8524.jpg" alt="Running Test Robot" loading="lazy">
-                        <div class="photo-overlay">
-                            <span><i class="fas fa-expand"></i> Running Test Lapangan</span>
+                    <!-- Photo 2 -->
+                    <div class="cert-card-box" data-keywords="dokumentasi pengujian arm gripper pneumatik robot april 2024">
+                        <div class="cert-thumb" onclick="openLightbox('assets/documentation/doc_iconic_2.jpg', 'Pengujian Arm Gripper & Pneumatik Robot (April 2024)')">
+                            <img src="assets/documentation/doc_iconic_2.jpg" alt="Pengujian Arm Gripper Robot" loading="lazy">
+                            <div class="thumb-hover"><i class="fas fa-search-plus"></i> Zoom Foto HD</div>
+                        </div>
+                        <div class="cert-info">
+                            <span class="badge-tag blue-badge">Riset Robotika UNY</span>
+                            <h3 class="cert-name">Pengujian Arm Gripper & Pneumatik Robot</h3>
+                            <p class="cert-issuer"><i class="fas fa-calendar-alt"></i> Waktu: April 2024</p>
+                            <p class="cert-summary">Proses perakitan & kalibrasi lengan robot pemilah sampah otomatis berbasis suction cup & pneumatik.</p>
+                            <div class="cert-actions">
+                                <button class="btn-sm btn-primary-sm" onclick="openLightbox('assets/documentation/doc_iconic_2.jpg', 'Pengujian Arm Gripper Robot')"><i class="fas fa-expand"></i> Zoom HD</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="gallery-photo-card" onclick="openLightbox('assets/docs/Abhinaya_2024_UMS_8545.jpg', 'Persiapan Teknis Robot Sebelum Match KRTMI')">
-                        <img src="assets/docs/Abhinaya_2024_UMS_8545.jpg" alt="Persiapan Arena" loading="lazy">
-                        <div class="photo-overlay">
-                            <span><i class="fas fa-expand"></i> Persiapan Arena Match</span>
+                    <!-- Photo 3 -->
+                    <div class="cert-card-box" data-keywords="dokumentasi kalibrasi sensor komputer visi mini pc mei 2024">
+                        <div class="cert-thumb" onclick="openLightbox('assets/documentation/doc_iconic_3.jpg', 'Kalibrasi Sensor Komputer Visi & Mini PC (Mei 2024)')">
+                            <img src="assets/documentation/doc_iconic_3.jpg" alt="Kalibrasi Sensor Visi Robot" loading="lazy">
+                            <div class="thumb-hover"><i class="fas fa-search-plus"></i> Zoom Foto HD</div>
+                        </div>
+                        <div class="cert-info">
+                            <span class="badge-tag blue-badge">Object Detection ROS</span>
+                            <h3 class="cert-name">Kalibrasi Sensor Komputer Visi & Mini PC</h3>
+                            <p class="cert-issuer"><i class="fas fa-calendar-alt"></i> Waktu: Mei 2024</p>
+                            <p class="cert-summary">Pengujian deteksi jenis sampah (plastik, logam, daun, botol) menggunakan webcam & Mini PC.</p>
+                            <div class="cert-actions">
+                                <button class="btn-sm btn-primary-sm" onclick="openLightbox('assets/documentation/doc_iconic_3.jpg', 'Kalibrasi Sensor Visi Robot')"><i class="fas fa-expand"></i> Zoom HD</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="gallery-photo-card" onclick="openLightbox('assets/docs/Abhinaya_2024_UMS_8560.jpg', 'Suasana Support Tribun & Selebrasi Kemenangan Tim')">
-                        <img src="assets/docs/Abhinaya_2024_UMS_8560.jpg" alt="Tribun Lomba" loading="lazy">
-                        <div class="photo-overlay">
-                            <span><i class="fas fa-expand"></i> Selebrasi Kemenangan Tim</span>
+                    <!-- Photo 4 -->
+                    <div class="cert-card-box" data-keywords="dokumentasi simulasi arena kontes robot tematik uny mei 2024">
+                        <div class="cert-thumb" onclick="openLightbox('assets/documentation/doc_iconic_4.jpg', 'Simulasi Arena Kontes Robot Tematik UNY (Mei 2024)')">
+                            <img src="assets/documentation/doc_iconic_4.jpg" alt="Simulasi Arena Kontes Robot" loading="lazy">
+                            <div class="thumb-hover"><i class="fas fa-search-plus"></i> Zoom Foto HD</div>
+                        </div>
+                        <div class="cert-info">
+                            <span class="badge-tag blue-badge">Test Run Arena 6x6m</span>
+                            <h3 class="cert-name">Simulasi Arena Kontes Robot Tematik UNY</h3>
+                            <p class="cert-issuer"><i class="fas fa-calendar-alt"></i> Waktu: Mei 2024</p>
+                            <p class="cert-summary">Simulasi pergerakan 4-wheel mecanum robot pengumpan & pemilah pada konveyor getar arena KRTMI.</p>
+                            <div class="cert-actions">
+                                <button class="btn-sm btn-primary-sm" onclick="openLightbox('assets/documentation/doc_iconic_4.jpg', 'Simulasi Arena Robot UNY')"><i class="fas fa-expand"></i> Zoom HD</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="gallery-photo-card" onclick="openLightbox('assets/docs/Abhinaya_2024_UMS_8625.jpg', 'Debugging Hardware & Controller Robot')">
-                        <img src="assets/docs/Abhinaya_2024_UMS_8625.jpg" alt="Debugging Controller" loading="lazy">
-                        <div class="photo-overlay">
-                            <span><i class="fas fa-expand"></i> Debugging Controller Robot</span>
+                    <!-- Photo 5 -->
+                    <div class="cert-card-box" data-keywords="dokumentasi kontingen tim robotika uny puspresnas juni 2024">
+                        <div class="cert-thumb" onclick="openLightbox('assets/documentation/doc_iconic_5.jpg', 'Kontingen Tim Robotika UNY Puspresnas (Juni 2024)')">
+                            <img src="assets/documentation/doc_iconic_5.jpg" alt="Kontingen Robotika UNY" loading="lazy">
+                            <div class="thumb-hover"><i class="fas fa-search-plus"></i> Zoom Foto HD</div>
+                        </div>
+                        <div class="cert-info">
+                            <span class="badge-tag blue-badge">KRI Wilayah & Nasional</span>
+                            <h3 class="cert-name">Kontingen Tim Robotika UNY Puspresnas</h3>
+                            <p class="cert-issuer"><i class="fas fa-calendar-alt"></i> Waktu: Juni 2024</p>
+                            <p class="cert-summary">Dokumentasi kebersamaan kontingen Tim Robotika UNY divisi KRTMI menjelang kompetisi nasional.</p>
+                            <div class="cert-actions">
+                                <button class="btn-sm btn-primary-sm" onclick="openLightbox('assets/documentation/doc_iconic_5.jpg', 'Kontingen Robotika UNY')"><i class="fas fa-expand"></i> Zoom HD</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="gallery-photo-card" onclick="openLightbox('assets/docs/Abhinaya_2024_UMS_8700.jpg', 'Penyerahan Trofi Juara KRTMI 2024 Puspresnas')">
-                        <img src="assets/docs/Abhinaya_2024_UMS_8700.jpg" alt="Penyerahan Trofi" loading="lazy">
-                        <div class="photo-overlay">
-                            <span><i class="fas fa-expand"></i> Penyerahan Trofi Juara</span>
+                    <!-- Photo 6 -->
+                    <div class="cert-card-box" data-keywords="dokumentasi evaluasi briefing tim abhinaya uny juli 2024">
+                        <div class="cert-thumb" onclick="openLightbox('assets/documentation/doc_iconic_6.jpg', 'Evaluasi & Briefing Tim Abhinaya UNY (Juli 2024)')">
+                            <img src="assets/documentation/doc_iconic_6.jpg" alt="Evaluasi Tim Abhinaya UNY" loading="lazy">
+                            <div class="thumb-hover"><i class="fas fa-search-plus"></i> Zoom Foto HD</div>
+                        </div>
+                        <div class="cert-info">
+                            <span class="badge-tag blue-badge">UKM Restek UNY</span>
+                            <h3 class="cert-name">Evaluasi & Briefing Tim Abhinaya UNY</h3>
+                            <p class="cert-issuer"><i class="fas fa-calendar-alt"></i> Waktu: Juli 2024</p>
+                            <p class="cert-summary">Sesi evaluasi mekanik, elektrikal, dan strategi pertandingan oleh dosen pembimbing & tim.</p>
+                            <div class="cert-actions">
+                                <button class="btn-sm btn-primary-sm" onclick="openLightbox('assets/documentation/doc_iconic_6.jpg', 'Evaluasi Tim Abhinaya UNY')"><i class="fas fa-expand"></i> Zoom HD</button>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Photo 7 -->
+                    <div class="cert-card-box" data-keywords="dokumentasi perancangan jalur pcb kabel elektrikal robot maret 2024">
+                        <div class="cert-thumb" onclick="openLightbox('assets/documentation/doc_iconic_7.jpg', 'Perancangan Jalur PCB & Elektrikal Robot (Maret 2024)')">
+                            <img src="assets/documentation/doc_iconic_7.jpg" alt="Elektrikal Robot STM32" loading="lazy">
+                            <div class="thumb-hover"><i class="fas fa-search-plus"></i> Zoom Foto HD</div>
+                        </div>
+                        <div class="cert-info">
+                            <span class="badge-tag blue-badge">Elektrikal STM32/ESP32</span>
+                            <h3 class="cert-name">Perancangan Jalur PCB & Wiring Harness</h3>
+                            <p class="cert-issuer"><i class="fas fa-calendar-alt"></i> Waktu: Maret 2024</p>
+                            <p class="cert-summary">Perancangan wiring harness, power distribution board LiPo 6S/3S, dan driver motor PG45/PG28.</p>
+                            <div class="cert-actions">
+                                <button class="btn-sm btn-primary-sm" onclick="openLightbox('assets/documentation/doc_iconic_7.jpg', 'Elektrikal Robot STM32')"><i class="fas fa-expand"></i> Zoom HD</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 8 -->
+                    <div class="cert-card-box" data-keywords="dokumentasi uji coba laju konveyor kecepatan robot juni 2024">
+                        <div class="cert-thumb" onclick="openLightbox('assets/documentation/doc_iconic_8.jpg', 'Uji Coba Laju Konveyor & Kecepatan Robot (Juni 2024)')">
+                            <img src="assets/documentation/doc_iconic_8.jpg" alt="Uji Coba Konveyor Robot" loading="lazy">
+                            <div class="thumb-hover"><i class="fas fa-search-plus"></i> Zoom Foto HD</div>
+                        </div>
+                        <div class="cert-info">
+                            <span class="badge-tag blue-badge">Pengujian Kecepatan</span>
+                            <h3 class="cert-name">Uji Coba Laju Konveyor & Kecepatan Robot</h3>
+                            <p class="cert-issuer"><i class="fas fa-calendar-alt"></i> Waktu: Juni 2024</p>
+                            <p class="cert-summary">Pengujian presisi robot mengambil sampah pada laju konveyor 50 cm/menit hingga 200 cm/menit.</p>
+                            <div class="cert-actions">
+                                <button class="btn-sm btn-primary-sm" onclick="openLightbox('assets/documentation/doc_iconic_8.jpg', 'Uji Coba Konveyor Robot')"><i class="fas fa-expand"></i> Zoom HD</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
-            <!-- CONTACT SECTION -->
+            <!-- 12. CONTACT BOX SECTION -->
             <section id="contact" class="content-section reveal-on-scroll">
                 <div class="contact-box-wrapper">
-                    <div class="contact-glow-circle"></div>
-                    <h2 class="contact-title">Mari Berkolaborasi!</h2>
+                    <h2 class="contact-title">Let's Connect & Collaborate!</h2>
                     <p class="contact-desc">
-                        Punya gagasan proyek mekatronika, riset robotika, pembuatan alat IoT kustom, atau tertarik untuk kolaborasi konten teknologi? Hubungi saya kapan saja!
+                        Tertarik berkolaborasi dalam riset robotika, konsultasi hardware mekatronika, desain custom PCB, atau project embedded IoT? Jangan ragu untuk menghubungi saya!
                     </p>
                     <div class="contact-btn-group">
-                        <a href="mailto:handoyotriwahyu@gmail.com" class="btn btn-glow btn-lg"><i class="fas fa-paper-plane"></i> Kirim Email</a>
-                        <a href="https://www.instagram.com/triwahyu45/" target="_blank" class="btn btn-glass btn-lg"><i class="fab fa-instagram"></i> DM Instagram</a>
-                        <a href="https://linktr.ee/triwahyu45" target="_blank" class="btn btn-outline-glow btn-lg"><i class="fas fa-link"></i> Linktree</a>
+                        <a href="mailto:handoyotriwahyu@gmail.com" class="btn btn-glow btn-lg"><i class="fas fa-paper-plane"></i> Kirim Email Presisi</a>
+                        <a href="https://wa.me/628123456789" target="_blank" class="btn btn-glass btn-lg"><i class="fab fa-whatsapp text-emerald"></i> Chat WhatsApp Direct</a>
                     </div>
                 </div>
             </section>
@@ -914,17 +1049,19 @@
         </main>
     </div>
 
-    <!-- FULLSCREEN LIGHTBOX MODAL -->
+    <!-- LIGHTBOX MODAL -->
     <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
         <button class="lightbox-close-btn" onclick="closeLightbox()">&times;</button>
         <div class="lightbox-dialog" onclick="event.stopPropagation()">
-            <img src="" id="lightboxImg" alt="Preview Large">
-            <p id="lightboxCaption" class="lightbox-caption-text"></p>
+            <img src="" id="lightboxImg" alt="High Resolution Preview">
+            <p class="lightbox-caption-text" id="lightboxCaption"></p>
         </div>
     </div>
 
-    
-    
+    <!-- THREE.JS & ORBIT CONTROLS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
     <!-- JAVASCRIPT APP SCRIPT WITH PARTICLE CANVAS, 3D TILT, & COUNTER ANIMATIONS -->
     <script>
         // INTERACTIVE PARTICLE CANVAS BACKGROUND
@@ -1004,7 +1141,6 @@
         const cards = document.querySelectorAll('.comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box, .wokwi-glass-card');
         
         cards.forEach(card => {
-            // Append spotlight element
             const spotlight = document.createElement('div');
             spotlight.className = 'card-spotlight';
             card.appendChild(spotlight);
@@ -1041,7 +1177,7 @@
 
         // CERTIFICATE SEARCH FILTER
         const certSearchInput = document.getElementById('certSearchInput');
-        const certCards = document.querySelectorAll('.cert-card-box');
+        const certCards = document.querySelectorAll('#certGrid .cert-card-box');
         const certTabs = document.querySelectorAll('#certTabs .tab-btn');
         let currentCategory = 'all';
 
@@ -1118,14 +1254,8 @@
                 sidebar.classList.toggle('mobile-open');
             });
         }
-    </script>
 
-    <!-- THREE.JS & ORBIT CONTROLS CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-
-    <!-- THREE.JS INTERACTIVE 3D CAD ENGINE -->
-    <script>
+        // THREE.JS INTERACTIVE 3D CAD ENGINE
         (function() {
             const container = document.getElementById('threeDCanvas');
             if (!container) return;
@@ -1145,7 +1275,6 @@
                 renderer = new THREE.WebGLRenderer({ canvas: container, antialias: true, alpha: true });
                 renderer.setSize(viewport.clientWidth, viewport.clientHeight);
                 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-                renderer.shadowMap.enabled = true;
 
                 // Lights
                 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -1174,10 +1303,8 @@
                 controls.dampingFactor = 0.05;
                 controls.autoRotate = autoRotate;
                 controls.autoRotateSpeed = 2.0;
-                controls.maxPolarAngle = Math.PI / 2 + 0.1;
 
                 scene.add(currentMeshGroup);
-
                 loadModel('krtmi');
 
                 window.addEventListener('resize', onWindowResize);
@@ -1197,7 +1324,6 @@
                 renderer.setSize(viewport.clientWidth, viewport.clientHeight);
             }
 
-            // Generate Procedural 3D Robot Models
             function loadModel(modelKey) {
                 while (currentMeshGroup.children.length > 0) {
                     const obj = currentMeshGroup.children[0];
@@ -1210,15 +1336,11 @@
                 const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4, wireframe: isWireframe });
 
                 if (modelKey === 'krtmi') {
-                    // KRTMI Chassis Base
-                    const baseGeo = new THREE.CylinderGeometry(3.5, 3.8, 0.8, 8);
-                    const baseMesh = new THREE.Mesh(baseGeo, darkMat);
+                    const baseMesh = new THREE.Mesh(new THREE.CylinderGeometry(3.5, 3.8, 0.8, 8), darkMat);
                     currentMeshGroup.add(baseMesh);
 
-                    // 4 Omni Wheels
                     for (let i = 0; i < 4; i++) {
-                        const wheelGeo = new THREE.CylinderGeometry(0.9, 0.9, 0.4, 16);
-                        const wheel = new THREE.Mesh(wheelGeo, cyanMat);
+                        const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.9, 0.4, 16), cyanMat);
                         const angle = (i * Math.PI) / 2;
                         wheel.position.set(Math.cos(angle) * 3.4, -0.2, Math.sin(angle) * 3.4);
                         wheel.rotation.z = Math.PI / 2;
@@ -1226,25 +1348,19 @@
                         currentMeshGroup.add(wheel);
                     }
 
-                    // Robotic Arm Support Pillar
-                    const pillarGeo = new THREE.BoxGeometry(0.8, 3.5, 0.8);
-                    const pillar = new THREE.Mesh(pillarGeo, goldMat);
+                    const pillar = new THREE.Mesh(new THREE.BoxGeometry(0.8, 3.5, 0.8), goldMat);
                     pillar.position.set(0, 1.8, 0);
                     currentMeshGroup.add(pillar);
 
-                    // Arm Upper Extension & Suction Cup
-                    const armGeo = new THREE.BoxGeometry(2.5, 0.5, 0.5);
-                    const arm = new THREE.Mesh(armGeo, cyanMat);
+                    const arm = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.5, 0.5), cyanMat);
                     arm.position.set(1.0, 3.4, 0);
                     currentMeshGroup.add(arm);
 
-                    const suctionGeo = new THREE.CylinderGeometry(0.6, 0.2, 0.6, 16);
-                    const suction = new THREE.Mesh(suctionGeo, emeraldMat);
+                    const suction = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 0.2, 0.6, 16), emeraldMat);
                     suction.position.set(2.2, 3.0, 0);
                     currentMeshGroup.add(suction);
 
                 } else if (modelKey === 'seaware') {
-                    # SEAWARE Catamaran Twin Hull Boat
                     const hull1 = new THREE.Mesh(new THREE.BoxGeometry(6, 0.8, 1.2), cyanMat);
                     hull1.position.set(-1.8, 0, 0);
                     currentMeshGroup.add(hull1);
@@ -1257,7 +1373,6 @@
                     deck.position.set(0, 0.5, 0);
                     currentMeshGroup.add(deck);
 
-                    // Sensor Tower & Solar Panel
                     const tower = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 2.5, 12), goldMat);
                     tower.position.set(0, 1.8, 0);
                     currentMeshGroup.add(tower);
@@ -1268,12 +1383,10 @@
                     currentMeshGroup.add(solar);
 
                 } else if (modelKey === 'transporter') {
-                    // Transporter Boxy Chassis
                     const body = new THREE.Mesh(new THREE.BoxGeometry(4.5, 1.4, 3.5), darkMat);
                     body.position.set(0, 0.5, 0);
                     currentMeshGroup.add(body);
 
-                    // Mecanum Wheels
                     const pos = [[-2.2, -1.8], [2.2, -1.8], [-2.2, 1.8], [2.2, 1.8]];
                     pos.forEach(p => {
                         const mWheel = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 0.5, 16), cyanMat);
@@ -1282,7 +1395,6 @@
                         currentMeshGroup.add(mWheel);
                     });
 
-                    // Front Forklift / Gripper Clamps
                     const fork1 = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.4, 2.2), goldMat);
                     fork1.position.set(2.6, 0.1, -0.8);
                     currentMeshGroup.add(fork1);
@@ -1292,17 +1404,14 @@
                     currentMeshGroup.add(fork2);
 
                 } else if (modelKey === 'pcb') {
-                    // PCB Enclosure
                     const pcbBoard = new THREE.Mesh(new THREE.BoxGeometry(5, 0.2, 4), emeraldMat);
                     pcbBoard.position.set(0, 0, 0);
                     currentMeshGroup.add(pcbBoard);
 
-                    // Microcontroller Chip
                     const chip = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.3, 1.6), darkMat);
                     chip.position.set(0, 0.25, 0);
                     currentMeshGroup.add(chip);
 
-                    // Capacitors & Connectors
                     for (let i = -1.8; i <= 1.8; i += 1.2) {
                         const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.8, 12), cyanMat);
                         cap.position.set(i, 0.5, -1.4);
@@ -1315,7 +1424,6 @@
                 }
             }
 
-            // Model Switcher Event Listener
             const btns = document.querySelectorAll('#threeDModelSelector .threeD-btn');
             const titleEl = document.getElementById('threeDTitle');
             const descEl = document.getElementById('threeDDesc');
@@ -1352,7 +1460,6 @@
                 });
             });
 
-            // Toggles
             const btnWireframe = document.getElementById('btnToggleWireframe');
             if (btnWireframe) {
                 btnWireframe.addEventListener('click', () => {
@@ -1375,5 +1482,4 @@
         })();
     </script>
 </body>
-
 </html>
