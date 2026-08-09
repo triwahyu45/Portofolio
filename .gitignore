@@ -1,3 +1,10 @@
 assets/docs/
 .DS_Store
 *.log
+
+
+# PRIVATE FACE MODEL & ALBUM LINKS
+face_model/
+*.json
+tri_wahyu_faces/
+scratch/
