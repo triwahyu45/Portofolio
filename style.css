@@ -1902,3 +1902,24 @@ body {
     transform: translateZ(25px);
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* MOBILE GPU & RENDERING PERFORMANCE OPTIMIZATIONS (60 FPS SMOOTH SCROLL) */
+@media (max-width: 768px) {
+    /* Reduce GPU backdrop filter blur rendering overhead */
+    .article-glass-card, .cert-card-box, .project-glass-card, .stat-glass-card, .comp-card {
+        backdrop-filter: blur(6px) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    /* Disable heavy 3D perspective transforms on touch scrolling */
+    .comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box {
+        transform: none !important;
+        transform-style: flat !important;
+    }
+    
+    /* Adjust Hero 3D wrapper height on mobile */
+    .hero-3d-wrapper {
+        height: 220px !important;
+    }
+}

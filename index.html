@@ -123,6 +123,20 @@
 
             <!-- 1. HERO / ABOUT SECTION -->
             <section id="about" class="content-section reveal-on-scroll">
+                
+                <!-- HERO TOP PROFILE AVATAR CARD (Always Visible Profile Photo for Mobile & Desktop) -->
+                <div class="hero-top-profile-card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding: 20px 24px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(0, 242, 254, 0.12)); border: 1px solid var(--cyan-glow); border-radius: 20px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);">
+                    <div style="width: 100px; height: 100px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 3px solid var(--cyan-glow); box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); position: relative;">
+                        <img src="assets/documentation/doc_tri_wahyu_hero_krtmi.jpg" alt="Tri Wahyu Handoyo - Programmer Utama Tim Robotika UNY" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; min-width: 220px;">
+                        <span class="badge-tag gold-badge" style="margin-bottom: 6px;"><i class="fas fa-user-astronaut"></i> Tri Wahyu Handoyo</span>
+                        <h2 style="font-size: 22px; font-weight: 900; font-family: 'Outfit', sans-serif; color: var(--text-main); margin-bottom: 4px;">Tri Wahyu Handoyo</h2>
+                        <p style="font-size: 13px; font-weight: 700; color: var(--cyan-glow); margin-bottom: 4px;"><i class="fas fa-microchip"></i> Programmer Utama & Koordinator Tim Robotika UNY Abhinaya</p>
+                        <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 0;"><i class="fas fa-university"></i> Pendidikan Teknik Mekatronika UNY '22 • NIM: 22518241023</p>
+                    </div>
+                </div>
+
                 <div class="hero-layout-grid">
                     <div class="hero-header" style="margin-bottom: 0;">
                         <div class="glow-pill"><i class="fas fa-sparkles"></i> Welcome to My Official Portfolio</div>
@@ -1105,7 +1119,7 @@
                     <!-- 1. Featured Widescreen 16:9 Horizontal Video (Pengumuman Juara Regional) -->
                     <div class="cert-card-box featured-video-card" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(245, 158, 11, 0.15)); border: 1px solid var(--gold-glow); padding: 20px; margin-bottom: 24px; width: 100%;" data-keywords="video pengumuman juara krtmi regional bpti puspresnas uny abhinaya">
                         <div class="cert-thumb video-player-wrapper" style="width: 100%; aspect-ratio: 16 / 9; max-height: 480px; position: relative; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);">
-                            <video controls poster="assets/documentation/doc_juara_regional_poster.jpg" style="width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 16px;">
+                            <video controls preload="none" poster="assets/documentation/doc_juara_regional_poster.jpg" style="width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 16px;">
                                 <source src="assets/videos/krtmi_regional_announcement.mp4" type="video/mp4">
                                 Browser kamu tidak mendukung pemutaran video HTML5.
                             </video>
@@ -1124,7 +1138,7 @@
                         <!-- Video 2: Lapangan Arena KRTMI 2024 Action Video (Vertical 9:16) -->
                         <div class="cert-card-box featured-video-card" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(0, 242, 254, 0.1)); border: 1px solid var(--cyan-glow); padding: 16px; height: 100%; display: flex; flex-direction: column;" data-keywords="lapangan krtmi 2024 video arena running field img_8054.mov">
                             <div class="cert-thumb video-player-wrapper" style="width: 100%; height: 380px; position: relative; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 8px 25px rgba(0, 242, 254, 0.2);">
-                                <video controls poster="assets/documentation/doc_krtmi_field_poster.jpg" style="width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 16px;">
+                                <video controls preload="none" poster="assets/documentation/doc_krtmi_field_poster.jpg" style="width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 16px;">
                                     <source src="assets/videos/krtmi_field_action.mp4" type="video/mp4">
                                     Browser kamu tidak mendukung pemutaran video HTML5.
                                 </video>
@@ -1142,7 +1156,7 @@
                         <!-- Video 3: KRI 2024 Official Awarding Ceremony Video (Vertical 9:16) -->
                         <div class="cert-card-box featured-video-card" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(245, 158, 11, 0.1)); border: 1px solid var(--gold-glow); padding: 16px; height: 100%; display: flex; flex-direction: column;" data-keywords="kri 2024 awarding ceremony video penyerahan piala juara abhinaya uny img_3589.mov">
                             <div class="cert-thumb video-player-wrapper" style="width: 100%; height: 380px; position: relative; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);">
-                                <video controls poster="assets/documentation/doc_awarding_poster.jpg" style="width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 16px;">
+                                <video controls preload="none" poster="assets/documentation/doc_awarding_poster.jpg" style="width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 16px;">
                                     <source src="assets/videos/kri_2024_awarding.mp4" type="video/mp4">
                                     Browser kamu tidak mendukung pemutaran video HTML5.
                                 </video>
@@ -1235,15 +1249,19 @@
                 }
             }
 
-            for (let i = 0; i < 55; i++) {
+            const isMobileDevice = window.innerWidth < 768;
+            const particleCount = isMobileDevice ? 15 : 55;
+            for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
 
             let mouse = { x: null, y: null };
-            window.addEventListener('mousemove', (e) => {
-                mouse.x = e.clientX;
-                mouse.y = e.clientY;
-            });
+            if (!isMobileDevice) {
+                window.addEventListener('mousemove', (e) => {
+                    mouse.x = e.clientX;
+                    mouse.y = e.clientY;
+                });
+            }
 
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1251,17 +1269,19 @@
                     particles[i].update();
                     particles[i].draw();
 
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 130) {
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(0, 242, 254, ${1 - dist / 130})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
+                    if (!isMobileDevice) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < 130) {
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(0, 242, 254, ${1 - dist / 130})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
                         }
                     }
                 }
@@ -1270,7 +1290,7 @@
             animateParticles();
         }
 
-        // MOUSE SPOTLIGHT & 3D PARALLAX TILT
+        // MOUSE SPOTLIGHT & 3D PARALLAX TILT (Desktop only for 60FPS mobile performance)
         const cards = document.querySelectorAll('.comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box, .wokwi-glass-card');
         
         cards.forEach(card => {
@@ -1279,6 +1299,7 @@
             card.appendChild(spotlight);
 
             card.addEventListener('mousemove', (e) => {
+                if (window.innerWidth < 768) return;
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
