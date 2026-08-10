@@ -127,16 +127,37 @@
             <!-- 1. HERO / ABOUT SECTION -->
             <section id="about" class="content-section reveal-on-scroll">
                 
-                <!-- HERO TOP PROFILE AVATAR CARD (Always Visible Profile Photo for Mobile & Desktop) -->
-                <div class="hero-top-profile-card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding: 20px 24px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(0, 242, 254, 0.12)); border: 1px solid var(--cyan-glow); border-radius: 20px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);">
-                    <div style="width: 100px; height: 100px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 3px solid var(--cyan-glow); box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); position: relative;">
+                <!-- HERO TOP PROFILE AVATAR & ROBOTICS TEAM CAREER CARD -->
+                <div class="hero-top-profile-card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding: 22px 26px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(0, 242, 254, 0.12)); border: 1px solid var(--cyan-glow); border-radius: 24px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);">
+                    <div style="width: 105px; height: 105px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 3px solid var(--cyan-glow); box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); position: relative;">
                         <img src="assets/documentation/doc_tri_wahyu_hero_krtmi.jpg" alt="Tri Wahyu Handoyo - Programmer Utama Tim Robotika UNY" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div style="flex: 1; min-width: 220px;">
-                        <span class="badge-tag gold-badge" style="margin-bottom: 6px;"><i class="fas fa-user-astronaut"></i> Tri Wahyu Handoyo</span>
-                        <h2 style="font-size: 22px; font-weight: 900; font-family: 'Outfit', sans-serif; color: var(--text-main); margin-bottom: 4px;">Tri Wahyu Handoyo</h2>
-                        <p style="font-size: 13px; font-weight: 700; color: var(--cyan-glow); margin-bottom: 4px;"><i class="fas fa-microchip"></i> Programmer Utama & Koordinator Tim Robotika UNY Abhinaya</p>
-                        <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 0;"><i class="fas fa-university"></i> Pendidikan Teknik Mekatronika UNY '22 • NIM: 22518241023</p>
+                    <div style="flex: 1; min-width: 240px;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 6px;">
+                            <span class="badge-tag gold-badge"><i class="fas fa-user-astronaut"></i> Tri Wahyu Handoyo</span>
+                            <span class="badge-tag blue-badge"><i class="fas fa-microchip"></i> Mechatronics Engineer</span>
+                        </div>
+                        <h2 style="font-size: 24px; font-weight: 900; font-family: 'Outfit', sans-serif; color: var(--text-main); margin-bottom: 4px;">Tri Wahyu Handoyo</h2>
+                        <p style="font-size: 13px; font-weight: 700; color: var(--cyan-glow); margin-bottom: 8px;"><i class="fas fa-robot"></i> Programmer & Hardware Developer Tim Robotika UNY</p>
+                        
+                        <!-- Official Team Badges with Logos -->
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                            <div style="display: flex; align-items: center; gap: 8px; background: rgba(15, 23, 42, 0.85); border: 1px solid var(--cyan-glow); padding: 6px 12px; border-radius: 12px; backdrop-filter: blur(8px);">
+                                <img src="assets/logo_abhinaya_transparent.png" alt="Logo Tim Abhinaya UNY" style="height: 26px; width: auto; object-fit: contain; filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.6));">
+                                <div>
+                                    <div style="font-size: 11px; font-weight: 800; color: var(--cyan-glow);">ABHINAYA UNY (2023 - 2024)</div>
+                                    <div style="font-size: 10px; color: var(--text-sub);">Programmer Utama KRTMI Puspresnas</div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; gap: 8px; background: rgba(15, 23, 42, 0.85); border: 1px solid var(--gold-glow); padding: 6px 12px; border-radius: 12px; backdrop-filter: blur(8px);">
+                                <img src="assets/logo_maestro_evo.png" alt="Logo Tim Maestro EVO UNY" style="height: 26px; width: auto; object-fit: contain; filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));">
+                                <div>
+                                    <div style="font-size: 11px; font-weight: 800; color: var(--gold-glow);">MAESTRO EVO UNY (2025 - Present)</div>
+                                    <div style="font-size: 10px; color: var(--text-sub);">Software & System Developer KRAI</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -193,6 +214,45 @@
                             <div class="comp-icon icon-gold"><i class="fas fa-cube"></i></div>
                             <h4>3D CAD & Industrial Automation</h4>
                             <p>Autodesk Inventor, SolidWorks 3D Modeling, PLC Omron CX-One, Pneumatic & ElektroPneumatic, Rapid Prototyping (3D Printing & KiCad PCB).</p>
+                        </div>
+                    </div>
+
+                    <!-- OFFICIAL ROBOTICS TEAM AFFILIATION SHOWCASE (ABHINAYA & MAESTRO EVO) -->
+                    <div style="margin-top: 32px; padding: 24px; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-xl); backdrop-filter: blur(12px);">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <span class="badge-tag gold-badge" style="margin-bottom: 6px;"><i class="fas fa-flag"></i> Rekam Jejak Tim Robotika UNY</span>
+                            <h3 style="font-size: 20px; font-weight: 900; font-family: 'Outfit', sans-serif; color: var(--text-main);">Tim Robotika Resmi Universitas Negeri Yogyakarta</h3>
+                            <p style="font-size: 13px; color: var(--text-sub); margin-top: 4px;">Perjalanan karier mekatronika dan pengembang sistem robotika kompetisi Kontes Robot Indonesia (KRI Puspresnas)</p>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                            <!-- Tim Abhinaya UNY (2023 - 2024) -->
+                            <div class="comp-card" style="padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid var(--border-glow); background: radial-gradient(circle at top, rgba(0, 242, 254, 0.08), rgba(15, 23, 42, 0.9));">
+                                <div style="width: 80px; height: 80px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: rgba(3, 7, 18, 0.8); border: 2px solid var(--cyan-glow); border-radius: 20px; padding: 10px; box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);">
+                                    <img src="assets/logo_abhinaya_transparent.png" alt="Logo Tim Robotika Abhinaya UNY" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                </div>
+                                <span class="badge-tag blue-badge" style="margin-bottom: 8px;"><i class="fas fa-calendar-alt"></i> Periode 2023 – 2024</span>
+                                <h4 style="font-size: 18px; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Tim Abhinaya UNY</h4>
+                                <p style="font-size: 12px; font-weight: 700; color: var(--cyan-glow); margin-bottom: 8px;"><i class="fas fa-trophy"></i> Divisi KRTMI (Kontes Robot Tematik Indonesia)</p>
+                                <p style="font-size: 12px; color: var(--text-sub); line-height: 1.6; margin-bottom: 0;">
+                                    Peran: <strong>Programmer Utama & Koordinator Sistem Robotik</strong>.<br>
+                                    Prestasi: 🏆 Juara 1 Wilayah I KRTMI 2024 & 🥈 Juara 2 Nasional KRTMI Puspresnas 2024.
+                                </p>
+                            </div>
+
+                            <!-- Tim Maestro EVO UNY (2025 - Present) -->
+                            <div class="comp-card" style="padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid rgba(245, 158, 11, 0.4); background: radial-gradient(circle at top, rgba(245, 158, 11, 0.08), rgba(15, 23, 42, 0.9));">
+                                <div style="width: 80px; height: 80px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: rgba(3, 7, 18, 0.8); border: 2px solid var(--gold-glow); border-radius: 20px; padding: 10px; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);">
+                                    <img src="assets/logo_maestro_evo.png" alt="Logo Tim Robotika Maestro EVO UNY" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                </div>
+                                <span class="badge-tag gold-badge" style="margin-bottom: 8px;"><i class="fas fa-calendar-alt"></i> Periode 2025 – Sekarang</span>
+                                <h4 style="font-size: 18px; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Tim Maestro EVO UNY</h4>
+                                <p style="font-size: 12px; font-weight: 700; color: var(--gold-glow); margin-bottom: 8px;"><i class="fas fa-robot"></i> Divisi KRAI (Kontes Robot ABU Indonesia)</p>
+                                <p style="font-size: 12px; color: var(--text-sub); line-height: 1.6; margin-bottom: 0;">
+                                    Peran: <strong>Software & System Hardware Developer</strong>.<br>
+                                    Pengembangan: Sistem kontrol aktuator, kinematika robotik tingkat lanjut, & integrasi modul elektronik KRAI 2025.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
