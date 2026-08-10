@@ -108,8 +108,11 @@
                 </nav>
 
                 <!-- Sidebar Footer -->
-                <div class="sidebar-footer">
-                    <button class="theme-toggle" id="themeToggle" title="Switch Light/Dark Mode">
+                <div class="sidebar-footer" style="display: flex; flex-direction: column; gap: 8px;">
+                    <button class="theme-toggle" id="toggle3DMode" style="border: 1px solid var(--border-color); width: 100%; justify-content: center; background: rgba(15, 23, 42, 0.8);" title="Aktifkan/Matikan Mode 3D WebGL (Default: MATI)">
+                        <i class="fas fa-cube text-muted" id="toggle3DIcon"></i> <span id="toggle3DText" style="font-weight: 700;">Fitur 3D: MATI</span>
+                    </button>
+                    <button class="theme-toggle" id="themeToggle" title="Switch Light/Dark Mode" style="width: 100%; justify-content: center;">
                         <i class="fas fa-moon"></i> <span>Dark Mode</span>
                     </button>
                     <p class="copyright-text">© 2026 Tri Wahyu Handoyo</p>
@@ -147,10 +150,15 @@
                         </p>
                     </div>
                     
-                    <!-- HERO INTERACTIVE 3D WEBGL ROBOT CANVAS -->
-                    <div class="hero-3d-wrapper">
-                        <canvas id="hero3DCanvas"></canvas>
-                        <div class="hero-3d-badge"><i class="fas fa-cube"></i> Interactive 3D Robot Cyber Engine</div>
+                    <!-- HERO INTERACTIVE 3D WEBGL ROBOT CANVAS (Default MATI untuk Fast Response) -->
+                    <div class="hero-3d-wrapper" id="hero3DWrapper">
+                        <div id="hero3DOffBanner" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98)); border-radius: inherit;">
+                            <img src="assets/cad/transporter_robot_render.png" alt="Robot CAD Render HD" style="max-height: 180px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));">
+                            <span class="badge-tag blue-badge" style="margin-bottom: 8px;"><i class="fas fa-bolt text-cyan"></i> Mode Ringan (Fast Response Active)</span>
+                            <button class="btn-sm btn-primary-sm" onclick="toggle3DModeEngine()" style="background: linear-gradient(135deg, #00f2fe, #3b82f6); font-weight: 700;"><i class="fas fa-play"></i> Aktifkan Mode 3D Interaktif WebGL</button>
+                        </div>
+                        <canvas id="hero3DCanvas" style="display: none; width: 100%; height: 100%;"></canvas>
+                        <div class="hero-3d-badge" id="hero3DBadge" style="display: none;"><i class="fas fa-cube"></i> Interactive 3D Robot Cyber Engine (AKTIF)</div>
                     </div>
                 </div>
 
@@ -640,11 +648,16 @@
                 </div>
 
                 <div class="threeD-card-container">
-                    <div class="threeD-viewport-box">
-                        <canvas id="threeDCanvas"></canvas>
+                    <div class="threeD-viewport-box" id="threeDViewportBox">
+                        <div id="cad3DOffPlaceholder" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.98), rgba(3, 7, 18, 0.99));">
+                            <img src="assets/cad/transporter_robot_render.png" id="cadPreviewImg" alt="Autodesk Inventor 3D Render" style="max-height: 240px; object-fit: contain; margin-bottom: 16px; filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.35));">
+                            <span class="badge-tag blue-badge" style="margin-bottom: 10px;"><i class="fas fa-cube text-cyan"></i> Preview Gambar CAD Render HD (Mode Ringan Fast-Response)</span>
+                            <button class="btn btn-glow" onclick="toggle3DModeEngine()" style="background: linear-gradient(135deg, #00f2fe, #3b82f6); font-weight: 800;"><i class="fas fa-play"></i> Aktifkan Interactive 3D WebGL Viewer</button>
+                        </div>
+                        <canvas id="threeDCanvas" style="display: none; width: 100%; height: 100%;"></canvas>
 
-                        <!-- Overlay Controls -->
-                        <div class="threeD-overlay-controls">
+                        <!-- Overlay Controls (Shown when 3D is ON) -->
+                        <div class="threeD-overlay-controls" id="threeDControlsOverlay" style="display: none;">
                             <div class="threeD-model-btn-group" id="threeDModelSelector">
                                 <button class="threeD-btn active" data-model="transporter_glb"><i class="fas fa-truck-loading"></i> KTI Transporter Robot (robot_transporter.glb / Assembly1.iam)</button>
                                 <button class="threeD-btn" data-model="seaware_iam"><i class="fas fa-ship"></i> KTI INESCO SEAWARE (Robot Inesco.iam)</button>
@@ -1595,7 +1608,9 @@
                     renderer.setSize(container.clientWidth, container.clientHeight);
                 });
 
+                let isHero3DInit = false;
                 function animate() {
+                    if (!is3DModeActive) return;
                     requestAnimationFrame(animate);
                     robotGroup.rotation.y += 0.01 + mouseX;
                     robotGroup.rotation.x = Math.sin(Date.now() * 0.002) * 0.15 + mouseY;
@@ -1605,7 +1620,9 @@
                 animate();
             }
 
-            window.addEventListener('DOMContentLoaded', initHero3D);
+            window.startHero3D = function() {
+                if (!scene) initHero3D();
+            };
         })();
 
         // LIGHTBOX MODAL
@@ -1639,6 +1656,58 @@
                     themeBtn.innerHTML = '<i class="fas fa-moon"></i> <span>Dark Mode</span>';
                 }
             });
+        }
+
+        // GLOBAL 3D MODE CONTROLLER (DEFAULT: MATI UNTUK ULTRA FAST RESPONSE)
+        let is3DModeActive = false;
+
+        function toggle3DModeEngine() {
+            is3DModeActive = !is3DModeActive;
+            const btnText = document.getElementById('toggle3DText');
+            const btnIcon = document.getElementById('toggle3DIcon');
+            const btnToggle = document.getElementById('toggle3DMode');
+            
+            const heroCanvas = document.getElementById('hero3DCanvas');
+            const heroOffBanner = document.getElementById('hero3DOffBanner');
+            const heroBadge = document.getElementById('hero3DBadge');
+
+            const threeDCanvas = document.getElementById('threeDCanvas');
+            const cadOffPlaceholder = document.getElementById('cad3DOffPlaceholder');
+            const threeDOverlay = document.getElementById('threeDControlsOverlay');
+
+            if (is3DModeActive) {
+                if (btnText) btnText.textContent = 'Fitur 3D: AKTIF';
+                if (btnIcon) btnIcon.className = 'fas fa-cube text-cyan';
+                if (btnToggle) btnToggle.style.borderColor = 'var(--cyan-glow)';
+                
+                if (heroCanvas) heroCanvas.style.display = 'block';
+                if (heroOffBanner) heroOffBanner.style.display = 'none';
+                if (heroBadge) heroBadge.style.display = 'block';
+
+                if (threeDCanvas) threeDCanvas.style.display = 'block';
+                if (cadOffPlaceholder) cadOffPlaceholder.style.display = 'none';
+                if (threeDOverlay) threeDOverlay.style.display = 'block';
+
+                if (typeof window.startHero3D === 'function') window.startHero3D();
+                if (typeof window.startThreeCAD === 'function') window.startThreeCAD();
+            } else {
+                if (btnText) btnText.textContent = 'Fitur 3D: MATI';
+                if (btnIcon) btnIcon.className = 'fas fa-cube text-muted';
+                if (btnToggle) btnToggle.style.borderColor = 'var(--border-color)';
+                
+                if (heroCanvas) heroCanvas.style.display = 'none';
+                if (heroOffBanner) heroOffBanner.style.display = 'flex';
+                if (heroBadge) heroBadge.style.display = 'none';
+
+                if (threeDCanvas) threeDCanvas.style.display = 'none';
+                if (cadOffPlaceholder) cadOffPlaceholder.style.display = 'flex';
+                if (threeDOverlay) threeDOverlay.style.display = 'none';
+            }
+        }
+
+        const toggle3DBtn = document.getElementById('toggle3DMode');
+        if (toggle3DBtn) {
+            toggle3DBtn.addEventListener('click', toggle3DModeEngine);
         }
 
         // MOBILE MENU TOGGLE
@@ -1707,6 +1776,7 @@
             }
 
             function animate() {
+                if (!is3DModeActive) return;
                 requestAnimationFrame(animate);
                 controls.update();
                 renderer.render(scene, camera);
@@ -1876,7 +1946,9 @@ const btns = document.querySelectorAll('#threeDModelSelector .threeD-btn');
                 });
             }
 
-            window.addEventListener('DOMContentLoaded', initThree);
+            window.startThreeCAD = function() {
+                if (!scene) initThree();
+            };
         })();
     </script>
 <!-- PROJECT & KTI DETAIL MODAL POPUP -->
