@@ -1763,11 +1763,10 @@
             });
         }
 
-        // GLOBAL 3D MODE CONTROLLER (DEFAULT: MATI UNTUK ULTRA FAST RESPONSE)
-        let is3DModeActive = false;
+        // GLOBAL 3D MODE CONTROLLER (DEFAULT: AKTIF)
+        let is3DModeActive = true;
 
         function toggle3DModeEngine() {
-            is3DModeActive = !is3DModeActive;
             const btnText = document.getElementById('toggle3DText');
             const btnIcon = document.getElementById('toggle3DIcon');
             const btnToggle = document.getElementById('toggle3DMode');
@@ -1812,8 +1811,16 @@
 
         const toggle3DBtn = document.getElementById('toggle3DMode');
         if (toggle3DBtn) {
-            toggle3DBtn.addEventListener('click', toggle3DModeEngine);
+            toggle3DBtn.addEventListener('click', () => {
+                is3DModeActive = !is3DModeActive;
+                toggle3DModeEngine();
+            });
         }
+
+        // Auto-run 3D engines on load
+        window.addEventListener('DOMContentLoaded', () => {
+            toggle3DModeEngine();
+        });
 
         // MOBILE MENU TOGGLE
         const mobileToggle = document.getElementById('mobileToggle');
