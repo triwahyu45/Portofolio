@@ -1936,3 +1936,134 @@ body {
     transform: scale(1.06);
 }
 
+
+
+
+/* ==========================================================================
+   CROSS-PLATFORM ERGONOMIC VISUAL COMFORT & DUAL RESPONSIVE SYSTEM
+   ========================================================================== */
+
+/* Universal Fluid Typography & Line Heights for Eye Comfort */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, .hero-heading, .section-main-title {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.4px;
+}
+
+/* Card Visual Comfort Enhancements */
+.unified-hero-container, .cert-card-box, .project-card-box, .lab-card-box, .article-card, .store-card {
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* SMARTPHONE & SMALL SCREEN OPTIMIZATIONS (< 768px) */
+@media (max-width: 768px) {
+    .main-body {
+        padding: 16px 14px !important;
+    }
+
+    .unified-hero-container {
+        padding: 20px 16px !important;
+        border-radius: 20px !important;
+    }
+
+    .hero-layout-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .hero-heading {
+        font-size: 28px !important;
+        line-height: 1.25 !important;
+    }
+
+    .hero-subheading {
+        font-size: 13.5px !important;
+        line-height: 1.6 !important;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px !important;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px !important;
+        font-size: 13px !important;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+        gap: 14px !important;
+    }
+
+    .cert-thumb {
+        height: 160px !important;
+        padding: 8px !important;
+    }
+
+    .cert-thumb img {
+        max-height: 140px !important;
+    }
+
+    .cert-info {
+        padding: 14px !important;
+    }
+
+    .cert-name {
+        font-size: 13.5px !important;
+    }
+
+    .threeD-viewport-container {
+        height: 320px !important;
+        min-height: 320px !important;
+    }
+
+    .projects-grid, .labs-grid, .articles-grid, .store-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+}
+
+/* TABLET & DESKTOP SCREEN OPTIMIZATIONS (>= 769px) */
+@media (min-width: 769px) {
+    .hero-heading {
+        font-size: 38px;
+        line-height: 1.22;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 22px;
+    }
+
+    .cert-thumb {
+        height: 190px;
+    }
+
+    .cert-thumb img {
+        max-height: 170px;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .labs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+}
