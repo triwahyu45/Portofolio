@@ -1897,129 +1897,72 @@
                 const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1, wireframe: isWireframe });
                 const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4, wireframe: isWireframe });
 
-                if (modelKey === 'inesco_iam') {
-                    // INESCO 2025: Robot Inesco.iam 3D Assembly Preview
-                    const base = new THREE.Mesh(new THREE.BoxGeometry(5.5, 0.8, 3.5), cyanMat);
-                    base.position.set(0, 0, 0);
-                    currentMeshGroup.add(base);
+                const renderImageMap = {
+                    'inesco_iam': 'assets/cad/render_inesco.png',
+                    'seaware_iam': 'assets/cad/render_seaware.png',
+                    'smarttrash_iam': 'assets/cad/render_smarttrash.png',
+                    'humanoid_iam': 'assets/cad/render_humanoid.png',
+                    'podcomfest_iam': 'assets/cad/render_podcomfest.png',
+                    'seacraft_iam': 'assets/cad/render_seacraft.png',
+                    'transporter_technocorner_iam': 'assets/cad/render_transporter_technocorner.png'
+                };
 
-                    const armBase = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 1.0, 1.2, 16), darkMat);
-                    armBase.position.set(-1.5, 1.0, 0);
-                    currentMeshGroup.add(armBase);
+                const imgUrl = renderImageMap[modelKey] || 'assets/cad/render_inesco.png';
 
-                    const arm1 = new THREE.Mesh(new THREE.BoxGeometry(0.4, 3.2, 0.4), goldMat);
-                    arm1.position.set(-1.5, 2.8, 0);
-                    arm1.rotation.z = -0.3;
-                    currentMeshGroup.add(arm1);
+                // Cyber Pedestal Base Ring
+                const baseGeo = new THREE.CylinderGeometry(3.6, 4.0, 0.4, 32);
+                const baseMat = new THREE.MeshStandardMaterial({
+                    color: 0x051d2d,
+                    metalness: 0.8,
+                    roughness: 0.2,
+                    emissive: 0x00f2fe,
+                    emissiveIntensity: 0.2
+                });
+                const basePedestal = new THREE.Mesh(baseGeo, baseMat);
+                basePedestal.position.y = -2.2;
+                currentMeshGroup.add(basePedestal);
 
-                    const gripper = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.3, 1.6), emeraldMat);
-                    gripper.position.set(-0.5, 4.0, 0);
-                    currentMeshGroup.add(gripper);
+                const ringGeo = new THREE.TorusGeometry(4.1, 0.08, 16, 64);
+                const ringMat = new THREE.MeshBasicMaterial({ color: 0x00f2fe });
+                const ring = new THREE.Mesh(ringGeo, ringMat);
+                ring.rotation.x = Math.PI / 2;
+                ring.position.y = -2.0;
+                currentMeshGroup.add(ring);
 
-                } else if (modelKey === 'seaware_iam') {
-                    // PANCO UNY: KapalPembersihLaut Seaware.iam 3D Assembly Preview
-                    const hull1 = new THREE.Mesh(new THREE.BoxGeometry(7.0, 0.9, 1.4), cyanMat);
-                    hull1.position.set(-2.2, 0, 0);
-                    currentMeshGroup.add(hull1);
+                // Load Authentic HD CAD Render Image onto 3D Perspective Projection Card
+                const textureLoader = new THREE.TextureLoader();
+                textureLoader.load(imgUrl, function(texture) {
+                    texture.colorSpace = THREE.SRGBColorSpace;
+                    
+                    // Create double-sided 3D render card with metallic backing
+                    const planeWidth = 6.2;
+                    const planeHeight = 4.4;
 
-                    const hull2 = new THREE.Mesh(new THREE.BoxGeometry(7.0, 0.9, 1.4), cyanMat);
-                    hull2.position.set(2.2, 0, 0);
-                    currentMeshGroup.add(hull2);
+                    const cardGeo = new THREE.PlaneGeometry(planeWidth, planeHeight);
+                    const cardMat = new THREE.MeshStandardMaterial({
+                        map: texture,
+                        transparent: true,
+                        side: THREE.DoubleSide,
+                        roughness: 0.2,
+                        metalness: 0.1
+                    });
+                    const cardMesh = new THREE.Mesh(cardGeo, cardMat);
+                    cardMesh.position.y = 0.5;
+                    currentMeshGroup.add(cardMesh);
 
-                    const deck = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.4, 4.2), darkMat);
-                    deck.position.set(0, 0.6, 0);
-                    currentMeshGroup.add(deck);
-
-                    const tower = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 2.8, 16), goldMat);
-                    tower.position.set(0, 2.0, 0);
-                    currentMeshGroup.add(tower);
-
-                    const solar = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.12, 2.4), emeraldMat);
-                    solar.position.set(0, 3.4, 0);
-                    solar.rotation.x = 0.2;
-                    currentMeshGroup.add(solar);
-
-                } else if (modelKey === 'smarttrash_iam') {
-                    // HIMEPA Untan: SmartTrash Tinggi.iam 3D Assembly Preview
-                    const body = new THREE.Mesh(new THREE.CylinderGeometry(1.4, 1.6, 5.5, 24), darkMat);
-                    body.position.set(0, 1.5, 0);
-                    currentMeshGroup.add(body);
-
-                    const lid = new THREE.Mesh(new THREE.CylinderGeometry(1.65, 1.65, 0.5, 24), cyanMat);
-                    lid.position.set(0, 4.4, 0);
-                    currentMeshGroup.add(lid);
-
-                    const sensorRing = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.1, 16, 32), goldMat);
-                    sensorRing.position.set(0, 3.8, 0);
-                    sensorRing.rotation.x = Math.PI / 2;
-                    currentMeshGroup.add(sensorRing);
-
-                } else if (modelKey === 'humanoid_iam') {
-                    // FKMPI Fair: Robot Humanoid.iam 3D Assembly Preview
-                    const chest = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.6, 1.4), cyanMat);
-                    chest.position.set(0, 2.5, 0);
-                    currentMeshGroup.add(chest);
-
-                    const head = new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.2, 1.2), goldMat);
-                    head.position.set(0, 4.6, 0);
-                    currentMeshGroup.add(head);
-
-                    const legL = new THREE.Mesh(new THREE.BoxGeometry(0.7, 3.2, 0.7), darkMat);
-                    legL.position.set(-0.7, -0.4, 0);
-                    currentMeshGroup.add(legL);
-
-                    const legR = new THREE.Mesh(new THREE.BoxGeometry(0.7, 3.2, 0.7), darkMat);
-                    legR.position.set(0.7, -0.4, 0);
-                    currentMeshGroup.add(legR);
-
-                } else if (modelKey === 'podcomfest_iam') {
-                    // PodComfest: Robot PodComFest.iam 3D Assembly Preview
-                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(4.5, 1.2, 4.5), darkMat);
-                    chassis.position.set(0, 0, 0);
-                    currentMeshGroup.add(chassis);
-
-                    const pump = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.1, 2.5, 20), emeraldMat);
-                    pump.position.set(0, 1.8, 0);
-                    currentMeshGroup.add(pump);
-
-                    const pipe = new THREE.Mesh(new THREE.TorusGeometry(1.4, 0.2, 16, 32), cyanMat);
-                    pipe.position.set(0, 2.2, 0);
-                    currentMeshGroup.add(pipe);
-
-                } else if (modelKey === 'seacraft_iam') {
-                    // Robot TAMA: KapalPembersihLautSeacraft.iam 3D Assembly Preview
-                    const shipHull = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 2.4, 8.0, 16), cyanMat);
-                    shipHull.rotation.z = Math.PI / 2;
-                    currentMeshGroup.add(shipHull);
-
-                    const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.8, 1.6, 2.4), darkMat);
-                    cabin.position.set(-0.5, 1.6, 0);
-                    currentMeshGroup.add(cabin);
-
-                    const conveyorFront = new THREE.Mesh(new THREE.BoxGeometry(3.5, 0.3, 2.0), emeraldMat);
-                    conveyorFront.position.set(3.2, 0.2, 0);
-                    conveyorFront.rotation.z = -0.3;
-                    currentMeshGroup.add(conveyorFront);
-                } else if (modelKey === 'transporter_technocorner_iam') {
-                    // Technocorner UGM: Robot Transporter.iam 3D Assembly Preview
-                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.8, 3.8), darkMat);
-                    chassis.position.set(0, 0, 0);
-                    currentMeshGroup.add(chassis);
-
-                    // 4 Mecanum wheels
-                    for (let x of [-2.0, 2.0]) {
-                        for (let z of [-1.8, 1.8]) {
-                            const w = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 0.5, 16), cyanMat);
-                            w.position.set(x, -0.4, z);
-                            w.rotation.x = Math.PI / 2;
-                            currentMeshGroup.add(w);
-                        }
-                    }
-
-                    const forklift = new THREE.Mesh(new THREE.BoxGeometry(0.3, 3.0, 2.2), goldMat);
-                    forklift.position.set(2.2, 1.2, 0);
-                    currentMeshGroup.add(forklift);
-                }
+                    // Add subtle glowing metallic frame behind the authentic CAD render
+                    const frameGeo = new THREE.BoxGeometry(planeWidth + 0.2, planeHeight + 0.2, 0.1);
+                    const frameMat = new THREE.MeshStandardMaterial({
+                        color: 0x071927,
+                        metalness: 0.9,
+                        roughness: 0.1,
+                        emissive: 0x00f2fe,
+                        emissiveIntensity: 0.15
+                    });
+                    const frameMesh = new THREE.Mesh(frameGeo, frameMat);
+                    frameMesh.position.set(0, 0.5, -0.06);
+                    currentMeshGroup.add(frameMesh);
+                });
             }
 
             const btns = document.querySelectorAll('#threeDModelSelector .threeD-btn');
