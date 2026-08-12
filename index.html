@@ -761,6 +761,7 @@
                                 <button class="threeD-btn" data-model="humanoid_iam"><i class="fas fa-running"></i> FKMPI Fair (Robot Humanoid.iam)</button>
                                 <button class="threeD-btn" data-model="podcomfest_iam"><i class="fas fa-microchip"></i> PodComfest (Robot PodComFest.iam)</button>
                                 <button class="threeD-btn" data-model="seacraft_iam"><i class="fas fa-water"></i> Robot TAMA (KapalPembersihLautSeacraft.iam)</button>
+                                <button class="threeD-btn" data-model="transporter_technocorner_iam"><i class="fas fa-truck-loading"></i> Technocorner UGM (Robot Transporter.iam)</button>
                             </div>
                             <div class="threeD-info-pill" style="margin-top: 8px;">
                                 <i class="fas fa-mouse"></i> Klik & Geser Mouse untuk Rotasi 3D | Scroll untuk Zoom
@@ -2001,6 +2002,25 @@
                     conveyorFront.position.set(3.2, 0.2, 0);
                     conveyorFront.rotation.z = -0.3;
                     currentMeshGroup.add(conveyorFront);
+                } else if (modelKey === 'transporter_technocorner_iam') {
+                    // Technocorner UGM: Robot Transporter.iam 3D Assembly Preview
+                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.8, 3.8), darkMat);
+                    chassis.position.set(0, 0, 0);
+                    currentMeshGroup.add(chassis);
+
+                    // 4 Mecanum wheels
+                    for (let x of [-2.0, 2.0]) {
+                        for (let z of [-1.8, 1.8]) {
+                            const w = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 0.5, 16), cyanMat);
+                            w.position.set(x, -0.4, z);
+                            w.rotation.x = Math.PI / 2;
+                            currentMeshGroup.add(w);
+                        }
+                    }
+
+                    const forklift = new THREE.Mesh(new THREE.BoxGeometry(0.3, 3.0, 2.2), goldMat);
+                    forklift.position.set(2.2, 1.2, 0);
+                    currentMeshGroup.add(forklift);
                 }
             }
 
@@ -2032,6 +2052,10 @@
                 'seacraft_iam': {
                     title: 'Robot TAMA: KapalPembersihLautSeacraft.iam (Design Kapal)',
                     desc: 'Desain CAD 3D Autodesk Inventor perancangan kapal pembersih laut Seacraft (KapalPembersihLautSeacraft.iam) karya Tri Wahyu Handoyo.'
+                },
+                'transporter_technocorner_iam': {
+                    title: 'Technocorner UGM 2026: Robot Transporter.iam (Support Senior Team)',
+                    desc: 'Desain CAD 3D Autodesk Inventor (Robot Transporter.iam) robot transporter 4-wheel mecanum wheel karya Tri Wahyu Handoyo untuk Technocorner UGM 2026.'
                 }
             };
 
@@ -2041,7 +2065,8 @@
                 'smarttrash_iam': 'assets/cad/SmartTrash_Tinggi.iam',
                 'humanoid_iam': 'assets/cad/Robot_Humanoid.iam',
                 'podcomfest_iam': 'assets/cad/Robot_PodComFest.iam',
-                'seacraft_iam': 'assets/cad/KapalPembersihLautSeacraft.iam'
+                'seacraft_iam': 'assets/cad/KapalPembersihLautSeacraft.iam',
+                'transporter_technocorner_iam': 'assets/cad/Robot_Transporter_Technocorner2026.iam'
             };
 
             const downloadBtn = document.getElementById('btnDownloadIAM');
