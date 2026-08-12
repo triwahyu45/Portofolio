@@ -180,32 +180,50 @@
                             </div>
                         </div>
 
-                                                <!-- Right Column: Single Unified Ultra-Clean 3D Showcase Card -->
+                                                                        <!-- Right Column: Single Unified 3D Showcase Card with Toggle Switch -->
                         <div class="hero-right-showcase-card" style="background: rgba(15, 23, 42, 0.85); border: 1px solid var(--border-color); border-radius: 24px; padding: 20px; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45); backdrop-filter: blur(12px); display: flex; flex-direction: column; gap: 16px;">
                             
                             <!-- Profile Header -->
-                            <div style="display: flex; align-items: center; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                                <div style="width: 64px; height: 64px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 2px solid var(--cyan-glow); box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);">
-                                    <img src="assets/documentation/doc_tri_wahyu_hero_krtmi.jpg" alt="Tri Wahyu Handoyo" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px;">
-                                        <span class="badge-tag gold-badge" style="font-size: 10px; padding: 2px 8px; margin-bottom: 0;"><i class="fas fa-user-astronaut"></i> Tri Wahyu Handoyo</span>
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 60px; height: 60px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 2px solid var(--cyan-glow); box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);">
+                                        <img src="assets/documentation/doc_tri_wahyu_hero_krtmi.jpg" alt="Tri Wahyu Handoyo" style="width: 100%; height: 100%; object-fit: cover;">
                                     </div>
-                                    <h3 style="font-size: 16px; font-weight: 800; color: var(--text-main); line-height: 1.2;">Tri Wahyu Handoyo</h3>
-                                    <p style="font-size: 11.5px; font-weight: 700; color: var(--cyan-glow); margin-top: 2px;"><i class="fas fa-university"></i> D4 Teknik Elektronika UNY ('22)</p>
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
+                                            <span class="badge-tag gold-badge" style="font-size: 10px; padding: 2px 8px; margin-bottom: 0;"><i class="fas fa-user-astronaut"></i> Tri Wahyu Handoyo</span>
+                                        </div>
+                                        <h3 style="font-size: 16px; font-weight: 800; color: var(--text-main); line-height: 1.2;">Tri Wahyu Handoyo</h3>
+                                        <p style="font-size: 11.5px; font-weight: 700; color: var(--cyan-glow); margin-top: 2px;"><i class="fas fa-university"></i> D4 Teknik Elektronika UNY ('22)</p>
+                                    </div>
                                 </div>
+
+                                <!-- Floating 3D Toggle Switch Button -->
+                                <button class="btn-sm btn-secondary-sm" id="toggle3DMode" onclick="toggle3DModeEngine()" style="background: rgba(30, 41, 59, 0.8); border: 1px solid var(--cyan-glow); border-radius: 14px; padding: 6px 12px; cursor: pointer; font-size: 11px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 6px; transition: all 0.3s ease;">
+                                    <i class="fas fa-cube text-muted" id="toggle3DIcon"></i> <span id="toggle3DText">Fitur 3D: MATI</span>
+                                </button>
                             </div>
 
-                            <!-- LIVE 3D INTERACTIVE ROBOT CANVAS -->
-                            <div class="hero-3d-wrapper" id="hero3DWrapper" style="position: relative; height: 260px; min-height: 260px; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98)); border-radius: 18px; border: 1px solid rgba(0, 242, 254, 0.25); overflow: hidden;">
-                                <canvas id="hero3DCanvas" style="display: block; width: 100%; height: 100%;"></canvas>
-                                <div class="hero-3d-badge" id="hero3DBadge" style="display: block; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgba(3, 7, 18, 0.85); border: 1px solid var(--cyan-glow); padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; color: var(--cyan-glow); backdrop-filter: blur(8px); white-space: nowrap;">
-                                    <i class="fas fa-cube"></i> Live Interactive 3D CAD Robot
+                            <!-- 3D SHOWCASE WRAPPER (Default OFF for Fast Loading) -->
+                            <div class="hero-3d-wrapper" id="hero3DWrapper" style="position: relative; height: 250px; min-height: 250px; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98)); border-radius: 18px; border: 1px solid rgba(0, 242, 254, 0.25); overflow: hidden;">
+                                
+                                <!-- OFF BANNER (Default Visible) -->
+                                <div id="hero3DOffBanner" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px; text-align: center; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98)); border-radius: inherit;">
+                                    <img src="assets/cad/render_transporter_technocorner.png" alt="Robot CAD Render HD" style="max-height: 110px; max-width: 100%; object-fit: contain; margin-bottom: 10px; filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));">
+                                    <span class="badge-tag blue-badge" style="margin-bottom: 8px; font-size: 10px;"><i class="fas fa-bolt text-cyan"></i> Mode Ringan (Fast Response Active)</span>
+                                    <button class="btn-sm btn-primary-sm" onclick="toggle3DModeEngine()" style="background: linear-gradient(135deg, #00f2fe, #3b82f6); font-weight: 700; font-size: 11.5px; padding: 8px 16px;"><i class="fas fa-play"></i> Aktifkan Mode 3D Interaktif WebGL</button>
+                                </div>
+
+                                <!-- LIVE 3D CANVAS (Shown when 3D is ON) -->
+                                <canvas id="hero3DCanvas" style="display: none; width: 100%; height: 100%;"></canvas>
+                                <div class="hero-3d-badge" id="hero3DBadge" style="display: none; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(3, 7, 18, 0.85); border: 1px solid var(--cyan-glow); padding: 4px 12px; border-radius: 20px; font-size: 10.5px; font-weight: 700; color: var(--cyan-glow); backdrop-filter: blur(8px); white-space: nowrap;">
+                                    <i class="fas fa-cube"></i> Interactive 3D CAD Robot (AKTIF)
                                 </div>
                             </div>
 
                         </div>
+                    </div>
+                </div>
                     </div>
                 </div>
                     </div>
@@ -1760,10 +1778,12 @@
             });
         }
 
-        // GLOBAL 3D MODE CONTROLLER (DEFAULT: AKTIF)
-        let is3DModeActive = true;
+                // GLOBAL 3D MODE CONTROLLER (DEFAULT: MATI UNTUK RESPON REKAP RINGAN)
+        let is3DModeActive = false;
 
         function toggle3DModeEngine() {
+            is3DModeActive = !is3DModeActive;
+
             const btnText = document.getElementById('toggle3DText');
             const btnIcon = document.getElementById('toggle3DIcon');
             const btnToggle = document.getElementById('toggle3DMode');
