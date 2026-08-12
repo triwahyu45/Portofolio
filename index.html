@@ -1632,48 +1632,61 @@
                 dirLight2.position.set(-5, -5, -5);
                 scene.add(dirLight2);
 
-                // Create Floating 3D Authentic HD CAD Render Projection
+                                // Create Floating 3D Authentic Robot Transporter Assembly Mesh
                 robotGroup = new THREE.Group();
 
-                // Cyber Ring Base
-                const ring = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.08, 16, 100), new THREE.MeshBasicMaterial({ color: 0x00f2fe }));
+                const cyanMat = new THREE.MeshStandardMaterial({ color: 0x00f2fe, metalness: 0.8, roughness: 0.2 });
+                const darkMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.9, roughness: 0.3 });
+                const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1 });
+                const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4 });
+
+                // Cyber Base Ring
+                const ring = new THREE.Mesh(new THREE.TorusGeometry(3.0, 0.08, 16, 100), new THREE.MeshBasicMaterial({ color: 0x00f2fe }));
                 ring.rotation.x = Math.PI / 2;
-                ring.position.y = -1.8;
+                ring.position.y = -1.6;
                 robotGroup.add(ring);
 
-                // Load Authentic Transporter Robot HD Render Texture
-                const textureLoader = new THREE.TextureLoader();
-                textureLoader.load('assets/cad/render_transporter_technocorner.png', function(texture) {
-                    texture.colorSpace = THREE.SRGBColorSpace;
-                    
-                    const planeWidth = 5.2;
-                    const planeHeight = 3.6;
+                // Transporter Chassis Base
+                const chassis = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.5, 2.8), darkMat);
+                chassis.position.set(0, -0.6, 0);
+                robotGroup.add(chassis);
 
-                    const cardGeo = new THREE.PlaneGeometry(planeWidth, planeHeight);
-                    const cardMat = new THREE.MeshStandardMaterial({
-                        map: texture,
-                        transparent: true,
-                        side: THREE.DoubleSide,
-                        roughness: 0.2,
-                        metalness: 0.1
-                    });
-                    const cardMesh = new THREE.Mesh(cardGeo, cardMat);
-                    cardMesh.position.y = 0.2;
-                    robotGroup.add(cardMesh);
+                // 4 Mecanum Wheels
+                for (let x of [-1.5, 1.5]) {
+                    for (let z of [-1.2, 1.2]) {
+                        const w = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 16), cyanMat);
+                        w.position.set(x, -0.9, z);
+                        w.rotation.x = Math.PI / 2;
+                        robotGroup.add(w);
+                    }
+                }
 
-                    // Add subtle glowing metallic frame behind the authentic CAD render
-                    const frameGeo = new THREE.BoxGeometry(planeWidth + 0.2, planeHeight + 0.2, 0.08);
-                    const frameMat = new THREE.MeshStandardMaterial({
-                        color: 0x071927,
-                        metalness: 0.9,
-                        roughness: 0.1,
-                        emissive: 0x00f2fe,
-                        emissiveIntensity: 0.15
-                    });
-                    const frameMesh = new THREE.Mesh(frameGeo, frameMat);
-                    frameMesh.position.set(0, 0.2, -0.05);
-                    robotGroup.add(frameMesh);
-                });
+                // Vertical Forklift Mast Rails
+                const mastL = new THREE.Mesh(new THREE.BoxGeometry(0.2, 3.2, 0.15), goldMat);
+                mastL.position.set(1.4, 0.8, -0.6);
+                robotGroup.add(mastL);
+
+                const mastR = new THREE.Mesh(new THREE.BoxGeometry(0.2, 3.2, 0.15), goldMat);
+                mastR.position.set(1.4, 0.8, 0.6);
+                robotGroup.add(mastR);
+
+                // Lifting Carriage & Forks
+                const carriage = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.6, 1.6), cyanMat);
+                carriage.position.set(1.5, 0.5, 0);
+                robotGroup.add(carriage);
+
+                const forkL = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.1, 0.2), goldMat);
+                forkL.position.set(2.2, 0.25, -0.4);
+                robotGroup.add(forkL);
+
+                const forkR = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.1, 0.2), goldMat);
+                forkR.position.set(2.2, 0.25, 0.4);
+                robotGroup.add(forkR);
+
+                // Loaded Payload Container
+                const payload = new THREE.Mesh(new THREE.BoxGeometry(1.3, 1.3, 1.3), emeraldMat);
+                payload.position.set(2.1, 1.0, 0);
+                robotGroup.add(payload);
 
                 scene.add(robotGroup);
 
@@ -1874,7 +1887,7 @@
                 renderer.setSize(viewport.clientWidth, viewport.clientHeight);
             }
 
-                        function loadModel(modelKey) {
+                                    function loadModel(modelKey) {
                 while (currentMeshGroup.children.length > 0) {
                     const obj = currentMeshGroup.children[0];
                     currentMeshGroup.remove(obj);
@@ -1884,73 +1897,313 @@
                 const darkMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.9, roughness: 0.3, wireframe: isWireframe });
                 const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1, wireframe: isWireframe });
                 const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4, wireframe: isWireframe });
-
-                const renderImageMap = {
-                    'inesco_iam': 'assets/cad/render_inesco.png',
-                    'seaware_iam': 'assets/cad/render_seaware.png',
-                    'smarttrash_iam': 'assets/cad/render_smarttrash.png',
-                    'humanoid_iam': 'assets/cad/render_humanoid.png',
-                    'podcomfest_iam': 'assets/cad/render_podcomfest.png',
-                    'seacraft_iam': 'assets/cad/render_seacraft.png',
-                    'transporter_technocorner_iam': 'assets/cad/render_transporter_technocorner.png'
-                };
-
-                const imgUrl = renderImageMap[modelKey] || 'assets/cad/render_inesco.png';
+                const blueMat = new THREE.MeshStandardMaterial({ color: 0x1e3a8a, metalness: 0.7, roughness: 0.2, wireframe: isWireframe });
 
                 // Cyber Pedestal Base Ring
-                const baseGeo = new THREE.CylinderGeometry(3.6, 4.0, 0.4, 32);
+                const baseGeo = new THREE.CylinderGeometry(4.2, 4.6, 0.4, 32);
                 const baseMat = new THREE.MeshStandardMaterial({
                     color: 0x051d2d,
                     metalness: 0.8,
                     roughness: 0.2,
                     emissive: 0x00f2fe,
-                    emissiveIntensity: 0.2
+                    emissiveIntensity: 0.2,
+                    wireframe: isWireframe
                 });
                 const basePedestal = new THREE.Mesh(baseGeo, baseMat);
-                basePedestal.position.y = -2.2;
+                basePedestal.position.y = -2.4;
                 currentMeshGroup.add(basePedestal);
 
-                const ringGeo = new THREE.TorusGeometry(4.1, 0.08, 16, 64);
-                const ringMat = new THREE.MeshBasicMaterial({ color: 0x00f2fe });
+                const ringGeo = new THREE.TorusGeometry(4.7, 0.08, 16, 64);
+                const ringMat = new THREE.MeshBasicMaterial({ color: 0x00f2fe, wireframe: isWireframe });
                 const ring = new THREE.Mesh(ringGeo, ringMat);
                 ring.rotation.x = Math.PI / 2;
-                ring.position.y = -2.0;
+                ring.position.y = -2.2;
                 currentMeshGroup.add(ring);
 
-                // Load Authentic HD CAD Render Image onto 3D Perspective Projection Card
-                const textureLoader = new THREE.TextureLoader();
-                textureLoader.load(imgUrl, function(texture) {
-                    texture.colorSpace = THREE.SRGBColorSpace;
-                    
-                    // Create double-sided 3D render card with metallic backing
-                    const planeWidth = 6.2;
-                    const planeHeight = 4.4;
+                if (modelKey === 'inesco_iam') {
+                    // 1. INESCO 2025: Robot Inesco.iam (3D Robotic Arm & Mecanum Assembly)
+                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.6, 3.8), darkMat);
+                    chassis.position.set(0, -0.8, 0);
+                    currentMeshGroup.add(chassis);
 
-                    const cardGeo = new THREE.PlaneGeometry(planeWidth, planeHeight);
-                    const cardMat = new THREE.MeshStandardMaterial({
-                        map: texture,
-                        transparent: true,
-                        side: THREE.DoubleSide,
-                        roughness: 0.2,
-                        metalness: 0.1
-                    });
-                    const cardMesh = new THREE.Mesh(cardGeo, cardMat);
-                    cardMesh.position.y = 0.5;
-                    currentMeshGroup.add(cardMesh);
+                    // 4 Mecanum Wheels
+                    for (let x of [-2.2, 2.2]) {
+                        for (let z of [-1.6, 1.6]) {
+                            const w = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.4, 16), cyanMat);
+                            w.position.set(x, -1.2, z);
+                            w.rotation.x = Math.PI / 2;
+                            currentMeshGroup.add(w);
 
-                    // Add subtle glowing metallic frame behind the authentic CAD render
-                    const frameGeo = new THREE.BoxGeometry(planeWidth + 0.2, planeHeight + 0.2, 0.1);
-                    const frameMat = new THREE.MeshStandardMaterial({
-                        color: 0x071927,
-                        metalness: 0.9,
-                        roughness: 0.1,
-                        emissive: 0x00f2fe,
-                        emissiveIntensity: 0.15
-                    });
-                    const frameMesh = new THREE.Mesh(frameGeo, frameMat);
-                    frameMesh.position.set(0, 0.5, -0.06);
-                    currentMeshGroup.add(frameMesh);
-                });
+                            // Roller pins
+                            const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.8, 8), goldMat);
+                            pin.position.set(x, -1.2, z);
+                            pin.rotation.z = Math.PI / 4;
+                            currentMeshGroup.add(pin);
+                        }
+                    }
+
+                    // 3-DOF Robotic Arm Base
+                    const armTurret = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 1.1, 0.8, 16), darkMat);
+                    armTurret.position.set(-1.2, -0.1, 0);
+                    currentMeshGroup.add(armTurret);
+
+                    // Arm Shoulder Joint
+                    const shoulderJoint = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 1.0, 16), goldMat);
+                    shoulderJoint.position.set(-1.2, 0.5, 0);
+                    shoulderJoint.rotation.z = Math.PI / 2;
+                    currentMeshGroup.add(shoulderJoint);
+
+                    // Arm Bicep Link
+                    const bicep = new THREE.Mesh(new THREE.BoxGeometry(0.4, 2.8, 0.4), cyanMat);
+                    bicep.position.set(-0.6, 1.8, 0);
+                    bicep.rotation.z = -0.4;
+                    currentMeshGroup.add(bicep);
+
+                    // Elbow Joint & Forearm
+                    const forearm = new THREE.Mesh(new THREE.BoxGeometry(0.35, 2.4, 0.35), goldMat);
+                    forearm.position.set(0.6, 2.8, 0);
+                    forearm.rotation.z = 0.6;
+                    currentMeshGroup.add(forearm);
+
+                    // Pneumatic Gripper End Effector
+                    const gripperBase = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.3, 1.4), emeraldMat);
+                    gripperBase.position.set(1.4, 2.0, 0);
+                    currentMeshGroup.add(gripperBase);
+
+                    const fingerL = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.15, 0.2), cyanMat);
+                    fingerL.position.set(1.8, 2.0, -0.5);
+                    currentMeshGroup.add(fingerL);
+
+                    const fingerR = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.15, 0.2), cyanMat);
+                    fingerR.position.set(1.8, 2.0, 0.5);
+                    currentMeshGroup.add(fingerR);
+
+                    // Control Box & Camera Sensor
+                    const ctrlBox = new THREE.Mesh(new THREE.BoxGeometry(1.6, 1.0, 1.8), blueMat);
+                    ctrlBox.position.set(1.2, -0.0, 0);
+                    currentMeshGroup.add(ctrlBox);
+
+                    const camEye = new THREE.Mesh(new THREE.SphereGeometry(0.3, 16, 16), emeraldMat);
+                    camEye.position.set(1.2, 0.7, 0.6);
+                    currentMeshGroup.add(camEye);
+
+                } else if (modelKey === 'seaware_iam') {
+                    // 2. PANCO UNY: KapalPembersihLaut Seaware.iam (Twin Catamaran Hulls & Conveyor)
+                    const hullLeft = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 1.1, 7.5, 16), cyanMat);
+                    hullLeft.position.set(-2.2, -1.0, 0);
+                    hullLeft.rotation.z = Math.PI / 2;
+                    currentMeshGroup.add(hullLeft);
+
+                    const hullRight = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 1.1, 7.5, 16), cyanMat);
+                    hullRight.position.set(2.2, -1.0, 0);
+                    hullRight.rotation.z = Math.PI / 2;
+                    currentMeshGroup.add(hullRight);
+
+                    // Bridge Deck Frame
+                    const deck = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.35, 4.6), darkMat);
+                    deck.position.set(0, -0.4, 0);
+                    currentMeshGroup.add(deck);
+
+                    // Sloped Conveyor Belt Assembly
+                    const conveyorFrame = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.3, 5.0), darkMat);
+                    conveyorFrame.position.set(0, 0.4, 0.8);
+                    conveyorFrame.rotation.x = -0.3;
+                    currentMeshGroup.add(conveyorFrame);
+
+                    const conveyorBelt = new THREE.Mesh(new THREE.BoxGeometry(2.1, 0.15, 4.8), emeraldMat);
+                    conveyorBelt.position.set(0, 0.55, 0.8);
+                    conveyorBelt.rotation.x = -0.3;
+                    currentMeshGroup.add(conveyorBelt);
+
+                    // Solar Power Mast & Tilted Panels
+                    const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 2.8, 12), goldMat);
+                    mast.position.set(0, 1.4, -1.5);
+                    currentMeshGroup.add(mast);
+
+                    const solarPanel = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.1, 2.5), blueMat);
+                    solarPanel.position.set(0, 2.8, -1.5);
+                    solarPanel.rotation.x = 0.2;
+                    currentMeshGroup.add(solarPanel);
+
+                    const panelFrame = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.05, 2.7), goldMat);
+                    panelFrame.position.set(0, 2.75, -1.5);
+                    panelFrame.rotation.x = 0.2;
+                    currentMeshGroup.add(panelFrame);
+
+                } else if (modelKey === 'smarttrash_iam') {
+                    // 3. HIMEPA Untan: SmartTrash Tinggi.iam (Automated Cylinder Bin & Sensor Bezel)
+                    const mainBody = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 2.0, 5.6, 32), darkMat);
+                    mainBody.position.set(0, 0.6, 0);
+                    currentMeshGroup.add(mainBody);
+
+                    const innerChamber = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 1.7, 5.2, 32), cyanMat);
+                    innerChamber.position.set(0, 0.6, 0);
+                    currentMeshGroup.add(innerChamber);
+
+                    // Lid & Servo Hinge
+                    const lidCover = new THREE.Mesh(new THREE.CylinderGeometry(2.05, 2.05, 0.4, 32), cyanMat);
+                    lidCover.position.set(0, 3.6, 0);
+                    currentMeshGroup.add(lidCover);
+
+                    const hinge = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 0.8), goldMat);
+                    hinge.position.set(0, 3.6, -1.8);
+                    currentMeshGroup.add(hinge);
+
+                    // Sensor Ring & Eyes
+                    const sensorBezel = new THREE.Mesh(new THREE.TorusGeometry(1.9, 0.12, 16, 32), goldMat);
+                    sensorBezel.position.set(0, 2.8, 0);
+                    sensorBezel.rotation.x = Math.PI / 2;
+                    currentMeshGroup.add(sensorBezel);
+
+                    const ultrasonicL = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.3, 16), emeraldMat);
+                    ultrasonicL.position.set(-0.5, 2.8, 1.9);
+                    ultrasonicL.rotation.x = Math.PI / 2;
+                    currentMeshGroup.add(ultrasonicL);
+
+                    const ultrasonicR = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.3, 16), emeraldMat);
+                    ultrasonicR.position.set(0.5, 2.8, 1.9);
+                    ultrasonicR.rotation.x = Math.PI / 2;
+                    currentMeshGroup.add(ultrasonicR);
+
+                } else if (modelKey === 'humanoid_iam') {
+                    // 4. FKMPI Fair: Robot Humanoid.iam (Full Humanoid Frame)
+                    // Torso & Core
+                    const torso = new THREE.Mesh(new THREE.BoxGeometry(2.4, 2.8, 1.4), darkMat);
+                    torso.position.set(0, 1.2, 0);
+                    currentMeshGroup.add(torso);
+
+                    const chestArmor = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.4, 1.5), cyanMat);
+                    chestArmor.position.set(0, 1.8, 0.05);
+                    currentMeshGroup.add(chestArmor);
+
+                    const arcCore = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.2, 16), emeraldMat);
+                    arcCore.position.set(0, 1.8, 0.8);
+                    arcCore.rotation.x = Math.PI / 2;
+                    currentMeshGroup.add(arcCore);
+
+                    // Head & Eyes
+                    const head = new THREE.Mesh(new THREE.BoxGeometry(1.3, 1.3, 1.3), darkMat);
+                    head.position.set(0, 3.4, 0);
+                    currentMeshGroup.add(head);
+
+                    const visor = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.35, 1.35), goldMat);
+                    visor.position.set(0, 3.5, 0.05);
+                    currentMeshGroup.add(visor);
+
+                    // Arms
+                    for (let side of [-1.5, 1.5]) {
+                        const shoulder = new THREE.Mesh(new THREE.SphereGeometry(0.5, 16, 16), goldMat);
+                        shoulder.position.set(side, 2.2, 0);
+                        currentMeshGroup.add(shoulder);
+
+                        const arm = new THREE.Mesh(new THREE.BoxGeometry(0.5, 2.2, 0.5), cyanMat);
+                        arm.position.set(side * 1.1, 1.0, 0);
+                        currentMeshGroup.add(arm);
+                    }
+
+                    // Legs
+                    for (let side of [-0.7, 0.7]) {
+                        const leg = new THREE.Mesh(new THREE.BoxGeometry(0.7, 2.6, 0.7), darkMat);
+                        leg.position.set(side, -1.3, 0);
+                        currentMeshGroup.add(leg);
+
+                        const foot = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.3, 1.3), cyanMat);
+                        foot.position.set(side, -2.5, 0.3);
+                        currentMeshGroup.add(foot);
+                    }
+
+                } else if (modelKey === 'podcomfest_iam') {
+                    // 5. PodComfest: Robot PodComFest.iam (Water Pump & Heavy Chassis)
+                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(4.8, 1.2, 4.2), darkMat);
+                    chassis.position.set(0, -0.6, 0);
+                    currentMeshGroup.add(chassis);
+
+                    // Heavy Pump Cylinder
+                    const pumpCylinder = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 3.0, 24), cyanMat);
+                    pumpCylinder.position.set(-0.8, 1.2, 0);
+                    currentMeshGroup.add(pumpCylinder);
+
+                    const pumpCap = new THREE.Mesh(new THREE.CylinderGeometry(1.35, 1.35, 0.4, 24), goldMat);
+                    pumpCap.position.set(-0.8, 2.8, 0);
+                    currentMeshGroup.add(pumpCap);
+
+                    // Hose & Pressure Gauge
+                    const hoseRing = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.25, 16, 32), emeraldMat);
+                    hoseRing.position.set(-0.8, 1.2, 0);
+                    currentMeshGroup.add(hoseRing);
+
+                    const ctrlUnit = new THREE.Mesh(new THREE.BoxGeometry(1.8, 2.0, 2.2), blueMat);
+                    ctrlUnit.position.set(1.2, 0.8, 0);
+                    currentMeshGroup.add(ctrlUnit);
+
+                    const gauge = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.2, 16), goldMat);
+                    gauge.position.set(1.2, 1.4, 1.2);
+                    gauge.rotation.x = Math.PI / 2;
+                    currentMeshGroup.add(gauge);
+
+                } else if (modelKey === 'seacraft_iam') {
+                    // 6. Robot TAMA: KapalPembersihLautSeacraft.iam (Monohull Boat & Waste Scoop)
+                    const hull = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 1.8, 8.5, 16), cyanMat);
+                    hull.position.set(0, -0.6, 0);
+                    hull.rotation.z = Math.PI / 2;
+                    currentMeshGroup.add(hull);
+
+                    const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.6, 1.6, 2.4), darkMat);
+                    cabin.position.set(-0.8, 0.9, 0);
+                    currentMeshGroup.add(cabin);
+
+                    const windshield = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.8, 2.2), blueMat);
+                    windshield.position.set(0.2, 1.2, 0);
+                    currentMeshGroup.add(windshield);
+
+                    const scoop = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.4, 2.6), emeraldMat);
+                    scoop.position.set(3.2, -0.3, 0);
+                    scoop.rotation.z = -0.2;
+                    currentMeshGroup.add(scoop);
+
+                } else if (modelKey === 'transporter_technocorner_iam') {
+                    // 7. Technocorner UGM: Robot Transporter.iam (Mecanum Chassis & Forklift Assembly)
+                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(5.0, 0.7, 4.0), darkMat);
+                    chassis.position.set(0, -0.8, 0);
+                    currentMeshGroup.add(chassis);
+
+                    // 4 Mecanum Wheels
+                    for (let x of [-2.0, 2.0]) {
+                        for (let z of [-1.7, 1.7]) {
+                            const w = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.75, 0.45, 16), cyanMat);
+                            w.position.set(x, -1.2, z);
+                            w.rotation.x = Math.PI / 2;
+                            currentMeshGroup.add(w);
+                        }
+                    }
+
+                    // Forklift Vertical Mast Rails
+                    const mastL = new THREE.Mesh(new THREE.BoxGeometry(0.3, 4.6, 0.2), goldMat);
+                    mastL.position.set(2.0, 1.2, -0.9);
+                    currentMeshGroup.add(mastL);
+
+                    const mastR = new THREE.Mesh(new THREE.BoxGeometry(0.3, 4.6, 0.2), goldMat);
+                    mastR.position.set(2.0, 1.2, 0.9);
+                    currentMeshGroup.add(mastR);
+
+                    // Fork Carriage & Lifting Prongs
+                    const carriage = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 2.2), cyanMat);
+                    carriage.position.set(2.2, 0.8, 0);
+                    currentMeshGroup.add(carriage);
+
+                    const forkLeft = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.15, 0.25), goldMat);
+                    forkLeft.position.set(3.1, 0.4, -0.6);
+                    currentMeshGroup.add(forkLeft);
+
+                    const forkRight = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.15, 0.25), goldMat);
+                    forkRight.position.set(3.1, 0.4, 0.6);
+                    currentMeshGroup.add(forkRight);
+
+                    // Cargo Payload Box on Forklift
+                    const cargoBox = new THREE.Mesh(new THREE.BoxGeometry(1.8, 1.8, 1.8), emeraldMat);
+                    cargoBox.position.set(3.0, 1.4, 0);
+                    currentMeshGroup.add(cargoBox);
+                }
             }
 
             const btns = document.querySelectorAll('#threeDModelSelector .threeD-btn');
