@@ -1654,40 +1654,48 @@
                 dirLight2.position.set(-5, -5, -5);
                 scene.add(dirLight2);
 
-                // Create Floating 3D Robot Model
+                // Create Floating 3D Authentic HD CAD Render Projection
                 robotGroup = new THREE.Group();
 
-                const cyanMat = new THREE.MeshStandardMaterial({ color: 0x00f2fe, metalness: 0.8, roughness: 0.2 });
-                const darkMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.9, roughness: 0.3 });
-                const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1 });
-                const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4 });
-
-                // Base Body
-                const body = new THREE.Mesh(new THREE.BoxGeometry(2.4, 1.2, 2.0), darkMat);
-                robotGroup.add(body);
-
-                // Cyber Ring
-                const ring = new THREE.Mesh(new THREE.TorusGeometry(2.2, 0.08, 16, 100), cyanMat);
+                // Cyber Ring Base
+                const ring = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.08, 16, 100), new THREE.MeshBasicMaterial({ color: 0x00f2fe }));
                 ring.rotation.x = Math.PI / 2;
+                ring.position.y = -1.8;
                 robotGroup.add(ring);
 
-                // 4 Wheels
-                const wheelPos = [[-1.3, -1.1], [1.3, -1.1], [-1.3, 1.1], [1.3, 1.1]];
-                wheelPos.forEach(p => {
-                    const w = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 16), cyanMat);
-                    w.position.set(p[0], -0.4, p[1]);
-                    w.rotation.z = Math.PI / 2;
-                    robotGroup.add(w);
+                // Load Authentic Transporter Robot HD Render Texture
+                const textureLoader = new THREE.TextureLoader();
+                textureLoader.load('assets/cad/render_transporter_technocorner.png', function(texture) {
+                    texture.colorSpace = THREE.SRGBColorSpace;
+                    
+                    const planeWidth = 5.2;
+                    const planeHeight = 3.6;
+
+                    const cardGeo = new THREE.PlaneGeometry(planeWidth, planeHeight);
+                    const cardMat = new THREE.MeshStandardMaterial({
+                        map: texture,
+                        transparent: true,
+                        side: THREE.DoubleSide,
+                        roughness: 0.2,
+                        metalness: 0.1
+                    });
+                    const cardMesh = new THREE.Mesh(cardGeo, cardMat);
+                    cardMesh.position.y = 0.2;
+                    robotGroup.add(cardMesh);
+
+                    // Add subtle glowing metallic frame behind the authentic CAD render
+                    const frameGeo = new THREE.BoxGeometry(planeWidth + 0.2, planeHeight + 0.2, 0.08);
+                    const frameMat = new THREE.MeshStandardMaterial({
+                        color: 0x071927,
+                        metalness: 0.9,
+                        roughness: 0.1,
+                        emissive: 0x00f2fe,
+                        emissiveIntensity: 0.15
+                    });
+                    const frameMesh = new THREE.Mesh(frameGeo, frameMat);
+                    frameMesh.position.set(0, 0.2, -0.05);
+                    robotGroup.add(frameMesh);
                 });
-
-                // Sensor Tower & Eye
-                const tower = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.2, 12), goldMat);
-                tower.position.set(0, 1.1, 0);
-                robotGroup.add(tower);
-
-                const eye = new THREE.Mesh(new THREE.SphereGeometry(0.4, 16, 16), emeraldMat);
-                eye.position.set(0, 1.7, 0.2);
-                robotGroup.add(eye);
 
                 scene.add(robotGroup);
 
@@ -1868,7 +1876,7 @@
                 controls.autoRotateSpeed = 2.0;
 
                 scene.add(currentMeshGroup);
-                loadModel('krtmi');
+                loadModel('inesco_iam');
 
                 window.addEventListener('resize', onWindowResize);
                 animate();
