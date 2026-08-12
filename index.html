@@ -754,13 +754,15 @@
 
                         <!-- Overlay Controls (Shown when 3D is ON) -->
                         <div class="threeD-overlay-controls" id="threeDControlsOverlay" style="display: none;">
-                            <div class="threeD-model-btn-group" id="threeDModelSelector">
-                                <button class="threeD-btn active" data-model="transporter_glb"><i class="fas fa-truck-loading"></i> KTI Transporter Robot (robot_transporter.glb / Assembly1.iam)</button>
-                                <button class="threeD-btn" data-model="seaware_iam"><i class="fas fa-ship"></i> KTI INESCO SEAWARE (Robot Inesco.iam)</button>
-                                <button class="threeD-btn" data-model="himepa_iam"><i class="fas fa-recycle"></i> KTI HIMEPA TRASHURE (conveyor belt assem eks_new.iam)</button>
-                                <button class="threeD-btn" data-model="panco_iam"><i class="fas fa-water"></i> KTI PANCO Maritim (KapalPembersihLaut.iam)</button>
+                            <div class="threeD-model-btn-group" id="threeDModelSelector" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <button class="threeD-btn active" data-model="inesco_iam"><i class="fas fa-robot"></i> INESCO 2025 (Robot Inesco.iam)</button>
+                                <button class="threeD-btn" data-model="seaware_iam"><i class="fas fa-ship"></i> PANCO Seaware (KapalPembersihLaut Seaware.iam)</button>
+                                <button class="threeD-btn" data-model="smarttrash_iam"><i class="fas fa-trash-alt"></i> HIMEPA Untan (SmartTrash Tinggi.iam)</button>
+                                <button class="threeD-btn" data-model="humanoid_iam"><i class="fas fa-running"></i> FKMPI Fair (Robot Humanoid.iam)</button>
+                                <button class="threeD-btn" data-model="podcomfest_iam"><i class="fas fa-microchip"></i> PodComfest (Robot PodComFest.iam)</button>
+                                <button class="threeD-btn" data-model="seacraft_iam"><i class="fas fa-water"></i> Robot TAMA (KapalPembersihLautSeacraft.iam)</button>
                             </div>
-                            <div class="threeD-info-pill">
+                            <div class="threeD-info-pill" style="margin-top: 8px;">
                                 <i class="fas fa-mouse"></i> Klik & Geser Mouse untuk Rotasi 3D | Scroll untuk Zoom
                             </div>
                         </div>
@@ -1896,39 +1898,36 @@
                 const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1, wireframe: isWireframe });
                 const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4, wireframe: isWireframe });
 
-                if (modelKey === 'transporter_glb') {
-                    const gltfLoader = new THREE.GLTFLoader();
-                    gltfLoader.load('assets/cad/robot_transporter.glb', function (gltf) {
-                        const model = gltf.scene;
-                        model.scale.set(1.8, 1.8, 1.8);
-                        model.position.set(0, -1, 0);
-                        model.traverse(child => {
-                            if (child.isMesh && isWireframe) child.material.wireframe = isWireframe;
-                        });
-                        currentMeshGroup.add(model);
-                    }, undefined, function () {
-                        // Fallback STL assembly
-                        const stlLoader = new THREE.STLLoader();
-                        stlLoader.load('assets/cad/transporter_base.stl', function (geometry) {
-                            geometry.center();
-                            geometry.computeVertexNormals();
-                            const mesh = new THREE.Mesh(geometry, cyanMat);
-                            mesh.scale.set(0.1, 0.1, 0.1);
-                            mesh.rotation.x = -Math.PI / 2;
-                            currentMeshGroup.add(mesh);
-                        });
-                    });
+                if (modelKey === 'inesco_iam') {
+                    // INESCO 2025: Robot Inesco.iam 3D Assembly Preview
+                    const base = new THREE.Mesh(new THREE.BoxGeometry(5.5, 0.8, 3.5), cyanMat);
+                    base.position.set(0, 0, 0);
+                    currentMeshGroup.add(base);
+
+                    const armBase = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 1.0, 1.2, 16), darkMat);
+                    armBase.position.set(-1.5, 1.0, 0);
+                    currentMeshGroup.add(armBase);
+
+                    const arm1 = new THREE.Mesh(new THREE.BoxGeometry(0.4, 3.2, 0.4), goldMat);
+                    arm1.position.set(-1.5, 2.8, 0);
+                    arm1.rotation.z = -0.3;
+                    currentMeshGroup.add(arm1);
+
+                    const gripper = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.3, 1.6), emeraldMat);
+                    gripper.position.set(-0.5, 4.0, 0);
+                    currentMeshGroup.add(gripper);
+
                 } else if (modelKey === 'seaware_iam') {
-                    // SEAWARE Robot Inesco.iam 3D Assembly Preview
-                    const hull1 = new THREE.Mesh(new THREE.BoxGeometry(6.5, 0.9, 1.3), cyanMat);
-                    hull1.position.set(-2.0, 0, 0);
+                    // PANCO UNY: KapalPembersihLaut Seaware.iam 3D Assembly Preview
+                    const hull1 = new THREE.Mesh(new THREE.BoxGeometry(7.0, 0.9, 1.4), cyanMat);
+                    hull1.position.set(-2.2, 0, 0);
                     currentMeshGroup.add(hull1);
 
-                    const hull2 = new THREE.Mesh(new THREE.BoxGeometry(6.5, 0.9, 1.3), cyanMat);
-                    hull2.position.set(2.0, 0, 0);
+                    const hull2 = new THREE.Mesh(new THREE.BoxGeometry(7.0, 0.9, 1.4), cyanMat);
+                    hull2.position.set(2.2, 0, 0);
                     currentMeshGroup.add(hull2);
 
-                    const deck = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.4, 4.0), darkMat);
+                    const deck = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.4, 4.2), darkMat);
                     deck.position.set(0, 0.6, 0);
                     currentMeshGroup.add(deck);
 
@@ -1936,74 +1935,113 @@
                     tower.position.set(0, 2.0, 0);
                     currentMeshGroup.add(tower);
 
-                    const solar = new THREE.Mesh(new THREE.BoxGeometry(3.0, 0.12, 2.2), emeraldMat);
+                    const solar = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.12, 2.4), emeraldMat);
                     solar.position.set(0, 3.4, 0);
                     solar.rotation.x = 0.2;
                     currentMeshGroup.add(solar);
 
-                } else if (modelKey === 'himepa_iam') {
-                    // HIMEPA conveyor belt assem eks_new.iam 3D Assembly Preview
-                    const frame = new THREE.Mesh(new THREE.BoxGeometry(7.0, 0.5, 2.5), darkMat);
-                    frame.position.set(0, 0, 0);
-                    currentMeshGroup.add(frame);
+                } else if (modelKey === 'smarttrash_iam') {
+                    // HIMEPA Untan: SmartTrash Tinggi.iam 3D Assembly Preview
+                    const body = new THREE.Mesh(new THREE.CylinderGeometry(1.4, 1.6, 5.5, 24), darkMat);
+                    body.position.set(0, 1.5, 0);
+                    currentMeshGroup.add(body);
 
-                    const belt = new THREE.Mesh(new THREE.BoxGeometry(6.8, 0.1, 2.3), emeraldMat);
-                    belt.position.set(0, 0.3, 0);
-                    currentMeshGroup.add(belt);
+                    const lid = new THREE.Mesh(new THREE.CylinderGeometry(1.65, 1.65, 0.5, 24), cyanMat);
+                    lid.position.set(0, 4.4, 0);
+                    currentMeshGroup.add(lid);
 
-                    const bin1 = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.4, 1.4), cyanMat);
-                    bin1.position.set(-2.2, -1.0, 0);
-                    currentMeshGroup.add(bin1);
+                    const sensorRing = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.1, 16, 32), goldMat);
+                    sensorRing.position.set(0, 3.8, 0);
+                    sensorRing.rotation.x = Math.PI / 2;
+                    currentMeshGroup.add(sensorRing);
 
-                    const bin2 = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.4, 1.4), goldMat);
-                    bin2.position.set(2.2, -1.0, 0);
-                    currentMeshGroup.add(bin2);
+                } else if (modelKey === 'humanoid_iam') {
+                    // FKMPI Fair: Robot Humanoid.iam 3D Assembly Preview
+                    const chest = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.6, 1.4), cyanMat);
+                    chest.position.set(0, 2.5, 0);
+                    currentMeshGroup.add(chest);
 
-                } else if (modelKey === 'panco_iam') {
-                    // PANCO KapalPembersihLaut.iam 3D Assembly Preview
-                    const shipHull = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 2.2, 7.5, 16), cyanMat);
+                    const head = new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.2, 1.2), goldMat);
+                    head.position.set(0, 4.6, 0);
+                    currentMeshGroup.add(head);
+
+                    const legL = new THREE.Mesh(new THREE.BoxGeometry(0.7, 3.2, 0.7), darkMat);
+                    legL.position.set(-0.7, -0.4, 0);
+                    currentMeshGroup.add(legL);
+
+                    const legR = new THREE.Mesh(new THREE.BoxGeometry(0.7, 3.2, 0.7), darkMat);
+                    legR.position.set(0.7, -0.4, 0);
+                    currentMeshGroup.add(legR);
+
+                } else if (modelKey === 'podcomfest_iam') {
+                    // PodComfest: Robot PodComFest.iam 3D Assembly Preview
+                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(4.5, 1.2, 4.5), darkMat);
+                    chassis.position.set(0, 0, 0);
+                    currentMeshGroup.add(chassis);
+
+                    const pump = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.1, 2.5, 20), emeraldMat);
+                    pump.position.set(0, 1.8, 0);
+                    currentMeshGroup.add(pump);
+
+                    const pipe = new THREE.Mesh(new THREE.TorusGeometry(1.4, 0.2, 16, 32), cyanMat);
+                    pipe.position.set(0, 2.2, 0);
+                    currentMeshGroup.add(pipe);
+
+                } else if (modelKey === 'seacraft_iam') {
+                    // Robot TAMA: KapalPembersihLautSeacraft.iam 3D Assembly Preview
+                    const shipHull = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 2.4, 8.0, 16), cyanMat);
                     shipHull.rotation.z = Math.PI / 2;
                     currentMeshGroup.add(shipHull);
 
-                    const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.5, 1.5, 2.2), darkMat);
-                    cabin.position.set(-0.5, 1.5, 0);
+                    const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.8, 1.6, 2.4), darkMat);
+                    cabin.position.set(-0.5, 1.6, 0);
                     currentMeshGroup.add(cabin);
 
-                    const conveyorFront = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.3, 1.8), emeraldMat);
-                    conveyorFront.position.set(3.0, 0.2, 0);
+                    const conveyorFront = new THREE.Mesh(new THREE.BoxGeometry(3.5, 0.3, 2.0), emeraldMat);
+                    conveyorFront.position.set(3.2, 0.2, 0);
                     conveyorFront.rotation.z = -0.3;
                     currentMeshGroup.add(conveyorFront);
                 }
             }
 
-const btns = document.querySelectorAll('#threeDModelSelector .threeD-btn');
+            const btns = document.querySelectorAll('#threeDModelSelector .threeD-btn');
             const titleEl = document.getElementById('threeDTitle');
             const descEl = document.getElementById('threeDDesc');
 
             const modelData = {
-                'transporter_glb': {
-                    title: 'Technocorner UGM Transporter Robot (robot_transporter.glb / Assembly1.iam)',
-                    desc: 'Model 3D GLTF Assembly resmi dari perancangan Autodesk Inventor (Assembly1.iam) robot transporter 4-wheel mecanum wheel karya Tri Wahyu Handoyo.'
+                'inesco_iam': {
+                    title: 'INESCO 2025: Robot Inesco.iam (Juara 1 Essay)',
+                    desc: 'Desain CAD 3D Autodesk Inventor resmi perancangan robot otomatis (Robot Inesco.iam) karya Tri Wahyu Handoyo di INESCO 2025.'
                 },
                 'seaware_iam': {
-                    title: 'KTI INESCO 2025: SEAWARE Autonomous Marine Robot (Robot Inesco.iam)',
-                    desc: 'Preview 3D Assembly perancangan kapal pemantau & pembersih limbah perairan otomatis (Robot Inesco.iam) hasil karya Juara 1 INESCO 2025.'
+                    title: 'PANCO UNY: KapalPembersihLaut Seaware.iam (Juara 2 PANCO FISIP)',
+                    desc: 'Desain CAD 3D Autodesk Inventor perancangan kapal pembersih limbah maritim (KapalPembersihLaut Seaware.iam) karya Tri Wahyu Handoyo.'
                 },
-                'himepa_iam': {
-                    title: 'KTI Gebyar HIMEPA 2025: TRASHURE (conveyor belt assem eks_new.iam)',
-                    desc: 'Preview 3D Assembly sistem pemilah sampah konveyor getar otomatis (conveyor belt assem eks_new.iam) hasil karya Juara 1 HIMEPA 2025.'
+                'smarttrash_iam': {
+                    title: 'HIMEPA Untan: SmartTrash Tinggi.iam (Juara 1 HIMEPA 2025)',
+                    desc: 'Desain CAD 3D Autodesk Inventor sistem tempat sampah pintar otomatis (SmartTrash Tinggi.iam) karya Tri Wahyu Handoyo.'
                 },
-                'panco_iam': {
-                    title: 'KTI PANCO 2025: Kapal Pembersih Limbah Maritim (KapalPembersihLaut.iam)',
-                    desc: 'Preview 3D Assembly perancangan kapal pembersih limbah pesisir maritim (KapalPembersihLaut.iam) karya Juara 2 PANCO FISIP UNY 2025.'
+                'humanoid_iam': {
+                    title: 'FKMPI Fair: Robot Humanoid.iam (Design Humanoid Essay)',
+                    desc: 'Desain CAD 3D Autodesk Inventor perancangan robot humanoid (Robot Humanoid.iam) karya Tri Wahyu Handoyo.'
+                },
+                'podcomfest_iam': {
+                    title: 'PodComfest: Robot PodComFest.iam (3D Design Robot)',
+                    desc: 'Desain CAD 3D Autodesk Inventor perancangan robotik & water pump system (Robot PodComFest.iam) karya Tri Wahyu Handoyo.'
+                },
+                'seacraft_iam': {
+                    title: 'Robot TAMA: KapalPembersihLautSeacraft.iam (Design Kapal)',
+                    desc: 'Desain CAD 3D Autodesk Inventor perancangan kapal pembersih laut Seacraft (KapalPembersihLautSeacraft.iam) karya Tri Wahyu Handoyo.'
                 }
             };
 
             const iamPathMap = {
-                'transporter_glb': 'assets/cad/Transporter_Robot_Technocorner2026.iam',
-                'seaware_iam': 'assets/cad/Robot_Inesco_INESCO2025.iam',
-                'himepa_iam': 'assets/cad/Conveyor_Belt_HIMEPA2025.iam',
-                'panco_iam': 'assets/cad/Kapal_Pembersih_Laut_PANCO2025.iam'
+                'inesco_iam': 'assets/cad/Robot_Inesco_INESCO2025.iam',
+                'seaware_iam': 'assets/cad/KapalPembersihLaut_Seaware.iam',
+                'smarttrash_iam': 'assets/cad/SmartTrash_Tinggi.iam',
+                'humanoid_iam': 'assets/cad/Robot_Humanoid.iam',
+                'podcomfest_iam': 'assets/cad/Robot_PodComFest.iam',
+                'seacraft_iam': 'assets/cad/KapalPembersihLautSeacraft.iam'
             };
 
             const downloadBtn = document.getElementById('btnDownloadIAM');
