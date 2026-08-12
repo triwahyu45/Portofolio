@@ -27,6 +27,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js 3D WebGL Engine & GLTF/GLB Loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 
 <body>
@@ -1913,12 +1918,21 @@
                 basePedestal.position.y = -2.4;
                 currentMeshGroup.add(basePedestal);
 
-                const ringGeo = new THREE.TorusGeometry(4.7, 0.08, 16, 64);
-                const ringMat = new THREE.MeshBasicMaterial({ color: 0x00f2fe, wireframe: isWireframe });
-                const ring = new THREE.Mesh(ringGeo, ringMat);
-                ring.rotation.x = Math.PI / 2;
-                ring.position.y = -2.2;
-                currentMeshGroup.add(ring);
+                // Try loading external converted .GLB 3D CAD mesh if available
+                const glbPathMap = {
+                    'transporter_technocorner_iam': 'assets/cad/mekanum_base.glb',
+                    'inesco_iam': 'assets/cad/thruster_t500.glb'
+                };
+
+                if (glbPathMap[modelKey] && typeof THREE.GLTFLoader !== 'undefined') {
+                    const loader = new THREE.GLTFLoader();
+                    loader.load(glbPathMap[modelKey], function(gltf) {
+                        const glbModel = gltf.scene;
+                        glbModel.position.set(0, 0, 0);
+                        glbModel.scale.set(3.5, 3.5, 3.5);
+                        currentMeshGroup.add(glbModel);
+                    });
+                }
 
                 if (modelKey === 'inesco_iam') {
                     // 1. INESCO 2025: Robot Inesco.iam (3D Robotic Arm & Mecanum Assembly)
