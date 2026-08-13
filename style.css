@@ -1923,15 +1923,3 @@ body {
         height: 220px !important;
     }
 }
-
-/* CRISP WHITE OUTLINE & DROP-SHADOW GLOW FOR TEAM LOGOS (ABHINAYA & MAESTRO EVO) */
-.team-logo-img, .team-badge-logo, .team-card-logo, img[src*="logo_maestro_evo"], img[src*="logo_abhinaya"] {
-    filter: drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)) !important;
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.team-logo-img:hover, .team-badge-logo:hover, .team-card-logo:hover, img[src*="logo_maestro_evo"]:hover, img[src*="logo_abhinaya"]:hover {
-    filter: drop-shadow(0 0 4px #ffffff) drop-shadow(0 0 12px rgba(0, 242, 254, 0.9)) !important;
-    transform: scale(1.06);
-}
-
