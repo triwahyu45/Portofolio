@@ -1800,14 +1800,27 @@
                 const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1, wireframe: isWireframe });
                 const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4, wireframe: isWireframe });
 
-                if (modelKey === 'transporter_glb') {
+                if (modelKey === 'transporter_glb' || modelKey === 'transporter_technocorner_iam') {
                     const gltfLoader = new THREE.GLTFLoader();
                     gltfLoader.load('assets/cad/robot_transporter.glb', function (gltf) {
                         const model = gltf.scene;
-                        model.scale.set(1.8, 1.8, 1.8);
-                        model.position.set(0, -1, 0);
+                        
+                        // Compute bounding box to automatically scale and center the authentic CAD GLB assembly
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        const size = box.getSize(new THREE.Vector3());
+                        const maxDim = Math.max(size.x, size.y, size.z);
+
+                        const scale = 5.0 / (maxDim || 1.0);
+                        model.scale.set(scale, scale, scale);
+                        model.position.sub(center.multiplyScalar(scale));
+
                         model.traverse(child => {
-                            if (child.isMesh && isWireframe) child.material.wireframe = isWireframe;
+                            if (child.isMesh) {
+                                child.castShadow = true;
+                                child.receiveShadow = true;
+                                if (isWireframe && child.material) child.material.wireframe = isWireframe;
+                            }
                         });
                         currentMeshGroup.add(model);
                     }, undefined, function () {
