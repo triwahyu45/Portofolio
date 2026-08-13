@@ -684,15 +684,15 @@ body {
 
 .certificates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 28px;
 }
 
 .cert-card-box {
     background: var(--bg-card);
     backdrop-filter: blur(15px);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -701,9 +701,8 @@ body {
 .cert-thumb {
     position: relative;
     width: 100%;
-    height: 195px;
     background: #030712;
-    padding: 10px;
+    padding: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -713,16 +712,16 @@ body {
 
 .cert-thumb img {
     width: 100%;
-    height: 100%;
-    max-height: 175px;
+    height: auto;
+    max-height: 480px;
     object-fit: contain;
-    border-radius: var(--radius-sm);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
     transition: transform 0.35s ease;
 }
 
 .cert-thumb:hover img {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
 .thumb-hover {
@@ -1936,244 +1935,3 @@ body {
     transform: scale(1.06);
 }
 
-
-
-
-/* ==========================================================================
-   CROSS-PLATFORM ERGONOMIC VISUAL COMFORT & DUAL RESPONSIVE SYSTEM
-   ========================================================================== */
-
-/* Universal Fluid Typography & Line Heights for Eye Comfort */
-body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--text-main);
-    background-color: var(--bg-main);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-}
-
-h1, h2, h3, h4, .hero-heading, .section-main-title {
-    font-family: 'Outfit', sans-serif;
-    letter-spacing: -0.4px;
-}
-
-/* Card Visual Comfort Enhancements */
-.unified-hero-container, .cert-card-box, .project-card-box, .lab-card-box, .article-card, .store-card {
-    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-/* SMARTPHONE & SMALL SCREEN OPTIMIZATIONS (< 768px) */
-@media (max-width: 768px) {
-    .main-body {
-        padding: 16px 14px !important;
-    }
-
-    .unified-hero-container {
-        padding: 20px 16px !important;
-        border-radius: 20px !important;
-    }
-
-    .hero-layout-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-    }
-
-    .hero-heading {
-        font-size: 28px !important;
-        line-height: 1.25 !important;
-    }
-
-    .hero-subheading {
-        font-size: 13.5px !important;
-        line-height: 1.6 !important;
-    }
-
-    .hero-actions {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 10px !important;
-    }
-
-    .hero-actions .btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 18px !important;
-        font-size: 13px !important;
-    }
-
-    .certificates-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
-        gap: 14px !important;
-    }
-
-    .cert-thumb {
-        height: 160px !important;
-        padding: 8px !important;
-    }
-
-    .cert-thumb img {
-        max-height: 140px !important;
-    }
-
-    .cert-info {
-        padding: 14px !important;
-    }
-
-    .cert-name {
-        font-size: 13.5px !important;
-    }
-
-    .threeD-viewport-container {
-        height: 320px !important;
-        min-height: 320px !important;
-    }
-
-    .projects-grid, .labs-grid, .articles-grid, .store-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-    }
-}
-
-/* TABLET & DESKTOP SCREEN OPTIMIZATIONS (>= 769px) */
-@media (min-width: 769px) {
-    .hero-heading {
-        font-size: 38px;
-        line-height: 1.22;
-    }
-
-    .certificates-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 22px;
-    }
-
-    .cert-thumb {
-        height: 190px;
-    }
-
-    .cert-thumb img {
-        max-height: 170px;
-    }
-
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-
-    .labs-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 22px;
-    }
-}
-
-
-.certificates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
-    gap: 14px !important;
-}
-
-.cert-card-box {
-    background: var(--bg-card);
-    backdrop-filter: blur(15px);
-    border: 1px solid var(--border-color);
-    border-radius: 14px !important;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.cert-thumb {
-    position: relative;
-    width: 100%;
-    height: 135px !important;
-    background: #030712;
-    padding: 6px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid var(--border-color);
-    cursor: pointer;
-}
-
-.cert-thumb img {
-    width: 100%;
-    height: 100%;
-    max-height: 120px !important;
-    object-fit: contain;
-    border-radius: 6px !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-}
-
-.cert-thumb:hover img {
-    transform: scale(1.05);
-}
-
-.cert-info {
-    padding: 10px 12px !important;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.cert-name {
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    color: var(--text-main);
-    line-height: 1.3 !important;
-    margin-bottom: 4px !important;
-}
-
-.cert-meta-row {
-    font-size: 10.5px !important;
-    color: var(--text-sub);
-}
-
-
-
-/* HERO TOP PROFILE CARD & DOCUMENTATION PHOTO CARDS */
-.hero-top-profile-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
-    padding: 20px 24px;
-    margin-bottom: 28px;
-    box-shadow: var(--glass-shadow);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.doc-photo-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.doc-photo-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--cyan-glow);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.2);
-}
-
-.doc-photo-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.35s ease;
-}
-
-.doc-photo-card:hover img {
-    transform: scale(1.05);
-}

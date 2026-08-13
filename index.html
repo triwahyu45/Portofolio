@@ -27,11 +27,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
-
-    <!-- Three.js 3D WebGL Engine & GLTF/GLB Loader -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 
 <body>
@@ -129,134 +124,140 @@
         <!-- MAIN CONTENT CONTAINER -->
         <main class="main-body" style="padding-top: 2rem;">
 
-                                    <!-- 1. HERO / ABOUT SECTION -->
-            <section id="about" class="content-section reveal-on-scroll">
+            <!-- 1. HERO / ABOUT SECTION -->
+            <section id="about" class="content-section reveal-on-scroll" style="margin-top: 0; padding-top: 1rem;">
                 
-                <!-- UNIFIED PROPORTIONAL HERO CONTAINER -->
-                <div class="unified-hero-container" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98)); border: 1px solid var(--border-color); border-radius: 28px; padding: 32px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); backdrop-filter: blur(12px);">
+                <!-- HERO TOP PROFILE AVATAR & ROBOTICS TEAM CAREER CARD -->
+                <div class="hero-top-profile-card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 30px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(0, 242, 254, 0.12)); border: 1px solid var(--cyan-glow); border-radius: 24px; margin-top: 8px; margin-bottom: 28px; box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);">
+                    <div style="display: flex; align-items: center; gap: 20px; flex: 1; min-width: 280px;">
+                        <div style="width: 100px; height: 100px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 3px solid var(--cyan-glow); box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); position: relative;">
+                            <img src="assets/documentation/doc_tri_wahyu_hero_krtmi.jpg" alt="Tri Wahyu Handoyo - Programmer Utama Tim Robotika UNY" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 6px;">
+                                <span class="badge-tag gold-badge"><i class="fas fa-user-astronaut"></i> Tri Wahyu Handoyo</span>
+                                <span class="badge-tag blue-badge"><i class="fas fa-id-card"></i> NIM: 22518241023</span>
+                            </div>
+                            <h2 style="font-size: 26px; font-weight: 900; font-family: 'Outfit', sans-serif; color: var(--text-main); margin-bottom: 4px;">Tri Wahyu Handoyo</h2>
+                            <p style="font-size: 13.5px; font-weight: 700; color: var(--cyan-glow);"><i class="fas fa-university"></i> D4 Teknik Elektronika UNY (2022)</p>
+                        </div>
+                    </div>
+
+                    <!-- Official Team Badges with Logos -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 12px; background: rgba(15, 23, 42, 0.85); border: 1px solid var(--cyan-glow); padding: 10px 16px; border-radius: 16px; backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0, 242, 254, 0.15);">
+                            <img src="assets/logo_abhinaya_transparent.png" alt="Logo Tim Abhinaya UNY" style="height: 38px; width: auto; object-fit: contain; filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.6));">
+                            <div>
+                                <div style="font-size: 12px; font-weight: 800; color: var(--cyan-glow);">ABHINAYA UNY (Tim Utama & 2026)</div>
+                                <div style="font-size: 11px; color: var(--text-sub);">KRTMI 2024 & Transporter Technocorner UGM</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 12px; background: rgba(15, 23, 42, 0.85); border: 1px solid var(--gold-glow); padding: 10px 16px; border-radius: 16px; backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);">
+                            <img src="assets/logo_maestro_evo.png" alt="Logo Tim Maestro EVO UNY" style="height: 38px; width: auto; object-fit: contain; filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));">
+                            <div>
+                                <div style="font-size: 12px; font-weight: 800; color: var(--gold-glow);">MAESTRO EVO UNY (2025 - Demis)</div>
+                                <div style="font-size: 11px; color: var(--text-sub);">Software & System Developer KRAI</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-layout-grid">
+                    <div class="hero-header" style="margin-bottom: 0;">
+                        <div class="glow-pill"><i class="fas fa-sparkles"></i> Welcome to My Official Portfolio</div>
+                        <h1 class="hero-heading">Crafting Intelligent <span class="gradient-text">Robots & Embedded Systems</span></h1>
+                        <p class="hero-subheading">
+                            Halo! Saya <strong>Tri Wahyu Handoyo</strong> (NIM: 22518241023), mahasiswa <strong>D4 Teknik Elektronika Universitas Negeri Yogyakarta (UNY)</strong>. 
+                            Fokus utama saya mencakup <strong>robotika kompetisi (KRTMI & KRAI Puspresnas)</strong>, <strong>embedded IoT (ESP32, STM32, Raspberry Pi)</strong>, <strong>Computer Vision AI</strong>, dan <strong>desain CAD mekatronika 3D</strong>.
+                        </p>
+                    </div>
                     
-                    <!-- Top Team Affiliation Header -->
-                    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 24px; margin-bottom: 28px; border-bottom: 1px dashed var(--border-color);">
-                        <div class="glow-pill" style="margin-bottom: 0;"><i class="fas fa-sparkles"></i> Welcome to My Official Portfolio</div>
-                        
-                        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-                            <!-- Abhinaya Badge -->
-                            <div style="display: flex; align-items: center; gap: 10px; background: rgba(0, 242, 254, 0.08); border: 1px solid var(--cyan-glow); padding: 8px 16px; border-radius: 14px;">
-                                <img src="assets/logo_abhinaya_transparent.png" alt="Abhinaya UNY" style="height: 32px; width: auto; object-fit: contain;">
-                                <div>
-                                    <div style="font-size: 12px; font-weight: 800; color: var(--cyan-glow);">ABHINAYA UNY</div>
-                                    <div style="font-size: 11px; color: var(--text-sub);">KRTMI 2024 & Technocorner 2026</div>
-                                </div>
-                            </div>
-
-                            <!-- Maestro EVO Badge -->
-                            <div style="display: flex; align-items: center; gap: 10px; background: rgba(245, 158, 11, 0.08); border: 1px solid var(--gold-glow); padding: 8px 16px; border-radius: 14px;">
-                                <img src="assets/logo_maestro_evo.png" alt="Maestro EVO UNY" style="height: 32px; width: auto; object-fit: contain;">
-                                <div>
-                                    <div style="font-size: 12px; font-weight: 800; color: var(--gold-glow);">MAESTRO EVO UNY</div>
-                                    <div style="font-size: 11px; color: var(--text-sub);">Developer KRAI 2025 (Demis)</div>
-                                </div>
-                            </div>
+                    <!-- HERO INTERACTIVE 3D WEBGL ROBOT CANVAS (Default MATI untuk Fast Response) -->
+                    <div class="hero-3d-wrapper" id="hero3DWrapper">
+                        <div id="hero3DOffBanner" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98)); border-radius: inherit;">
+                            <img src="assets/cad/transporter_robot_render.png" alt="Robot CAD Render HD" style="max-height: 180px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));">
+                            <span class="badge-tag blue-badge" style="margin-bottom: 8px;"><i class="fas fa-bolt text-cyan"></i> Mode Ringan (Fast Response Active)</span>
+                            <button class="btn-sm btn-primary-sm" onclick="toggle3DModeEngine()" style="background: linear-gradient(135deg, #00f2fe, #3b82f6); font-weight: 700;"><i class="fas fa-play"></i> Aktifkan Mode 3D Interaktif WebGL</button>
                         </div>
-                    </div>
-
-                    <!-- Main Hero Two-Column Grid -->
-                    <div class="hero-layout-grid">
-                        
-                        <!-- Left Column: Biography & Actions -->
-                        <div class="hero-header" style="margin-bottom: 0;">
-                            <h1 class="hero-heading">Crafting Intelligent <span class="gradient-text">Robots & Embedded Systems</span></h1>
-                            <p class="hero-subheading">
-                                Halo! Saya <strong>Tri Wahyu Handoyo</strong> (NIM: 22518241023), mahasiswa <strong>D4 Teknik Elektronika Universitas Negeri Yogyakarta (UNY)</strong>. 
-                                Fokus utama saya mencakup <strong>robotika kompetisi (KRTMI & KRAI Puspresnas)</strong>, <strong>embedded IoT (ESP32, STM32, Raspberry Pi)</strong>, <strong>Computer Vision AI</strong>, dan <strong>desain CAD mekatronika 3D</strong>.
-                            </p>
-
-                            <!-- Hero Action Buttons -->
-                            <div class="hero-actions" style="margin-top: 24px;">
-                                <a href="#achievements" class="btn btn-glow"><i class="fas fa-award"></i> lihat Prestasi & Sertifikat</a>
-                                <a href="#cad-3d-viewer" class="btn btn-glow"><i class="fas fa-cube"></i> Interactive 3D Viewer</a>
-                                <a href="#projects" class="btn btn-glass"><i class="fas fa-code-merge"></i> Explore Projects</a>
-                                <a href="mailto:handoyotriwahyu@gmail.com" class="btn btn-outline-glow"><i class="fas fa-envelope"></i> Email Saya</a>
-                            </div>
-                        </div>
-
-                                                                        <!-- Right Column: Single Unified 3D Showcase Card with Toggle Switch -->
-                        <div class="hero-right-showcase-card" style="background: rgba(15, 23, 42, 0.85); border: 1px solid var(--border-color); border-radius: 24px; padding: 20px; box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45); backdrop-filter: blur(12px); display: flex; flex-direction: column; gap: 16px;">
-                            
-                            <!-- Profile Header -->
-                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                                <div style="display: flex; align-items: center; gap: 12px;">
-                                    <div style="width: 60px; height: 60px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 2px solid var(--cyan-glow); box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);">
-                                        <img src="assets/documentation/doc_tri_wahyu_hero_krtmi.jpg" alt="Tri Wahyu Handoyo" style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <div>
-                                        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                                            <span class="badge-tag gold-badge" style="font-size: 10px; padding: 2px 8px; margin-bottom: 0;"><i class="fas fa-user-astronaut"></i> Tri Wahyu Handoyo</span>
-                                        </div>
-                                        <h3 style="font-size: 16px; font-weight: 800; color: var(--text-main); line-height: 1.2;">Tri Wahyu Handoyo</h3>
-                                        <p style="font-size: 11.5px; font-weight: 700; color: var(--cyan-glow); margin-top: 2px;"><i class="fas fa-university"></i> D4 Teknik Elektronika UNY ('22)</p>
-                                    </div>
-                                </div>
-
-                                <!-- Floating 3D Toggle Switch Button -->
-                                <button class="btn-sm btn-secondary-sm" id="toggle3DMode" onclick="toggle3DModeEngine()" style="background: rgba(30, 41, 59, 0.8); border: 1px solid var(--cyan-glow); border-radius: 14px; padding: 6px 12px; cursor: pointer; font-size: 11px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 6px; transition: all 0.3s ease;">
-                                    <i class="fas fa-cube text-muted" id="toggle3DIcon"></i> <span id="toggle3DText">Fitur 3D: MATI</span>
-                                </button>
-                            </div>
-
-                            <!-- 3D SHOWCASE WRAPPER (Default OFF for Fast Loading) -->
-                            <div class="hero-3d-wrapper" id="hero3DWrapper" style="position: relative; height: 250px; min-height: 250px; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98)); border-radius: 18px; border: 1px solid rgba(0, 242, 254, 0.25); overflow: hidden;">
-                                
-                                <!-- OFF BANNER (Default Visible) -->
-                                <div id="hero3DOffBanner" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px; text-align: center; background: radial-gradient(circle at center, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98)); border-radius: inherit;">
-                                    <img src="assets/cad/render_transporter_technocorner.png" alt="Robot CAD Render HD" style="max-height: 110px; max-width: 100%; object-fit: contain; margin-bottom: 10px; filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));">
-                                    <span class="badge-tag blue-badge" style="margin-bottom: 8px; font-size: 10px;"><i class="fas fa-bolt text-cyan"></i> Mode Ringan (Fast Response Active)</span>
-                                    <button class="btn-sm btn-primary-sm" onclick="toggle3DModeEngine()" style="background: linear-gradient(135deg, #00f2fe, #3b82f6); font-weight: 700; font-size: 11.5px; padding: 8px 16px;"><i class="fas fa-play"></i> Aktifkan Mode 3D Interaktif WebGL</button>
-                                </div>
-
-                                <!-- LIVE 3D CANVAS (Shown when 3D is ON) -->
-                                <canvas id="hero3DCanvas" style="display: none; width: 100%; height: 100%;"></canvas>
-                                <div class="hero-3d-badge" id="hero3DBadge" style="display: none; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(3, 7, 18, 0.85); border: 1px solid var(--cyan-glow); padding: 4px 12px; border-radius: 20px; font-size: 10.5px; font-weight: 700; color: var(--cyan-glow); backdrop-filter: blur(8px); white-space: nowrap;">
-                                    <i class="fas fa-cube"></i> Interactive 3D CAD Robot (AKTIF)
-                                </div>
-                            </div>
-
-                        </div>
+                        <canvas id="hero3DCanvas" style="display: none; width: 100%; height: 100%;"></canvas>
+                        <div class="hero-3d-badge" id="hero3DBadge" style="display: none;"><i class="fas fa-cube"></i> Interactive 3D Robot Cyber Engine (AKTIF)</div>
                     </div>
                 </div>
-                    </div>
-                </div>
-                    </div>
 
+                <!-- Hero Action Buttons -->
+                <div class="hero-actions">
+                    <a href="#achievements" class="btn btn-glow"><i class="fas fa-award"></i> Lihat Prestasi & Sertifikat</a>
+                    <a href="#cad-3d-viewer" class="btn btn-glow"><i class="fas fa-cube"></i> Interactive 3D Viewer</a>
+                    <a href="#projects" class="btn btn-glass"><i class="fas fa-code-merge"></i> Explore Projects</a>
+                    <a href="mailto:handoyotriwahyu@gmail.com" class="btn btn-outline-glow"><i class="fas fa-envelope"></i> Email Saya</a>
                 </div>
 
                 <!-- Core Competencies Cards Grid -->
-                <div class="competency-container" style="margin-top: 40px;">
+                <div class="competency-container">
                     <h3 class="section-sub-title"><i class="fas fa-layer-group"></i> Spesialisasi & Keahlian Utama</h3>
                     <div class="competency-grid">
                         <div class="comp-card">
                             <div class="comp-icon icon-blue"><i class="fas fa-microchip"></i></div>
                             <h4>Embedded & IoT Hardware</h4>
-                            <p>Pengembangan sistem terbenam menggunakan ESP32, STM32 (FreeRTOS), AVR ATmega, Raspberry Pi, komunikasi CanBus, Modbus RS485, dan perancangan skematik PCB.</p>
+                            <p>Pemrograman C/C++, ESP32, STM32 Microcontroller, Raspberry Pi 5, Modbus, SPI/I2C, Sensor Processing, Simulasi Wokwi.</p>
                         </div>
                         <div class="comp-card">
-                            <div class="comp-icon icon-gold"><i class="fas fa-robot"></i></div>
-                            <h4>Competitve Robotics System</h4>
-                            <p>Desain & pemrograman robotika kompetisi KRI (KRTMI & KRAI Puspresnas), kinematika Roda Omni & Mecanum, sensor imu 9-axis, serta kontroler PID presisi tinggi.</p>
+                            <div class="comp-icon icon-purple"><i class="fas fa-robot"></i></div>
+                            <h4>Robotics & Autonomous System</h4>
+                            <p>Kinematika Mecanum Wheel, Algoritma PID Control, Dual Driver TB6612FNG, Navigasi Arena KRTMI & KRAI Puspresnas.</p>
                         </div>
                         <div class="comp-card">
                             <div class="comp-icon icon-emerald"><i class="fas fa-eye"></i></div>
                             <h4>Computer Vision & AI</h4>
-                            <p>Implementasi pemrosesan citra digital dengan OpenCV, identifikasi & pengenalan warna/bentuk bola, deteksi YOLOv8, dan pelacakan target kamera presisi.</p>
+                            <p>OpenCV Python, Body Tracking Kinect v1.8, Visual Inspection System, Image Bitmap Processing untuk OLED.</p>
                         </div>
                         <div class="comp-card">
-                            <div class="comp-icon icon-purple"><i class="fas fa-drafting-compass"></i></div>
-                            <h4>3D CAD & Mechatronics Design</h4>
-                            <p>Perancangan konstruksi mekanik 3D Autodesk Inventor (.iam / .ipt), simulasi pembebanan stress analysis FEA, mekanika graper pneumatik, dan 3D printing prototyping.</p>
+                            <div class="comp-icon icon-gold"><i class="fas fa-cube"></i></div>
+                            <h4>3D CAD & Industrial Automation</h4>
+                            <p>Autodesk Inventor, SolidWorks 3D Modeling, PLC Omron CX-One, Pneumatic & ElektroPneumatic, Rapid Prototyping (3D Printing & KiCad PCB).</p>
+                        </div>
+                    </div>
+
+                    <!-- OFFICIAL ROBOTICS TEAM AFFILIATION SHOWCASE (ABHINAYA & MAESTRO EVO) -->
+                    <div style="margin-top: 32px; padding: 24px; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-xl); backdrop-filter: blur(12px);">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <span class="badge-tag gold-badge" style="margin-bottom: 6px;"><i class="fas fa-flag"></i> Rekam Jejak Tim Robotika UNY</span>
+                            <h3 style="font-size: 20px; font-weight: 900; font-family: 'Outfit', sans-serif; color: var(--text-main);">Tim Robotika Resmi Universitas Negeri Yogyakarta</h3>
+                            <p style="font-size: 13px; color: var(--text-sub); margin-top: 4px;">Perjalanan karier mekatronika dan pengembang sistem robotika kompetisi Kontes Robot Indonesia (KRI Puspresnas)</p>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                            <!-- Tim Abhinaya UNY (Tim Utama: 2023 - 2024 & Technocorner 2026) -->
+                            <div class="comp-card" style="padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid var(--border-glow); background: radial-gradient(circle at top, rgba(0, 242, 254, 0.08), rgba(15, 23, 42, 0.9));">
+                                <div style="width: 80px; height: 80px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: rgba(3, 7, 18, 0.8); border: 2px solid var(--cyan-glow); border-radius: 20px; padding: 10px; box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);">
+                                    <img src="assets/logo_abhinaya_transparent.png" alt="Logo Tim Robotika Abhinaya UNY" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                </div>
+                                <span class="badge-tag blue-badge" style="margin-bottom: 8px;"><i class="fas fa-calendar-alt"></i> Tim Utama (2023 – 2024 & Support 2026)</span>
+                                <h4 style="font-size: 18px; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Tim Abhinaya UNY</h4>
+                                <p style="font-size: 12px; font-weight: 700; color: var(--cyan-glow); margin-bottom: 8px;"><i class="fas fa-trophy"></i> KRTMI Puspresnas & Transporter Robot UGM</p>
+                                <p style="font-size: 12px; color: var(--text-sub); line-height: 1.6; margin-bottom: 0;">
+                                    Peran: <strong>Programmer Utama & Tim Pendukung Senior</strong>.<br>
+                                    Prestasi: 🏆 Juara 1 Wilayah I KRTMI 2024, 🥈 Juara 2 Nasional KRTMI Puspresnas 2024, & Membantu Riset Transporter Robot Technocorner UGM 2026.
+                                </p>
+                            </div>
+
+                            <!-- Tim Maestro EVO UNY (2025 - Demisioner) -->
+                            <div class="comp-card" style="padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid rgba(245, 158, 11, 0.4); background: radial-gradient(circle at top, rgba(245, 158, 11, 0.08), rgba(15, 23, 42, 0.9));">
+                                <div style="width: 80px; height: 80px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: rgba(3, 7, 18, 0.8); border: 2px solid var(--gold-glow); border-radius: 20px; padding: 10px; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);">
+                                    <img src="assets/logo_maestro_evo.png" alt="Logo Tim Robotika Maestro EVO UNY" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                </div>
+                                <span class="badge-tag gold-badge" style="margin-bottom: 8px;"><i class="fas fa-calendar-alt"></i> Periode 2025 (Demisioner)</span>
+                                <h4 style="font-size: 18px; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Tim Maestro EVO UNY</h4>
+                                <p style="font-size: 12px; font-weight: 700; color: var(--gold-glow); margin-bottom: 8px;"><i class="fas fa-robot"></i> Divisi KRAI (Kontes Robot ABU Indonesia)</p>
+                                <p style="font-size: 12px; color: var(--text-sub); line-height: 1.6; margin-bottom: 0;">
+                                    Peran: <strong>Software & System Hardware Developer (Demis)</strong>.<br>
+                                    Pengembangan: Kontrol aktuator, kinematika robotik KRAI 2025, dan pembinaan regenerasi sistem elektronik.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </section>
 
             <!-- 2. STATS SECTION -->
@@ -757,7 +758,7 @@
                                 <button class="threeD-btn active" data-model="inesco_iam"><i class="fas fa-robot"></i> INESCO 2025 (Robot Inesco.iam)</button>
                                 <button class="threeD-btn" data-model="seaware_iam"><i class="fas fa-ship"></i> PANCO Seaware (KapalPembersihLaut Seaware.iam)</button>
                                 <button class="threeD-btn" data-model="smarttrash_iam"><i class="fas fa-trash-alt"></i> HIMEPA Untan (SmartTrash Tinggi.iam)</button>
-                                <button class="threeD-btn" data-model="gripper_iam"><i class="fas fa-hand-holding"></i> KRTMI / INESCO (Pneumatic Gripper Mechanism.iam)</button>
+                                <button class="threeD-btn" data-model="humanoid_iam"><i class="fas fa-running"></i> FKMPI Fair (Robot Humanoid.iam)</button>
                                 <button class="threeD-btn" data-model="podcomfest_iam"><i class="fas fa-microchip"></i> PodComfest (Robot PodComFest.iam)</button>
                                 <button class="threeD-btn" data-model="seacraft_iam"><i class="fas fa-water"></i> Robot TAMA (KapalPembersihLautSeacraft.iam)</button>
                                 <button class="threeD-btn" data-model="transporter_technocorner_iam"><i class="fas fa-truck-loading"></i> Technocorner UGM (Robot Transporter.iam)</button>
@@ -776,8 +777,7 @@
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                             <button class="btn-sm btn-secondary-sm" id="btnToggleWireframe"><i class="fas fa-border-all"></i> Toggle Wireframe</button>
                             <button class="btn-sm btn-secondary-sm" id="btnToggleRotate"><i class="fas fa-sync"></i> Toggle Auto-Rotate</button>
-                            <a id="btnDownloadIAM" href="assets/cad/Robot_Inesco_INESCO2025.iam" download class="btn-sm btn-primary-sm" style="background: linear-gradient(135deg, #00f2fe, #3b82f6);"><i class="fas fa-download"></i> Download Selected .IAM File</a>
-                            <a href="assets/cad/ALL_INVENTOR_CAD_MODELS_TRI_WAHYU.zip" download class="btn-sm btn-primary-sm" style="background: linear-gradient(135deg, #10b981, #059669);"><i class="fas fa-file-archive"></i> Download Paket 7 CAD .IAM (ZIP)</a>
+                            <a id="btnDownloadIAM" href="assets/cad/Transporter_Robot_Technocorner2026.iam" download class="btn-sm btn-primary-sm" style="background: linear-gradient(135deg, #00f2fe, #3b82f6);"><i class="fas fa-download"></i> Download Original .IAM CAD File</a>
                         </div>
                     </div>
                 </div>
@@ -1654,7 +1654,7 @@
                 dirLight2.position.set(-5, -5, -5);
                 scene.add(dirLight2);
 
-                                // Create Floating 3D Authentic Robot Transporter Assembly Mesh
+                // Create Floating 3D Robot Model
                 robotGroup = new THREE.Group();
 
                 const cyanMat = new THREE.MeshStandardMaterial({ color: 0x00f2fe, metalness: 0.8, roughness: 0.2 });
@@ -1662,53 +1662,32 @@
                 const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1 });
                 const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4 });
 
-                // Cyber Base Ring
-                const ring = new THREE.Mesh(new THREE.TorusGeometry(3.0, 0.08, 16, 100), new THREE.MeshBasicMaterial({ color: 0x00f2fe }));
+                // Base Body
+                const body = new THREE.Mesh(new THREE.BoxGeometry(2.4, 1.2, 2.0), darkMat);
+                robotGroup.add(body);
+
+                // Cyber Ring
+                const ring = new THREE.Mesh(new THREE.TorusGeometry(2.2, 0.08, 16, 100), cyanMat);
                 ring.rotation.x = Math.PI / 2;
-                ring.position.y = -1.6;
                 robotGroup.add(ring);
 
-                // Transporter Chassis Base
-                const chassis = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.5, 2.8), darkMat);
-                chassis.position.set(0, -0.6, 0);
-                robotGroup.add(chassis);
+                // 4 Wheels
+                const wheelPos = [[-1.3, -1.1], [1.3, -1.1], [-1.3, 1.1], [1.3, 1.1]];
+                wheelPos.forEach(p => {
+                    const w = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 16), cyanMat);
+                    w.position.set(p[0], -0.4, p[1]);
+                    w.rotation.z = Math.PI / 2;
+                    robotGroup.add(w);
+                });
 
-                // 4 Mecanum Wheels
-                for (let x of [-1.5, 1.5]) {
-                    for (let z of [-1.2, 1.2]) {
-                        const w = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 16), cyanMat);
-                        w.position.set(x, -0.9, z);
-                        w.rotation.x = Math.PI / 2;
-                        robotGroup.add(w);
-                    }
-                }
+                // Sensor Tower & Eye
+                const tower = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.2, 12), goldMat);
+                tower.position.set(0, 1.1, 0);
+                robotGroup.add(tower);
 
-                // Vertical Forklift Mast Rails
-                const mastL = new THREE.Mesh(new THREE.BoxGeometry(0.2, 3.2, 0.15), goldMat);
-                mastL.position.set(1.4, 0.8, -0.6);
-                robotGroup.add(mastL);
-
-                const mastR = new THREE.Mesh(new THREE.BoxGeometry(0.2, 3.2, 0.15), goldMat);
-                mastR.position.set(1.4, 0.8, 0.6);
-                robotGroup.add(mastR);
-
-                // Lifting Carriage & Forks
-                const carriage = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.6, 1.6), cyanMat);
-                carriage.position.set(1.5, 0.5, 0);
-                robotGroup.add(carriage);
-
-                const forkL = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.1, 0.2), goldMat);
-                forkL.position.set(2.2, 0.25, -0.4);
-                robotGroup.add(forkL);
-
-                const forkR = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.1, 0.2), goldMat);
-                forkR.position.set(2.2, 0.25, 0.4);
-                robotGroup.add(forkR);
-
-                // Loaded Payload Container
-                const payload = new THREE.Mesh(new THREE.BoxGeometry(1.3, 1.3, 1.3), emeraldMat);
-                payload.position.set(2.1, 1.0, 0);
-                robotGroup.add(payload);
+                const eye = new THREE.Mesh(new THREE.SphereGeometry(0.4, 16, 16), emeraldMat);
+                eye.position.set(0, 1.7, 0.2);
+                robotGroup.add(eye);
 
                 scene.add(robotGroup);
 
@@ -1778,12 +1757,11 @@
             });
         }
 
-                // GLOBAL 3D MODE CONTROLLER (DEFAULT: MATI UNTUK RESPON REKAP RINGAN)
+        // GLOBAL 3D MODE CONTROLLER (DEFAULT: MATI UNTUK ULTRA FAST RESPONSE)
         let is3DModeActive = false;
 
         function toggle3DModeEngine() {
             is3DModeActive = !is3DModeActive;
-
             const btnText = document.getElementById('toggle3DText');
             const btnIcon = document.getElementById('toggle3DIcon');
             const btnToggle = document.getElementById('toggle3DMode');
@@ -1828,16 +1806,8 @@
 
         const toggle3DBtn = document.getElementById('toggle3DMode');
         if (toggle3DBtn) {
-            toggle3DBtn.addEventListener('click', () => {
-                is3DModeActive = !is3DModeActive;
-                toggle3DModeEngine();
-            });
+            toggle3DBtn.addEventListener('click', toggle3DModeEngine);
         }
-
-        // Auto-run 3D engines on load
-        window.addEventListener('DOMContentLoaded', () => {
-            toggle3DModeEngine();
-        });
 
         // MOBILE MENU TOGGLE
         const mobileToggle = document.getElementById('mobileToggle');
@@ -1898,7 +1868,7 @@
                 controls.autoRotateSpeed = 2.0;
 
                 scene.add(currentMeshGroup);
-                loadModel('inesco_iam');
+                loadModel('krtmi');
 
                 window.addEventListener('resize', onWindowResize);
                 animate();
@@ -1918,7 +1888,7 @@
                 renderer.setSize(viewport.clientWidth, viewport.clientHeight);
             }
 
-                                    function loadModel(modelKey) {
+                        function loadModel(modelKey) {
                 while (currentMeshGroup.children.length > 0) {
                     const obj = currentMeshGroup.children[0];
                     currentMeshGroup.remove(obj);
@@ -1928,300 +1898,73 @@
                 const darkMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.9, roughness: 0.3, wireframe: isWireframe });
                 const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9, roughness: 0.1, wireframe: isWireframe });
                 const emeraldMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5, roughness: 0.4, wireframe: isWireframe });
-                const blueMat = new THREE.MeshStandardMaterial({ color: 0x1e3a8a, metalness: 0.7, roughness: 0.2, wireframe: isWireframe });
+
+                const renderImageMap = {
+                    'inesco_iam': 'assets/cad/render_inesco.png',
+                    'seaware_iam': 'assets/cad/render_seaware.png',
+                    'smarttrash_iam': 'assets/cad/render_smarttrash.png',
+                    'humanoid_iam': 'assets/cad/render_humanoid.png',
+                    'podcomfest_iam': 'assets/cad/render_podcomfest.png',
+                    'seacraft_iam': 'assets/cad/render_seacraft.png',
+                    'transporter_technocorner_iam': 'assets/cad/render_transporter_technocorner.png'
+                };
+
+                const imgUrl = renderImageMap[modelKey] || 'assets/cad/render_inesco.png';
 
                 // Cyber Pedestal Base Ring
-                const baseGeo = new THREE.CylinderGeometry(4.2, 4.6, 0.4, 32);
+                const baseGeo = new THREE.CylinderGeometry(3.6, 4.0, 0.4, 32);
                 const baseMat = new THREE.MeshStandardMaterial({
                     color: 0x051d2d,
                     metalness: 0.8,
                     roughness: 0.2,
                     emissive: 0x00f2fe,
-                    emissiveIntensity: 0.2,
-                    wireframe: isWireframe
+                    emissiveIntensity: 0.2
                 });
                 const basePedestal = new THREE.Mesh(baseGeo, baseMat);
-                basePedestal.position.y = -2.4;
+                basePedestal.position.y = -2.2;
                 currentMeshGroup.add(basePedestal);
 
-                // Try loading external converted .GLB 3D CAD mesh if available
-                const glbPathMap = {
-                    'transporter_technocorner_iam': 'assets/cad/mekanum_base.glb',
-                    'inesco_iam': 'assets/cad/thruster_t500.glb'
-                };
+                const ringGeo = new THREE.TorusGeometry(4.1, 0.08, 16, 64);
+                const ringMat = new THREE.MeshBasicMaterial({ color: 0x00f2fe });
+                const ring = new THREE.Mesh(ringGeo, ringMat);
+                ring.rotation.x = Math.PI / 2;
+                ring.position.y = -2.0;
+                currentMeshGroup.add(ring);
 
-                if (glbPathMap[modelKey] && typeof THREE.GLTFLoader !== 'undefined') {
-                    const loader = new THREE.GLTFLoader();
-                    loader.load(glbPathMap[modelKey], function(gltf) {
-                        const glbModel = gltf.scene;
-                        glbModel.position.set(0, 0, 0);
-                        glbModel.scale.set(3.5, 3.5, 3.5);
-                        currentMeshGroup.add(glbModel);
+                // Load Authentic HD CAD Render Image onto 3D Perspective Projection Card
+                const textureLoader = new THREE.TextureLoader();
+                textureLoader.load(imgUrl, function(texture) {
+                    texture.colorSpace = THREE.SRGBColorSpace;
+                    
+                    // Create double-sided 3D render card with metallic backing
+                    const planeWidth = 6.2;
+                    const planeHeight = 4.4;
+
+                    const cardGeo = new THREE.PlaneGeometry(planeWidth, planeHeight);
+                    const cardMat = new THREE.MeshStandardMaterial({
+                        map: texture,
+                        transparent: true,
+                        side: THREE.DoubleSide,
+                        roughness: 0.2,
+                        metalness: 0.1
                     });
-                }
+                    const cardMesh = new THREE.Mesh(cardGeo, cardMat);
+                    cardMesh.position.y = 0.5;
+                    currentMeshGroup.add(cardMesh);
 
-                if (modelKey === 'inesco_iam') {
-                    // 1. INESCO 2025: Robot Inesco.iam (3D Robotic Arm & Mecanum Assembly)
-                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.6, 3.8), darkMat);
-                    chassis.position.set(0, -0.8, 0);
-                    currentMeshGroup.add(chassis);
-
-                    // 4 Mecanum Wheels
-                    for (let x of [-2.2, 2.2]) {
-                        for (let z of [-1.6, 1.6]) {
-                            const w = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.4, 16), cyanMat);
-                            w.position.set(x, -1.2, z);
-                            w.rotation.x = Math.PI / 2;
-                            currentMeshGroup.add(w);
-
-                            // Roller pins
-                            const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.8, 8), goldMat);
-                            pin.position.set(x, -1.2, z);
-                            pin.rotation.z = Math.PI / 4;
-                            currentMeshGroup.add(pin);
-                        }
-                    }
-
-                    // 3-DOF Robotic Arm Base
-                    const armTurret = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 1.1, 0.8, 16), darkMat);
-                    armTurret.position.set(-1.2, -0.1, 0);
-                    currentMeshGroup.add(armTurret);
-
-                    // Arm Shoulder Joint
-                    const shoulderJoint = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 1.0, 16), goldMat);
-                    shoulderJoint.position.set(-1.2, 0.5, 0);
-                    shoulderJoint.rotation.z = Math.PI / 2;
-                    currentMeshGroup.add(shoulderJoint);
-
-                    // Arm Bicep Link
-                    const bicep = new THREE.Mesh(new THREE.BoxGeometry(0.4, 2.8, 0.4), cyanMat);
-                    bicep.position.set(-0.6, 1.8, 0);
-                    bicep.rotation.z = -0.4;
-                    currentMeshGroup.add(bicep);
-
-                    // Elbow Joint & Forearm
-                    const forearm = new THREE.Mesh(new THREE.BoxGeometry(0.35, 2.4, 0.35), goldMat);
-                    forearm.position.set(0.6, 2.8, 0);
-                    forearm.rotation.z = 0.6;
-                    currentMeshGroup.add(forearm);
-
-                    // Pneumatic Gripper End Effector
-                    const gripperBase = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.3, 1.4), emeraldMat);
-                    gripperBase.position.set(1.4, 2.0, 0);
-                    currentMeshGroup.add(gripperBase);
-
-                    const fingerL = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.15, 0.2), cyanMat);
-                    fingerL.position.set(1.8, 2.0, -0.5);
-                    currentMeshGroup.add(fingerL);
-
-                    const fingerR = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.15, 0.2), cyanMat);
-                    fingerR.position.set(1.8, 2.0, 0.5);
-                    currentMeshGroup.add(fingerR);
-
-                    // Control Box & Camera Sensor
-                    const ctrlBox = new THREE.Mesh(new THREE.BoxGeometry(1.6, 1.0, 1.8), blueMat);
-                    ctrlBox.position.set(1.2, -0.0, 0);
-                    currentMeshGroup.add(ctrlBox);
-
-                    const camEye = new THREE.Mesh(new THREE.SphereGeometry(0.3, 16, 16), emeraldMat);
-                    camEye.position.set(1.2, 0.7, 0.6);
-                    currentMeshGroup.add(camEye);
-
-                } else if (modelKey === 'seaware_iam') {
-                    // 2. PANCO UNY: KapalPembersihLaut Seaware.iam (Twin Catamaran Hulls & Conveyor)
-                    const hullLeft = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 1.1, 7.5, 16), cyanMat);
-                    hullLeft.position.set(-2.2, -1.0, 0);
-                    hullLeft.rotation.z = Math.PI / 2;
-                    currentMeshGroup.add(hullLeft);
-
-                    const hullRight = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 1.1, 7.5, 16), cyanMat);
-                    hullRight.position.set(2.2, -1.0, 0);
-                    hullRight.rotation.z = Math.PI / 2;
-                    currentMeshGroup.add(hullRight);
-
-                    // Bridge Deck Frame
-                    const deck = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.35, 4.6), darkMat);
-                    deck.position.set(0, -0.4, 0);
-                    currentMeshGroup.add(deck);
-
-                    // Sloped Conveyor Belt Assembly
-                    const conveyorFrame = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.3, 5.0), darkMat);
-                    conveyorFrame.position.set(0, 0.4, 0.8);
-                    conveyorFrame.rotation.x = -0.3;
-                    currentMeshGroup.add(conveyorFrame);
-
-                    const conveyorBelt = new THREE.Mesh(new THREE.BoxGeometry(2.1, 0.15, 4.8), emeraldMat);
-                    conveyorBelt.position.set(0, 0.55, 0.8);
-                    conveyorBelt.rotation.x = -0.3;
-                    currentMeshGroup.add(conveyorBelt);
-
-                    // Solar Power Mast & Tilted Panels
-                    const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 2.8, 12), goldMat);
-                    mast.position.set(0, 1.4, -1.5);
-                    currentMeshGroup.add(mast);
-
-                    const solarPanel = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.1, 2.5), blueMat);
-                    solarPanel.position.set(0, 2.8, -1.5);
-                    solarPanel.rotation.x = 0.2;
-                    currentMeshGroup.add(solarPanel);
-
-                    const panelFrame = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.05, 2.7), goldMat);
-                    panelFrame.position.set(0, 2.75, -1.5);
-                    panelFrame.rotation.x = 0.2;
-                    currentMeshGroup.add(panelFrame);
-
-                } else if (modelKey === 'smarttrash_iam') {
-                    // 3. HIMEPA Untan: SmartTrash Tinggi.iam (Automated Cylinder Bin & Sensor Bezel)
-                    const mainBody = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 2.0, 5.6, 32), darkMat);
-                    mainBody.position.set(0, 0.6, 0);
-                    currentMeshGroup.add(mainBody);
-
-                    const innerChamber = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 1.7, 5.2, 32), cyanMat);
-                    innerChamber.position.set(0, 0.6, 0);
-                    currentMeshGroup.add(innerChamber);
-
-                    // Lid & Servo Hinge
-                    const lidCover = new THREE.Mesh(new THREE.CylinderGeometry(2.05, 2.05, 0.4, 32), cyanMat);
-                    lidCover.position.set(0, 3.6, 0);
-                    currentMeshGroup.add(lidCover);
-
-                    const hinge = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 0.8), goldMat);
-                    hinge.position.set(0, 3.6, -1.8);
-                    currentMeshGroup.add(hinge);
-
-                    // Sensor Ring & Eyes
-                    const sensorBezel = new THREE.Mesh(new THREE.TorusGeometry(1.9, 0.12, 16, 32), goldMat);
-                    sensorBezel.position.set(0, 2.8, 0);
-                    sensorBezel.rotation.x = Math.PI / 2;
-                    currentMeshGroup.add(sensorBezel);
-
-                    const ultrasonicL = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.3, 16), emeraldMat);
-                    ultrasonicL.position.set(-0.5, 2.8, 1.9);
-                    ultrasonicL.rotation.x = Math.PI / 2;
-                    currentMeshGroup.add(ultrasonicL);
-
-                    const ultrasonicR = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.3, 16), emeraldMat);
-                    ultrasonicR.position.set(0.5, 2.8, 1.9);
-                    ultrasonicR.rotation.x = Math.PI / 2;
-                    currentMeshGroup.add(ultrasonicR);
-
-                } else if (modelKey === 'gripper_iam') {
-                    // 4. INESCO / KRTMI: Pneumatic Gripper & Actuator Mechanism (Inventor CAD Mesh)
-                    const servoL = new THREE.Mesh(new THREE.BoxGeometry(1.6, 2.2, 1.2), darkMat);
-                    servoL.position.set(-1.8, 1.0, 0);
-                    currentMeshGroup.add(servoL);
-
-                    const servoR = new THREE.Mesh(new THREE.BoxGeometry(1.6, 2.2, 1.2), blueMat);
-                    servoR.position.set(1.8, 1.0, 0);
-                    currentMeshGroup.add(servoR);
-
-                    const topPlate = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.4, 1.6), cyanMat);
-                    topPlate.position.set(0, 2.0, 0);
-                    currentMeshGroup.add(topPlate);
-
-                    // Dual Curved Gripper Jaws
-                    const jawL = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.28, 16, 32, Math.PI), goldMat);
-                    jawL.position.set(-1.1, -0.2, 0);
-                    jawL.rotation.z = -Math.PI / 4;
-                    currentMeshGroup.add(jawL);
-
-                    const jawR = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.28, 16, 32, Math.PI), goldMat);
-                    jawR.position.set(1.1, -0.2, 0);
-                    jawR.rotation.z = Math.PI / 4 + Math.PI;
-                    currentMeshGroup.add(jawR);
-
-                } else if (modelKey === 'podcomfest_iam') {
-                    // 5. PodComfest: Robot PodComFest.iam (Water Pump & Heavy Chassis)
-                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(4.8, 1.2, 4.2), darkMat);
-                    chassis.position.set(0, -0.6, 0);
-                    currentMeshGroup.add(chassis);
-
-                    // Heavy Pump Cylinder
-                    const pumpCylinder = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 3.0, 24), cyanMat);
-                    pumpCylinder.position.set(-0.8, 1.2, 0);
-                    currentMeshGroup.add(pumpCylinder);
-
-                    const pumpCap = new THREE.Mesh(new THREE.CylinderGeometry(1.35, 1.35, 0.4, 24), goldMat);
-                    pumpCap.position.set(-0.8, 2.8, 0);
-                    currentMeshGroup.add(pumpCap);
-
-                    // Hose & Pressure Gauge
-                    const hoseRing = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.25, 16, 32), emeraldMat);
-                    hoseRing.position.set(-0.8, 1.2, 0);
-                    currentMeshGroup.add(hoseRing);
-
-                    const ctrlUnit = new THREE.Mesh(new THREE.BoxGeometry(1.8, 2.0, 2.2), blueMat);
-                    ctrlUnit.position.set(1.2, 0.8, 0);
-                    currentMeshGroup.add(ctrlUnit);
-
-                    const gauge = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.2, 16), goldMat);
-                    gauge.position.set(1.2, 1.4, 1.2);
-                    gauge.rotation.x = Math.PI / 2;
-                    currentMeshGroup.add(gauge);
-
-                } else if (modelKey === 'seacraft_iam') {
-                    // 6. Robot TAMA: KapalPembersihLautSeacraft.iam (Monohull Boat & Waste Scoop)
-                    const hull = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 1.8, 8.5, 16), cyanMat);
-                    hull.position.set(0, -0.6, 0);
-                    hull.rotation.z = Math.PI / 2;
-                    currentMeshGroup.add(hull);
-
-                    const cabin = new THREE.Mesh(new THREE.BoxGeometry(2.6, 1.6, 2.4), darkMat);
-                    cabin.position.set(-0.8, 0.9, 0);
-                    currentMeshGroup.add(cabin);
-
-                    const windshield = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.8, 2.2), blueMat);
-                    windshield.position.set(0.2, 1.2, 0);
-                    currentMeshGroup.add(windshield);
-
-                    const scoop = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.4, 2.6), emeraldMat);
-                    scoop.position.set(3.2, -0.3, 0);
-                    scoop.rotation.z = -0.2;
-                    currentMeshGroup.add(scoop);
-
-                } else if (modelKey === 'transporter_technocorner_iam') {
-                    // 7. Technocorner UGM: Robot Transporter.iam (Mecanum Chassis & Forklift Assembly)
-                    const chassis = new THREE.Mesh(new THREE.BoxGeometry(5.0, 0.7, 4.0), darkMat);
-                    chassis.position.set(0, -0.8, 0);
-                    currentMeshGroup.add(chassis);
-
-                    // 4 Mecanum Wheels
-                    for (let x of [-2.0, 2.0]) {
-                        for (let z of [-1.7, 1.7]) {
-                            const w = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.75, 0.45, 16), cyanMat);
-                            w.position.set(x, -1.2, z);
-                            w.rotation.x = Math.PI / 2;
-                            currentMeshGroup.add(w);
-                        }
-                    }
-
-                    // Forklift Vertical Mast Rails
-                    const mastL = new THREE.Mesh(new THREE.BoxGeometry(0.3, 4.6, 0.2), goldMat);
-                    mastL.position.set(2.0, 1.2, -0.9);
-                    currentMeshGroup.add(mastL);
-
-                    const mastR = new THREE.Mesh(new THREE.BoxGeometry(0.3, 4.6, 0.2), goldMat);
-                    mastR.position.set(2.0, 1.2, 0.9);
-                    currentMeshGroup.add(mastR);
-
-                    // Fork Carriage & Lifting Prongs
-                    const carriage = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 2.2), cyanMat);
-                    carriage.position.set(2.2, 0.8, 0);
-                    currentMeshGroup.add(carriage);
-
-                    const forkLeft = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.15, 0.25), goldMat);
-                    forkLeft.position.set(3.1, 0.4, -0.6);
-                    currentMeshGroup.add(forkLeft);
-
-                    const forkRight = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.15, 0.25), goldMat);
-                    forkRight.position.set(3.1, 0.4, 0.6);
-                    currentMeshGroup.add(forkRight);
-
-                    // Cargo Payload Box on Forklift
-                    const cargoBox = new THREE.Mesh(new THREE.BoxGeometry(1.8, 1.8, 1.8), emeraldMat);
-                    cargoBox.position.set(3.0, 1.4, 0);
-                    currentMeshGroup.add(cargoBox);
-                }
+                    // Add subtle glowing metallic frame behind the authentic CAD render
+                    const frameGeo = new THREE.BoxGeometry(planeWidth + 0.2, planeHeight + 0.2, 0.1);
+                    const frameMat = new THREE.MeshStandardMaterial({
+                        color: 0x071927,
+                        metalness: 0.9,
+                        roughness: 0.1,
+                        emissive: 0x00f2fe,
+                        emissiveIntensity: 0.15
+                    });
+                    const frameMesh = new THREE.Mesh(frameGeo, frameMat);
+                    frameMesh.position.set(0, 0.5, -0.06);
+                    currentMeshGroup.add(frameMesh);
+                });
             }
 
             const btns = document.querySelectorAll('#threeDModelSelector .threeD-btn');
