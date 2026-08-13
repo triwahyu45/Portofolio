@@ -1,6 +1,6 @@
 # ⚡ WEB PORTOFOLIO INTERAKSI 3D & DOKUMENTASI LOMBA
 ### Tri Wahyu Handoyo (NIM 22518241023)
-*D4 Teknik Elektronika - Universitas Negeri Yogyakarta (UNY)*
+*S1 Pendidikan Teknik Mekatronika - Universitas Negeri Yogyakarta (UNY)*
 
 ---
 

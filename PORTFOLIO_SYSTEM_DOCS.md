@@ -1,5 +1,5 @@
 # 🚀 PORTFOLIO SYSTEM & MAINTENANCE DOCUMENTATION
-**Tri Wahyu Handoyo (NIM 22518241023) - D4 Teknik Elektronika UNY**
+**Tri Wahyu Handoyo (NIM 22518241023) - S1 Pendidikan Teknik Mekatronika UNY**
 *Official Web Portfolio Maintenance & AI Agent Guidelines*
 
 ---
@@ -15,7 +15,7 @@ Berikut adalah komponen utama web yang sudah diuji secara teliti dan **WAJIB DIP
 - **Backdrop Blur Mobile Tweak**: Pada layar HP (`@media max-width: 768px`), filter `backdrop-filter: blur(6px)` dan `transform-style: flat` dikunci agar scroll tetap 60 FPS.
 
 ### B. Kartu Profil Hero Atas (Mobile-First Hero Avatar Card)
-- **Posisi Paling Atas (`#about`)**: Kartu profil Hero berisi Foto Avatar (`assets/tri_wahyu_avatar.jpg`), NIM, Program Studi D4 Teknik Elektronika UNY, serta badge tim **Abhinaya UNY** & **Maestro EVO UNY** agar langsung muncul di HP tanpa perlu scroll.
+- **Posisi Paling Atas (`#about`)**: Kartu profil Hero berisi Foto Avatar (`assets/tri_wahyu_avatar.jpg`), NIM, Program Studi S1 Pendidikan Teknik Mekatronika UNY, serta badge tim **Abhinaya UNY** & **Maestro EVO UNY** agar langsung muncul di HP tanpa perlu scroll.
 
 ### C. Logo & Timeline Resmi Tim Robotika UNY
 - **Tim Abhinaya UNY**:
