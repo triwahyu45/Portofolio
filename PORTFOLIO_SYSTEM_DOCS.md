@@ -20,7 +20,7 @@ Berikut adalah komponen utama web yang sudah diuji secara teliti dan **WAJIB DIP
 ### C. Logo & Timeline Resmi Tim Robotika UNY
 - **Tim Abhinaya UNY**:
   - *2023–2024*: Programmer Utama KRTMI BPTI Puspresnas.
-  - *2026*: Senior Support / Technical Advisor Transporter Robot Technocorner UGM 2026.
+  - *2026*: Finalis Transporter Robot Technocorner UGM 2026 (Senior Support & Technical Advisor).
 - **Tim Maestro EVO UNY**:
   - *2025*: Software & Hardware System Developer (KRAI Puspresnas - Demisioner).
 - **Efek Stroke Putih Logo**: Seluruh logo tim (`logo_abhinaya_transparent.png` & `logo_maestro_evo.png`) dilengkapi efek CSS `filter: drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7))` agar tampil tajam dan kontras di latar hitam.
