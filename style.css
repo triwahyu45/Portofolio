@@ -1494,7 +1494,8 @@ body {
 .article-glass-card:hover .card-spotlight,
 .project-glass-card:hover .card-spotlight,
 .cert-card-box:hover .card-spotlight,
-.wokwi-glass-card:hover .card-spotlight {
+.wokwi-glass-card:hover .card-spotlight,
+.edu-glass-card:hover .card-spotlight {
     opacity: 1;
 }
 
@@ -1889,8 +1890,266 @@ body {
     white-space: nowrap;
 }
 
+/* ==========================================================================
+   UTILITY TEXT COLOR CLASSES
+   ========================================================================== */
+.text-cyan { color: var(--cyan-glow); }
+.text-gold { color: var(--gold-glow); }
+.text-emerald { color: var(--emerald-neon); }
+.text-blue { color: var(--blue-electric); }
+.text-red { color: #ef4444; }
+.text-muted { color: var(--text-muted); }
+
+/* ==========================================================================
+   EDUCATION TIMELINE SECTION STYLES (4-LEVEL TIMELINE)
+   ========================================================================== */
+
+.edu-timeline-container {
+    position: relative;
+    padding: 20px 0 10px 0;
+    margin-top: 10px;
+}
+
+.edu-timeline-track {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 28px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--gold-glow) 0%, var(--cyan-glow) 40%, var(--blue-electric) 75%, var(--emerald-neon) 100%);
+    border-radius: 3px;
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+    z-index: 1;
+}
+
+.edu-timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-bottom: 36px;
+    z-index: 2;
+}
+
+.edu-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline Glowing Nodes */
+.edu-timeline-node {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+    transition: all 0.35s ease;
+}
+
+.gold-node {
+    border: 2px solid var(--gold-glow);
+    color: var(--gold-glow);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.35), inset 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+.purple-node {
+    border: 2px solid #a855f7;
+    color: #c084fc;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.35), inset 0 0 12px rgba(168, 85, 247, 0.2);
+}
+
+.blue-node {
+    border: 2px solid var(--cyan-glow);
+    color: var(--cyan-glow);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.35), inset 0 0 12px rgba(0, 242, 254, 0.2);
+}
+
+.emerald-node {
+    border: 2px solid var(--emerald-neon);
+    color: var(--emerald-neon);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.35), inset 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+.edu-timeline-item:hover .edu-timeline-node {
+    transform: scale(1.12);
+}
+
+/* Education Glass Cards */
+.edu-glass-card {
+    flex: 1;
+    background: var(--bg-card);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 26px 28px;
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.edu-glass-card.highlight-card {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(245, 158, 11, 0.05));
+    box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.7), 0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+.edu-glass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan-glow);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 242, 254, 0.2);
+}
+
+.edu-glass-card.highlight-card:hover {
+    border-color: var(--gold-glow);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 158, 11, 0.3);
+}
+
+.edu-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.edu-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.edu-status-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.edu-status-badge.active-status {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--emerald-neon);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.edu-status-badge.complete-status {
+    background: rgba(148, 163, 184, 0.12);
+    color: var(--text-sub);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.edu-period {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.edu-institution {
+    font-size: 22px;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+}
+
+.edu-degree {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cyan-glow);
+    margin-bottom: 14px;
+}
+
+.edu-summary {
+    font-size: 13.5px;
+    color: var(--text-sub);
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+.edu-focus-box {
+    background: rgba(11, 15, 25, 0.7);
+    border-left: 3px solid var(--cyan-glow);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+}
+
+.edu-glass-card.highlight-card .edu-focus-box {
+    border-left-color: var(--gold-glow);
+}
+
+.focus-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.focus-desc {
+    font-size: 12.5px;
+    color: var(--text-sub);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.edu-achievements-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.edu-achieve-item {
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: var(--gold-glow);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.edu-pill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.edu-pill-tags span {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid var(--border-color);
+    color: var(--text-sub);
+    transition: all 0.25s ease;
+}
+
+.edu-pill-tags span:hover {
+    background: rgba(0, 242, 254, 0.18);
+    color: var(--cyan-glow);
+    border-color: var(--cyan-glow);
+}
+
 /* 3D Card Depth Hover Effect */
-.comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box {
+.comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box, .edu-glass-card {
     transform-style: preserve-3d;
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
@@ -1906,14 +2165,14 @@ body {
 /* MOBILE GPU & RENDERING PERFORMANCE OPTIMIZATIONS (60 FPS SMOOTH SCROLL) */
 @media (max-width: 768px) {
     /* Reduce GPU backdrop filter blur rendering overhead */
-    .article-glass-card, .cert-card-box, .project-glass-card, .stat-glass-card, .comp-card {
+    .article-glass-card, .cert-card-box, .project-glass-card, .stat-glass-card, .comp-card, .edu-glass-card {
         backdrop-filter: blur(6px) !important;
         -webkit-backdrop-filter: blur(6px) !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
     }
     
     /* Disable heavy 3D perspective transforms on touch scrolling */
-    .comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box {
+    .comp-card, .stat-glass-card, .article-glass-card, .project-glass-card, .cert-card-box, .edu-glass-card {
         transform: none !important;
         transform-style: flat !important;
     }
@@ -1921,5 +2180,28 @@ body {
     /* Adjust Hero 3D wrapper height on mobile */
     .hero-3d-wrapper {
         height: 220px !important;
+    }
+
+    /* Education Timeline Mobile Tweaks */
+    .edu-timeline-track {
+        left: 20px;
+    }
+    .edu-timeline-node {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+    .edu-timeline-item {
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    .edu-glass-card {
+        padding: 18px 16px;
+    }
+    .edu-institution {
+        font-size: 18px;
+    }
+    .edu-degree {
+        font-size: 13px;
     }
 }
